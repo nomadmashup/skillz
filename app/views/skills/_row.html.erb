@@ -1,0 +1,75 @@
+<tr>
+  <td>
+    <div class="row-fluid">
+
+      <div class="span4">
+        <h4><%= row[:label] %>  <% if row[:description].present? %><small><%= row[:description] %></small><% end %></h4>
+      </div>
+
+      <div class="span4">
+        <div class="btn-toolbar">
+          <div class="btn-group">
+            <a class="btn dropdown-toggle btn-<%= row[:skill_class] %>" data-toggle="dropdown" href="#">
+              <span><%= row[:skill_label] %></span>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Beginner</a></li>
+              <li><a href="#">Intermediate</a></li>
+              <li><a href="#">Expert</a></li>
+              <li class="divider"></li>
+              <li><a href="#">No Answer</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <a class="btn dropdown-toggle btn-<%= row[:status_class] %>" data-toggle="dropdown" href="#">
+              <span><%= row[:status_label] %></span>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Learning now</a></li>
+              <li><a href="#">Used to know</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="span4">
+        <div class="btn-toolbar">
+          <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <span>Satisfaction</span>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">I want to do more of this</a></li>
+              <li><a href="#">I want to do less of this</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <span>Passion</span>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">I love this</a></li>
+              <li><a href="#">I hate this</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <span>Synergy</span>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">I want to learn this</a></li>
+              <li><a href="#">I can teach this</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </td>
+</tr>
