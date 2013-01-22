@@ -1,0 +1,78 @@
+beginner:
+  dimension: "level"
+  short_label: "Beginner"
+  long_label: "Beginner"
+  description: nil
+  sort_order: 100
+intermediate:
+  dimension: "level"
+  short_label: "Intermediate"
+  long_label: "Intermediate"
+  description: nil
+  sort_order: 200
+expert:
+  dimension: "level"
+  short_label: "Expert"
+  long_label: "Expert"
+  description: nil
+  sort_order: 300
+learning:
+  dimension: "status"
+  short_label: "Learning Now"
+  long_label: "Learning Now"
+  description: "Actively learning this skill in my current role"
+  sort_order: 100
+used_to_know:
+  dimension: "status"
+  short_label: "Used To Know"
+  long_label: "Used To Know"
+  description: "Once upon a time I was intermediate or expert on this subject"
+  sort_order: 200
+totally_current:
+  dimension: "status"
+  short_label: "Current"
+  long_label: "Totally Current"
+  description: "Up-to-date with all the cutting edge knowledge on this skill"
+  sort_order: 200
+more:
+  dimension: "satisfaction"
+  short_label: "More"
+  long_label: "I want to do more of this"
+  description: nil
+  sort_order: 100
+less:
+  dimension: "satisfaction"
+  short_label: "Less"
+  long_label: "I want to do less of this"
+  description: nil
+  sort_order: 200
+love:
+  dimension: "passion"
+  short_label: "Love"
+  long_label: "I love this"
+  description: nil
+  sort_order: 100
+hate:
+  dimension: "passion"
+  short_label: "Hate"
+  long_label: "I hate this"
+  description: nil
+  sort_order: 200
+learn:
+  dimension: "synergy"
+  short_label: "Learn"
+  long_label: "I want to learn this"
+  description: nil
+  sort_order: 100
+teach:
+  dimension: "synergy"
+  short_label: "Teach"
+  long_label: "I can teach this"
+  description: nil
+  sort_order: 200
+organize:
+  dimension: "synergy"
+  short_label: "Organize"
+  long_label: "I know how to organize/coordinate this"
+  description: nil
+  sort_order: 300

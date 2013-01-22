@@ -1,0 +1,20 @@
+level:
+  label: "Skill Level"
+  description: "Your overall proficiency with the skill"
+  sort_order: 100
+status:
+  label: "Status"
+  description: "Your current status and/or history with the skill"
+  sort_order: 200
+satisfaction:
+  label: "Satisfaction"
+  description: "Your current realtionship with the skill"
+  sort_order: 300
+passion:
+  label: "Passion"
+  description: "Where your heart stands on this skill"
+  sort_order: 400
+synergy:
+  label: "Synergy"
+  description: "Opportunities to synergize"
+  sort_order: 500

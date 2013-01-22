@@ -6,23 +6,39 @@ class Skill < ActiveRecord::Base
 
   attr_accessible :code, :label, :description, :parent, :sort_order
 
-  SEED_VALUES = [
-    { code: "html", label: "HTML", description: "Hypertext Markup Language", sort_order: 100},
-    { code: "html5", parent: "html", label: "HTML5", description: "Modern HTML", sort_order: 200},
-    { code: "canvas", parent: "html5", label: "<canvas>", description: "The 2D/3D graphics element in HTML5", sort_order: 300},
-    { code: "css", label: "CSS", description: "Cascading Style Sheets", sort_order: 400},
-    { code: "sass", parent: "css", label: "SASS", description: "Syntactically Awesome Style Sheets", sort_order: 500},
-    { code: "scss", parent: "css", label: "SCSS", description: nil, sort_order: 600},
-    { code: "js", label: "Javascript", description: "Scripting language", sort_order: 700},
-    { code: "jquery", parent: "js", label: "jQuery", description: "Ubiquitous Javascript framework/toolkit", sort_order: 800},
-    { code: "jqueryui", parent: "jquery", label: "jQuery UI", description: "Widgets for built on top of jQuery", sort_order: 900}
-  ]
-
   def self.seed(overwrite = false)
-    SEED_VALUES.each do |item|
-      record = find_or_create_by_code item[:code], item
-      record.update_attributes! item if overwrite
+
+    path = Rails.root.join('db','seeds','skills.yml')
+    File.open(path) do |file|
+      YAML.load_documents(file) do |doc|
+        doc.keys.each do |key|
+          attributes = doc[key].merge(code: key)
+          record = find_or_create_by_code key, attributes
+          record.update_attributes! attributes if overwrite
+        end
+      end
     end
+
+  end
+
+  def depth
+    level = 0
+    skill = self
+    until skill.parent.blank? do
+      level += 1
+      skill = Skill.find_by_code(skill.parent)
+    end
+    level
+  end
+
+  def top_parent
+    parent = nil
+    skill = self
+    until skill.parent.blank? do
+      parent = skill.parent
+      skill = Skill.find_by_code(skill.parent)
+    end
+    parent
   end
 
 end

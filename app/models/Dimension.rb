@@ -7,19 +7,19 @@ class Dimension < ActiveRecord::Base
 
   attr_accessible :code, :label, :description, :sort_order
 
-  SEED_VALUES = [
-    { code: "level", label: "Skill Level", description: nil, sort_order: 100},
-    { code: "status", label: "Status", description: nil, sort_order: 200},
-    { code: "satisfaction", label: "Satisfaction", description: nil, sort_order: 300},
-    { code: "passion", label: "Passion", description: nil, sort_order: 400},
-    { code: "synergy", label: "Synergy", description: nil, sort_order: 500}
-  ]
-
   def self.seed(overwrite = false)
-    SEED_VALUES.each do |item|
-      record = find_or_create_by_code item[:code], item
-      record.update_attributes! item if overwrite
+
+    path = Rails.root.join('db','seeds','dimensions.yml')
+    File.open(path) do |file|
+      YAML.load_documents(file) do |doc|
+        doc.keys.each do |key|
+          attributes = doc[key].merge(code: key)
+          record = find_or_create_by_code key, attributes
+          record.update_attributes! attributes if overwrite
+        end
+      end
     end
+
   end
 
 end

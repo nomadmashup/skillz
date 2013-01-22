@@ -1,3 +1,35 @@
 // Place all the styles related to the skills controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$indent: 10px;
+
+.skill_depth_1 {
+  h4 {
+    margin-left: $indent;
+  }
+}
+
+.skill_depth_2 {
+  h4 {
+    margin-left: 2 * $indent;
+  }
+}
+
+.skill_depth_3 {
+  h4 {
+    margin-left: 3 * $indent;
+  }
+}
+
+div.tab-pane {
+  table.skills_table {
+    display: none;
+  }
+  &.active {
+    table.skills_table {
+      display: table;
+    }
+  }
+}
+

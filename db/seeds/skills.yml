@@ -1,0 +1,88 @@
+web_development:
+  label: "Web Development"
+  description: "Web/Mobile apps delivered via a browser"
+  sort_order: 10
+html:
+  label: "HTML"
+  parent: "web_development"
+  description: "Hypertext Markup Language"
+  sort_order: 100
+html5:
+  parent: "html"
+  label: "HTML5"
+  description: "Modern HTML"
+  sort_order: 200
+canvas:
+  parent: "html5"
+  label: "<canvas>"
+  description: "The 2D/3D graphics element in HTML5"
+  sort_order: 300
+css:
+  label: "CSS"
+  parent: "web_development"
+  description: "Cascading Style Sheets"
+  sort_order: 400
+css3:
+  label: "CSS3"
+  parent: "css"
+  description: "Modern CSS"
+  sort_order: 450
+sass:
+  parent: "css"
+  label: "SASS"
+  description: "Syntactically Awesome Style Sheets"
+  sort_order: 500
+scss:
+  parent: "sass"
+  label: "SCSS"
+  description: "Updated syntax for SASS"
+  sort_order: 600
+js:
+  label: "Javascript"
+  parent: "web_development"
+  description: "Scripting language"
+  sort_order: 700
+jquery:
+  parent: "js"
+  label: "jQuery"
+  description: "Ubiquitous Javascript framework/toolkit"
+  sort_order: 800
+jqueryui:
+  parent: "jquery"
+  label: "jQuery UI"
+  description: "Widgets built on top of jQuery"
+  sort_order: 900
+coffee:
+  parent: "js"
+  label: "CoffeeScript"
+  description: "A minimalist syntax/utility layer on top of Javascript"
+  sort_order: 1000
+app_development:
+  label: "App Development"
+  description: "Native/Mobile application development"
+  sort_order: 20
+ios:
+  parent: "app_development"
+  label: "iOS"
+  description: "iPhone/iPad/OSX application development"
+  sort_order: 100
+android:
+  parent: "app_development"
+  label: "Android"
+  description: "Android application development"
+  sort_order: 200
+windows8:
+  parent: "app_development"
+  label: "Windows 8"
+  description: "Windows 8 application development"
+  sort_order: 300
+webos:
+  parent: "app_development"
+  label: "WebOS"
+  description: "WebOS application development"
+  sort_order: 400
+blackberry:
+  parent: "app_development"
+  label: "Blackberry"
+  description: "Blackberry application development"
+  sort_order: 500
