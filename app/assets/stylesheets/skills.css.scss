@@ -21,15 +21,3 @@ $indent: 10px;
     margin-left: 3 * $indent;
   }
 }
-
-div.tab-pane {
-  table.skills_table {
-    display: none;
-  }
-  &.active {
-    table.skills_table {
-      display: table;
-    }
-  }
-}
-

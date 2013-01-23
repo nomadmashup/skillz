@@ -1,43 +1,23 @@
 <ul class="nav nav-pills">
   <% @row_info[nil].each_with_index do |category, idx| %>
     <li class="<%= "active" if idx == 0 %>">
-      <a href="#<%= category[:skill].code %>"><%= category[:skill].label %></a>
+      <a href="#<%= category[:skill].code %>" data-target="#<%= category[:skill].code %>" data-toggle="pill"><%= category[:skill].label %></a>
     </li>
   <% end %>
 </ul>
 
-<ul class="pager">
-  <li class="previous">
-    <a href="#">&larr; Previous</a>
-  </li>
-  <li class="next">
-    <a href="#">Next &rarr;</a>
-  </li>
-</ul>
+<%= render partial: "prev_next" %>
 
-<% @row_info.reject{|k,v| k.blank?}.each do |key, group|  %>
-
-  <div id="<%= key %>" class="tab-content">
-
-    <div class="tab-pane <%= "active" if "web_development" == key %>">
-
+<div class="tab-content">
+  <% @row_info.reject{|k,v| k.blank?}.each do |key, group|  %>
+    <div id="<%= key %>" class="tab-pane <%= "active" if "web_development" == key %>">
       <table class="table table-striped skills_table <%= key %>">
         <tbody>
         <%= render partial: "skills/row", collection: group %>
         </tbody>
       </table>
-
     </div>
+  <% end %>
+</div>
 
-  </div>
-
-<% end %>
-
-<ul class="pager">
-  <li class="previous">
-    <a href="#">&larr; Previous</a>
-  </li>
-  <li class="next">
-    <a href="#">Next &rarr;</a>
-  </li>
-</ul>
+<%= render partial: "prev_next" %>

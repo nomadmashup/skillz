@@ -47,7 +47,11 @@
           <a class="brand" href="#">Skillz</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "<strong>james.trask@hp.com</strong>".html_safe, "/login"  %></li>
+              <li><a href="#" title="<%= @current_user.email %>"><strong><%= "#{@current_user.first_name} #{@current_user.last_name}" %></strong></a></li>
+              <hr class="hidden-desktop">
+              <li><a href="#" title="Change to another person"><small>Change...</small></a></li>
+              <li><a href="#" title="Export info to a CSV file"><small>Export</small></a></li>
+              <li><a href="#" title="About the Skillz project"><small>About</small></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

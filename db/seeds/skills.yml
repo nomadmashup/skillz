@@ -2,6 +2,17 @@ web_development:
   label: "Web Development"
   description: "Web/Mobile apps delivered via a browser"
   sort_order: 10
+app_development:
+  label: "App Development"
+  description: "Native/Mobile application development"
+  sort_order: 20
+dev_ops:
+  label: "Dev Ops"
+  description: "Operations for R&D"
+  sort_order: 30
+design:
+  label: "Design"
+  sort_order: 40
 html:
   label: "HTML"
   parent: "web_development"
@@ -57,10 +68,6 @@ coffee:
   label: "CoffeeScript"
   description: "A minimalist syntax/utility layer on top of Javascript"
   sort_order: 1000
-app_development:
-  label: "App Development"
-  description: "Native/Mobile application development"
-  sort_order: 20
 ios:
   parent: "app_development"
   label: "iOS"
@@ -86,3 +93,48 @@ blackberry:
   label: "Blackberry"
   description: "Blackberry application development"
   sort_order: 500
+capistrano:
+  parent: "dev_ops"
+  label: "Capistrano"
+  description: "Remote deployment tool"
+  sort_order: 100
+chef:
+  parent: "dev_ops"
+  label: "Chef"
+  description: "Recipe/scripting tool for installation and system setup"
+  sort_order: 200
+aws:
+  parent: "dev_ops"
+  label: "AWS"
+  description: "Amazon Web Services"
+  sort_order: 300
+puppet:
+  parent: "dev_ops"
+  label: "Puppet"
+  description: "Alternative to Capistrano/Chef"
+  sort_order: 400
+hp_cloud:
+  parent: "dev_ops"
+  label: "HP Cloud"
+  description: "HP's cloud solution"
+  sort_order: 500
+photoshop:
+  parent: "design"
+  label: "Photoshop"
+  description: "Adobe general-purpose photo editing software"
+  sort_order: 100
+illustrator:
+  parent: "design"
+  label: "Illustrator"
+  description: "Adobe illustration program"
+  sort_order: 200
+in_design:
+  parent: "design"
+  label: "In Design"
+  description: "Adobe print/layout design program"
+  sort_order: 300
+color:
+  parent: "design"
+  label: "Color Theory"
+  description: "Psycho-artistic foundation in color"
+  sort_order: 400

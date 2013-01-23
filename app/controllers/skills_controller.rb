@@ -12,6 +12,8 @@ class SkillsController < ApplicationController
       }
     end.group_by{|r| r[:skill].top_parent}
 
+    @current_user = User.all.shuffle.first
+
   end
 
 end
