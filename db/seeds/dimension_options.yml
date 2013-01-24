@@ -46,6 +46,12 @@ less:
   long_label: "I want to do less of this"
   description: nil
   sort_order: 200
+perfect:
+  dimension: "satisfaction"
+  short_label: "Perfect"
+  long_label: "I am doing the perfect amount of this"
+  description: nil
+  sort_order: 300
 love:
   dimension: "passion"
   short_label: "Love"
@@ -73,6 +79,6 @@ teach:
 organize:
   dimension: "synergy"
   short_label: "Organize"
-  long_label: "I know how to organize/coordinate this"
+  long_label: "I can organize/coordinate this"
   description: nil
   sort_order: 300

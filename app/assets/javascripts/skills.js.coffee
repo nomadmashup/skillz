@@ -7,6 +7,16 @@ $ ->
     current = $(e.target).attr("data-target").substr 1, $(e.target).attr("data-target").length - 1
     window.setSkillCategory current, false
 
+
+window.setDimension = (skill, dimension, value, className = "")=>
+
+  parameterize = (value)->
+    value.toLowerCase().replace(" ", "_").replace("'", "")
+
+  button = $ ".btn.#{parameterize(skill)}.#{parameterize(dimension)}"
+  button.removeClass().addClass "btn dropdown-toggle #{className} #{parameterize(skill)} #{parameterize(dimension)}"
+  button.find(".current").html value
+
 window.setSkillCategory = (category, show = true)->
 
   prev_category = null
@@ -34,3 +44,4 @@ window.setSkillCategory = (category, show = true)->
   else
     $(".pager .next").addClass "disabled"
 
+  window.scrollTo 0, 0

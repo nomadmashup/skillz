@@ -2,24 +2,42 @@
   <td>
     <div class="row-fluid">
 
-      <div class="span5 <%= "skill_depth_#{row[:skill].depth}" %>">
-        <h4><%= row[:skill].label %>  <% if row[:skill].description.present? %><small><%= row[:skill].description %></small><% end %></h4>
+      <!-- Skill Label -->
+      <% depth = row[:skill].depth %>
+      <div class="span4 <%= "skill_depth_#{depth}" %>">
+        <h4>
+          <%= row[:skill].label %>
+          <% if row[:skill].description.present? %>
+            <small><%= row[:skill].description %></small>
+          <% end %>
+        </h4>
       </div>
 
-      <div class="span7">
+      <div class="span8">
         <div class="btn-toolbar">
           <% row[:dimension_options].keys.each do |dimension| %>
+            <%
+               current_answer = {
+                 value: dimension,
+                 class: ""
+               }
+            %>
+            <!-- Dimension Button -->
             <div class="btn-group">
-              <a class="btn dropdown-toggle btn-<%= "foo" %>" data-toggle="dropdown" href="#">
-                <span><%= dimension %></span>
+              <a class="btn dropdown-toggle <%= "#{current_answer[:class]} #{row[:skill].code.parameterize("_")} #{dimension.parameterize("_")}" %>" data-toggle="dropdown" href="#">
+                <i class="icon-exclamation-sign"></i>
+                <span class="current"><%= current_answer[:value] %></span>
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
+                
                 <% row[:dimension_options][dimension].each do |option| %>
-                  <li><a href="#"><%= option.long_label %></a></li>
+                  <li><a href="javascript: window.setDimension('<%= row[:skill].code %>', '<%= dimension %>', '<%= option.short_label %>', '<%= get_class_name(option.short_label.parameterize("_")) %>')"><%= option.long_label %></a></li>
                 <% end %>
-                <li class="divider"></li>
-                <li><a href="#">Remove Answer</a></li>
+                <% unless dimension == current_answer[:value] %>
+                  <li class="divider"></li>
+                  <li><a href="#">Remove Answer</a></li>
+                <% end %>
               </ul>
             </div>
           <% end %>
