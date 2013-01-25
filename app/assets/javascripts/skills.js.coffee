@@ -29,9 +29,6 @@ window.setDimension = (skill, dimension, value, className, tooltip)=>
   button.find(".current").html value
   button.attr "title", tooltip
   listItems = button.parents(".btn-group").find ".dropdown-menu li"
-  console.log listItems
-  console.log value
-  console.log button
   listItems.show()
   listItems.each ->
     anchor = $(this).find("a")
