@@ -1,14 +1,20 @@
 class SkillsController < ApplicationController
 
-  before_filter do
+  before_filter :authenticate, :set_user
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "con" && password == "bestboss"
+    end
+  end
+
+  def set_user
     email = cookies[:current_user] = params[:u] || cookies[:current_user] || User.all.shuffle.first.email || "james.trask@hp.com"
     @current_user = User.find_by_email(email)
   end
 
   def index
-
     options = DimensionOption.joins(:dimension).order("dimensions.sort_order, dimension_options.sort_order").group_by{|option| option.dimension.label}
-
     @row_info = Skill.order(:sort_order).all.map do |skill|
       {
         skill: skill,
@@ -16,7 +22,6 @@ class SkillsController < ApplicationController
         dimension_options: options
       }
     end.group_by{|r| r[:skill].top_parent}
-
   end
 
   def save
