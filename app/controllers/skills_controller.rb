@@ -9,7 +9,7 @@ class SkillsController < ApplicationController
   end
 
   def set_user
-    email = cookies[:current_user] = params[:u] || cookies[:current_user] || User.all.shuffle.first.email || "james.trask@hp.com"
+    email = cookies.permanent[:current_user] = params[:u] || cookies[:current_user] || User.all.shuffle.first.email || "james.trask@hp.com"
     @current_user = User.find_by_email(email)
   end
 
