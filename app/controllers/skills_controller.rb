@@ -31,9 +31,9 @@ class SkillsController < ApplicationController
       attributes = {
         user: User.find_by_email(params[:u]),
         skill: Skill.find_by_code(params[:s]),
-        dimension: dimension,
-        value: dimension.dimension_options.find_by_short_label(params[:v]).short_label
+        dimension: dimension
       }
+      attributes[:value] = params[:v].present? ? dimension.dimension_options.find_by_short_label(params[:v]).short_label : nil
       raise "missing or invalid parameters" if attributes[:user].blank? || attributes[:skill].blank? || attributes[:dimension].blank? || (params[:v].present? && attributes[:value].blank?)
       query = SkillDetail.where(user_id: attributes[:user].id, skill_id: attributes[:skill].id, dimension_id: attributes[:dimension].id)
       if attributes[:value].present?

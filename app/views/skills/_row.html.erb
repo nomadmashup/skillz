@@ -40,12 +40,11 @@
               </a>
               <ul class="dropdown-menu">
                 <% row[:dimension_options][dimension_label].each do |option| %>
-                  <li><a href="javascript: window.setDimension('<%= row[:skill].code %>', '<%= dimension_label %>', '<%= option.short_label %>', '<%= get_class_name(option.short_label.parameterize("_")) %>', '<%= option.long_label %>')"><%= option.long_label %></a></li>
+                  <li style="<%= "display: none;" if option.short_label == value %>"><a href="javascript: window.setDimension('<%= row[:skill].code %>', '<%= dimension_label %>', '<%= option.short_label %>', '<%= get_class_name(option.short_label.parameterize("_")) %>', '<%= option.long_label %>')"><%= option.long_label %></a></li>
                 <% end %>
-                <% unless dimension_label == current_answer[:value] %>
-                  <li class="divider"></li>
-                  <li><a href="#">Remove Answer</a></li>
-                <% end %>
+                <% hide_remove = (dimension_label == current_answer[:value]) %>
+                <li class="divider" style="<%= "display: none;" if hide_remove %>"></li>
+                <li style="<%= "display: none;" if hide_remove %>"><a href="javascript: window.resetDimension('<%= row[:skill].code %>', '<%= dimension_label %>')">Remove Answer</a></li>
               </ul>
             </div>
           <% end %>

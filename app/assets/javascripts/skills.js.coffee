@@ -7,19 +7,36 @@ $ ->
     current = $(e.target).attr("data-target").substr 1, $(e.target).attr("data-target").length - 1
     window.setSkillCategory current, false
 
+parameterize = (value)->
+  value.toLowerCase().replace(" ", "_").replace("'", "")
+
+window.resetDimension = (skill, dimension)->
+  button = $ ".btn.#{parameterize(skill)}.#{parameterize(dimension)}"
+  button.removeClass().addClass "btn dropdown-toggle #{parameterize(skill)} #{parameterize(dimension)}"
+  button.find(".current").html dimension
+  button.attr "title", "Click to choose"
+  listItems = button.parents(".btn-group").find "ul li"
+  listItems.show()
+  listItems.slice(listItems.length - 2, listItems.length).each ->
+    $(this).hide()
+  url = "/save?u=#{skillzUser}&s=#{skill}&d=#{dimension}"
+  $.ajax
+      url: url
 
 window.setDimension = (skill, dimension, value, className, tooltip)=>
-
-  parameterize = (value)->
-    value.toLowerCase().replace(" ", "_").replace("'", "")
-
   button = $ ".btn.#{parameterize(skill)}.#{parameterize(dimension)}"
   button.removeClass().addClass "btn dropdown-toggle #{className} #{parameterize(skill)} #{parameterize(dimension)}"
   button.find(".current").html value
   button.attr "title", tooltip
-
+  listItems = button.parents(".btn-group").find ".dropdown-menu li"
+  console.log listItems
+  console.log value
+  console.log button
+  listItems.show()
+  listItems.each ->
+    anchor = $(this).find("a")
+    $(this).hide() if anchor.length > 0 && anchor.attr("href").indexOf(value) >= 0
   url = "/save?u=#{skillzUser}&s=#{skill}&d=#{dimension}&v=#{value}"
-
   $.ajax
     url: url
 
