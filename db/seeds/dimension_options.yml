@@ -33,7 +33,7 @@ totally_current:
   short_label: "Current"
   long_label: "Totally Current"
   description: "Up-to-date with all the cutting edge knowledge on this skill"
-  sort_order: 200
+  sort_order: 300
 more:
   dimension: "satisfaction"
   short_label: "More"
@@ -76,6 +76,12 @@ teach:
   long_label: "I can teach this"
   description: nil
   sort_order: 200
+interested:
+  dimension: "synergy"
+  short_label: "Interested"
+  long_label: "I am interested in this"
+  description: nil
+  sort_order: 250
 organize:
   dimension: "synergy"
   short_label: "Organize"

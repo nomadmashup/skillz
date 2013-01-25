@@ -28,6 +28,8 @@ module SkillsHelper
         "btn-info"
       when "teach"
         "btn-success"
+      when "interested"
+        "btn-warning"
       when "organize"
         "btn-primary"
       else
