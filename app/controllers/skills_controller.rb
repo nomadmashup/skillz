@@ -1,5 +1,10 @@
 class SkillsController < ApplicationController
 
+  before_filter do
+    email = cookies[:current_user] = params[:u] || cookies[:current_user] || User.all.shuffle.first.email || "james.trask@hp.com"
+    @current_user = User.find_by_email(email)
+  end
+
   def index
 
     options = DimensionOption.joins(:dimension).order("dimensions.sort_order, dimension_options.sort_order").group_by{|option| option.dimension.label}
@@ -11,8 +16,6 @@ class SkillsController < ApplicationController
         dimension_options: options
       }
     end.group_by{|r| r[:skill].top_parent}
-
-    @current_user = User.all.shuffle.first
 
   end
 

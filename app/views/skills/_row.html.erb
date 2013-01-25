@@ -30,7 +30,6 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                
                 <% row[:dimension_options][dimension].each do |option| %>
                   <li><a href="javascript: window.setDimension('<%= row[:skill].code %>', '<%= dimension %>', '<%= option.short_label %>', '<%= get_class_name(option.short_label.parameterize("_")) %>')"><%= option.long_label %></a></li>
                 <% end %>
