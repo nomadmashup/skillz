@@ -1,8 +1,14 @@
 class SkillsController < ApplicationController
 
   before_filter do
+    puts "SKILLZ BEFORE #{action}"
     email = cookies[:current_user] = params[:u] || cookies[:current_user] || User.all.shuffle.first.email || "james.trask@hp.com"
     @current_user = User.find_by_email(email)
+    puts "SKILLZ USER:  #{@current_user}"
+  end
+
+  after_filter do
+    puts "SKILLZ AFTER #{action}"
   end
 
   def index
