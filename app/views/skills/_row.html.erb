@@ -15,25 +15,34 @@
 
       <div class="span8">
         <div class="btn-toolbar">
-          <% row[:dimension_options].keys.each do |dimension| %>
+          <% row[:dimension_options].keys.each do |dimension_label| %>
             <%
+               dimension = Dimension.find_by_label(dimension_label)
+               detail = row[:skill_details].where(skill_id: row[:skill].id, dimension_id: dimension.id)
+               value = dimension_label
+               tooltip = "Click to choose"
+               if detail.count > 0
+                 value = detail.first.value
+                 tooltip = dimension.dimension_options.find_by_short_label(value).long_label
+               end
                current_answer = {
-                 value: dimension,
-                 class: ""
+                 value: value,
+                 class: get_class_name(value.parameterize("_")),
+                 tooltip: tooltip
                }
             %>
             <!-- Dimension Button -->
             <div class="btn-group">
-              <a class="btn dropdown-toggle <%= "#{current_answer[:class]} #{row[:skill].code.parameterize("_")} #{dimension.parameterize("_")}" %>" data-toggle="dropdown" href="#">
+              <a class="btn dropdown-toggle <%= "#{current_answer[:class]} #{row[:skill].code.parameterize("_")} #{dimension_label.parameterize("_")}" %>" data-toggle="dropdown" href="#" title="<%= current_answer[:tooltip]%>">
                 <i class="icon-exclamation-sign"></i>
                 <span class="current"><%= current_answer[:value] %></span>
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <% row[:dimension_options][dimension].each do |option| %>
-                  <li><a href="javascript: window.setDimension('<%= row[:skill].code %>', '<%= dimension %>', '<%= option.short_label %>', '<%= get_class_name(option.short_label.parameterize("_")) %>')"><%= option.long_label %></a></li>
+                <% row[:dimension_options][dimension_label].each do |option| %>
+                  <li><a href="javascript: window.setDimension('<%= row[:skill].code %>', '<%= dimension_label %>', '<%= option.short_label %>', '<%= get_class_name(option.short_label.parameterize("_")) %>', '<%= option.long_label %>')"><%= option.long_label %></a></li>
                 <% end %>
-                <% unless dimension == current_answer[:value] %>
+                <% unless dimension_label == current_answer[:value] %>
                   <li class="divider"></li>
                   <li><a href="#">Remove Answer</a></li>
                 <% end %>

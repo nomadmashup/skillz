@@ -13,9 +13,11 @@ Skillz::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  match 'skills/about' => 'skills#about', as: "about"
-  match 'skills/csv' => 'skills#csv', as: "csv"
-  resources :skills
+  root :to => 'skills#index'
+
+  match 'about' => 'skills#about', as: "about"
+  match 'csv' => 'skills#csv', as: "csv"
+  match 'save' => 'skills#save', as: "save"
 
   # Sample resource route with options:
   #   resources :products do

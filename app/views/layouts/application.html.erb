@@ -25,12 +25,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="<%= skills_path %>">Skillz</a>
+          <a class="brand" href="<%= root_path %>">Skillz</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><a href="<%= skills_path %>" title="<%= @current_user.email %>"><strong><%= "#{@current_user.first_name} #{@current_user.last_name}" %></strong></a></li>
+              <li><a href="<%= root_path %>" title="<%= @current_user.email %>"><strong><%= "#{@current_user.first_name} #{@current_user.last_name}" %></strong></a></li>
               <hr class="hidden-desktop">
-              <li><a href="#" title="Change to another person"><small>Change...</small></a></li>
+              <li><a href="<%= root_path %>" title="Change to another person"><small>Change...</small></a></li>
               <li><a href="<%= csv_path %>" title="Export info to a CSV file"><small>Export</small></a></li>
               <li><a href="<%= about_path %>" title="About the Skillz project"><small>About</small></a></li>
             </ul>
@@ -57,8 +57,9 @@
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+
     <script type="text/javascript">
-      var skillz_user = "<%= @current_user.email %>";
+      var skillzUser = "<%= @current_user.email %>";
     </script>
 
     <%= javascript_include_tag "application" %>

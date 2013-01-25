@@ -1,14 +1,8 @@
 class SkillsController < ApplicationController
 
   before_filter do
-    puts "SKILLZ BEFORE #{action_name}"
     email = cookies[:current_user] = params[:u] || cookies[:current_user] || User.all.shuffle.first.email || "james.trask@hp.com"
     @current_user = User.find_by_email(email)
-    puts "SKILLZ USER:  #{email}"
-  end
-
-  after_filter do
-    puts "SKILLZ AFTER #{action_name}"
   end
 
   def index
@@ -18,11 +12,41 @@ class SkillsController < ApplicationController
     @row_info = Skill.order(:sort_order).all.map do |skill|
       {
         skill: skill,
-        skill_details: "abc",
+        skill_details: @current_user.skill_details(true),
         dimension_options: options
       }
     end.group_by{|r| r[:skill].top_parent}
 
+  end
+
+  def save
+    result = { status: "unknown" }
+    begin
+      dimension = Dimension.find_by_label(params[:d])
+      attributes = {
+        user: User.find_by_email(params[:u]),
+        skill: Skill.find_by_code(params[:s]),
+        dimension: dimension,
+        value: dimension.dimension_options.find_by_short_label(params[:v]).short_label
+      }
+      raise "missing or invalid parameters" if attributes[:user].blank? || attributes[:skill].blank? || attributes[:dimension].blank? || (params[:v].present? && attributes[:value].blank?)
+      query = SkillDetail.where(user_id: attributes[:user].id, skill_id: attributes[:skill].id, dimension_id: attributes[:dimension].id)
+      if attributes[:value].present?
+        if 0 == query.count
+          SkillDetail.create! attributes
+          result[:status] = "created"
+        else
+          query.first.update_attributes attributes
+          result[:status] = "updated"
+        end
+      else
+        query.delete_all
+        result[:status] = "deleted"
+      end
+    rescue Exception => ex
+      result = { status: "error", exception: ex.inspect }
+    end
+    render json: result
   end
 
 end

@@ -8,7 +8,7 @@ $ ->
     window.setSkillCategory current, false
 
 
-window.setDimension = (skill, dimension, value, className = "")=>
+window.setDimension = (skill, dimension, value, className, tooltip)=>
 
   parameterize = (value)->
     value.toLowerCase().replace(" ", "_").replace("'", "")
@@ -16,6 +16,12 @@ window.setDimension = (skill, dimension, value, className = "")=>
   button = $ ".btn.#{parameterize(skill)}.#{parameterize(dimension)}"
   button.removeClass().addClass "btn dropdown-toggle #{className} #{parameterize(skill)} #{parameterize(dimension)}"
   button.find(".current").html value
+  button.attr "title", tooltip
+
+  url = "/save?u=#{skillzUser}&s=#{skill}&d=#{dimension}&v=#{value}"
+
+  $.ajax
+    url: url
 
 window.setSkillCategory = (category, show = true)->
 
