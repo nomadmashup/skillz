@@ -13,6 +13,7 @@
     <div id="<%= key %>" class="tab-pane <%= "active" if "web_development" == key %>">
       <table class="table table-striped skills_table <%= key %>">
         <tbody>
+        <% puts "SKILLZ ROW:  #{key} #{group.size}" %>
         <%= render partial: "skills/row", collection: group %>
         </tbody>
       </table>
