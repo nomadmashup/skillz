@@ -31,6 +31,15 @@ $ ->
 
     window.toggleUserForm()
 
+  $(".skills_table i.icon-minus").click ->
+    $(this).siblings(".icon-plus").show()
+    $(this).hide()
+    console.log "collapse " + $(this).attr("data-target")
+
+  $(".skills_table i.icon-plus").click ->
+    $(this).siblings(".icon-minus").show()
+    $(this).hide()
+    console.log "expand " + $(this).attr("data-target")
 
 parameterize = (value)->
   value.toLowerCase().replace(" ", "_").replace("'", "")

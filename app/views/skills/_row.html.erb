@@ -6,7 +6,8 @@
       <% depth = row[:skill].depth %>
       <div class="span4 <%= "skill_depth_#{depth}" %> <%= "parent" if row[:parent] %>">
         <h4>
-          <i class="icon-minus"></i>
+          <i class="icon-minus" data-target="<%= row[:skill].code %>"></i>
+          <i class="icon-plus" data-target="<%= row[:skill].code %>"></i>
           <span><%= row[:skill].label %></span>
           <% if row[:skill].description.present? %>
             <small><%= row[:skill].description %></small>

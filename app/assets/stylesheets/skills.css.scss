@@ -30,13 +30,23 @@ $indent: 10px;
 .skills_table {
   margin-bottom: 80px;
   i {
-    opacity: 0.2;
+    opacity: 0.1;
     visibility: hidden;
+    &:hover {
+      opacity: 0.2;
+    }
   }
   .parent {
     i {
       visibility: visible;
     }
+  }
+  i.icon-plus {
+    display: none;
+  }
+  i.icon-minus, i.icon-plus {
+    margin-right: 5px;
+    cursor: pointer;
   }
 }
 
@@ -45,18 +55,17 @@ $indent: 10px;
   margin-bottom: 20px;
 }
 
-#skillz_person {
-  margin-top: 5px;
-}
-
-label[for=skillz_person] {
-  display: none;
-}
-
 .nav {
   #skillz_person_form {
     display: none;
     margin-bottom: 0;
+    #skillz_person {
+      margin-top: 5px;
+    }
+
+    label[for=skillz_person] {
+      display: none;
+    }
   }
   &.edit {
     .person, .change {
