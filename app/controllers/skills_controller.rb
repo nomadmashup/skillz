@@ -1,6 +1,7 @@
 class SkillsController < ApplicationController
 
-  before_filter :authenticate, :set_user
+  before_filter :authenticate
+  before_filter :set_user, except: :save
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
@@ -35,11 +36,13 @@ class SkillsController < ApplicationController
 
   def index
     options = DimensionOption.joins(:dimension).order("dimensions.sort_order, dimension_options.sort_order").group_by{|option| option.dimension.label}
-    @row_info = Skill.order(:sort_order).all.map do |skill|
+    skills = Skill.order(:sort_order).all
+    @row_info = skills.map do |skill|
       {
         skill: skill,
         skill_details: @current_user.skill_details(true),
-        dimension_options: options
+        dimension_options: options,
+        parent: ( skills.select{|s| s.parent == skill.code}.size > 0)
       }
     end.group_by{|r| r[:skill].top_parent}
   end

@@ -29,6 +29,15 @@ $indent: 10px;
 
 .skills_table {
   margin-bottom: 80px;
+  i {
+    opacity: 0.2;
+    visibility: hidden;
+  }
+  .parent {
+    i {
+      visibility: visible;
+    }
+  }
 }
 
 .got_skillz {
@@ -44,7 +53,17 @@ label[for=skillz_person] {
   display: none;
 }
 
-#skillz_person_form {
-  display: none;
-  margin-bottom: 0;
+.nav {
+  #skillz_person_form {
+    display: none;
+    margin-bottom: 0;
+  }
+  &.edit {
+    .person, .change {
+      display: none;
+    }
+    #skillz_person_form {
+      display: list-item;
+    }
+  }
 }

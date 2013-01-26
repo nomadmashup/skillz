@@ -11,17 +11,35 @@ $ ->
     window.toggleUserForm()
     e.preventDefault()
 
+  $("#skillz_person_form button[type=submit]").click (e)->
+
+    $("button").addClass "disabled"
+    $("a").click (e)->
+      $(this).css "pointer", "default"
+      e.preventDefault();
+
+    nav = $(this).parents(".nav")
+    person = $("#skillz_person").val()
+
+    nav.find(".person strong").text person
+    nav.find(".person a").attr "title", "Loading skills for " + person
+
+    nav.find(".change small").text "Changing..."
+    nav.find(".change a").attr "title", "Changing to another person"
+
+    nav.find("li").not(".person, .change").hide()
+
+    window.toggleUserForm()
+
+
 parameterize = (value)->
   value.toLowerCase().replace(" ", "_").replace("'", "")
 
 window.toggleUserForm = ->
-  if $("#skillz_person_form input").is ":visible"
-    $("ul.nav li").slice(0, 2).show()
-    $("#skillz_person_form").hide()
-  else
-    $("ul.nav li").slice(0, 2).hide()
-    $("#skillz_person_form").show()
-    $("#skillz_person_form input").focus()
+  form = $ "#skillz_person_form"
+  nav = form.parents(".nav")
+  nav.toggleClass "edit"
+  form.find("input").focus() if nav.hasClass "edit"
 
 window.resetDimension = (skill, dimension)->
   button = $ ".btn.#{parameterize(skill)}.#{parameterize(dimension)}"

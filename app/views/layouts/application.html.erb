@@ -28,10 +28,9 @@
       <a class="brand" href="<%= root_path %>">Skillz</a>
       <div class="container-fluid nav-collapse">
         <ul class="nav">
-          <li><a href="<%= root_path %>" title="Show skills for <%= "#{@current_user.first_name} #{@current_user.last_name}" %>"><strong><%= "#{@current_user.first_name} #{@current_user.last_name}" %></strong></a></li>
-          <hr class="hidden-desktop">
-          <li><a href="javascript: window.toggleUserForm()" title="Change to another person"><small>Change...</small></a></li>
-          <li>
+          <li class="person"><a href="<%= root_path %>" title="Show skills for <%= "#{@current_user.first_name} #{@current_user.last_name}" %>"><strong><%= "#{@current_user.first_name} #{@current_user.last_name}" %></strong></a></li>
+          <li class="change"><a href="javascript: window.toggleUserForm()" title="Change to another person"><small>Change...</small></a></li>
+          <li class="form">
             <form id="skillz_person_form" action="<%= change_path %>" class="form-inline">
               <label for="skillz_person">Person</label>
               <input id="skillz_person" name="q" type="text" class="input-medium" placeholder="Name or email..." data-provide="typeahead" data-source="<%= users = User.order("last_name, first_name").all.map{|i| "#{i.first_name} #{i.last_name}"}; puts users.inspect; users.inspect %>">

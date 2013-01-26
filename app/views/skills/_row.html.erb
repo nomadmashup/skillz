@@ -4,9 +4,10 @@
 
       <!-- Skill Label -->
       <% depth = row[:skill].depth %>
-      <div class="span4 <%= "skill_depth_#{depth}" %>">
+      <div class="span4 <%= "skill_depth_#{depth}" %> <%= "parent" if row[:parent] %>">
         <h4>
-          <%= row[:skill].label %>
+          <i class="icon-minus"></i>
+          <span><%= row[:skill].label %></span>
           <% if row[:skill].description.present? %>
             <small><%= row[:skill].description %></small>
           <% end %>
