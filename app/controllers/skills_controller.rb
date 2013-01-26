@@ -11,6 +11,26 @@ class SkillsController < ApplicationController
   def set_user
     email = cookies.permanent[:current_user] = params[:u] || cookies[:current_user] || User.all.shuffle.first.email || "james.trask@hp.com"
     @current_user = User.find_by_email(email)
+    redirect_to controller: controller_name, action: action_name if params[:u].present?
+  end
+
+  def change
+
+    new_person = User.find_by_first_name params[:q]
+    new_person = User.find_by_last_name params[:q] if new_person.blank?
+    new_person = User.find_by_email params[:q] if new_person.blank?
+    if new_person.blank?
+      matches = User.all.select{|u| "#{u.first_name} #{u.last_name}" == params[:q]}
+      new_person = matches.first if matches.size > 0
+    end
+
+    if new_person.present?
+      redirect_to root_path(u: new_person.email)
+    else
+      flash[:error] = "'#{params[:q]}' was not found"
+      redirect_to root_path
+    end
+
   end
 
   def index

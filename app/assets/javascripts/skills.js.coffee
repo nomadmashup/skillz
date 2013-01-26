@@ -7,8 +7,21 @@ $ ->
     current = $(e.target).attr("data-target").substr 1, $(e.target).attr("data-target").length - 1
     window.setSkillCategory current, false
 
+  $("#skillz_person_form button[type=cancel]").click (e)->
+    window.toggleUserForm()
+    e.preventDefault()
+
 parameterize = (value)->
   value.toLowerCase().replace(" ", "_").replace("'", "")
+
+window.toggleUserForm = ->
+  if $("#skillz_person_form input").is ":visible"
+    $("ul.nav li").slice(0, 2).show()
+    $("#skillz_person_form").hide()
+  else
+    $("ul.nav li").slice(0, 2).hide()
+    $("#skillz_person_form").show()
+    $("#skillz_person_form input").focus()
 
 window.resetDimension = (skill, dimension)->
   button = $ ".btn.#{parameterize(skill)}.#{parameterize(dimension)}"
