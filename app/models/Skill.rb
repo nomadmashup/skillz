@@ -32,13 +32,17 @@ class Skill < ActiveRecord::Base
   end
 
   def top_parent
-    parent = nil
+    parents.first.code rescue nil
+  end
+
+  def parents
+    list = []
     skill = self
     until skill.parent.blank? do
-      parent = skill.parent
       skill = Skill.find_by_code(skill.parent)
+      list.unshift(skill)
     end
-    parent
+    list
   end
 
 end

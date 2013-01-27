@@ -4,50 +4,51 @@
 
 $indent: 10px;
 
-.skill_depth_1 {
-  h4 {
-    margin-left: $indent;
-  }
-}
-
-.skill_depth_2 {
-  h4 {
-    margin-left: 2 * $indent;
-  }
-}
-
-.skill_depth_3 {
-  h4 {
-    margin-left: 3 * $indent;
-  }
-}
-
-.btn .icon-exclamation-sign {
-  display: none;
-  margin-right: 2px;
-}
-
 .skills_table {
+
   margin-bottom: 80px;
-  i {
-    opacity: 0.1;
-    visibility: hidden;
-    &:hover {
-      opacity: 0.2;
+
+  tr {
+
+    &.skill_depth_1 { h4 { margin-left: $indent; } }
+    &.skill_depth_2 { h4 { margin-left: 2 * $indent; } }
+    &.skill_depth_3 { h4 { margin-left: 3 * $indent; } }
+    &.skill_depth_4 { h4 { margin-left: 4 * $indent; } }
+    &.skill_depth_5 { h4 { margin-left: 5 * $indent; } }
+
+    i.icon-minus, i.icon-plus {
+      margin-right: 5px;
+      cursor: pointer;
+      opacity: 0.123456789;
+      visibility: hidden;
+      &:hover {
+        opacity: 0.61803399;
+      }
+    }
+    &.parent {
+      i.icon-minus, i.icon-plus {
+        visibility: visible;
+      }
+    }
+    i.icon-plus {
+      display: none;
+    }
+    &.collapsed {
+      i.icon-plus {
+        display: inline;
+      }
+      i.icon-minus {
+        display: none;
+      }
+    }
+    .btn {
+      i.icon-exclamation-sign {
+        display: none;
+        margin-right: 2px;
+      }
     }
   }
-  .parent {
-    i {
-      visibility: visible;
-    }
-  }
-  i.icon-plus {
-    display: none;
-  }
-  i.icon-minus, i.icon-plus {
-    margin-right: 5px;
-    cursor: pointer;
-  }
+
 }
 
 .got_skillz {

@@ -33,7 +33,7 @@
           <li class="form">
             <form id="skillz_person_form" action="<%= change_path %>" class="form-inline">
               <label for="skillz_person">Person</label>
-              <input id="skillz_person" name="q" type="text" class="input-medium" placeholder="Name or email..." data-provide="typeahead" data-source="<%= users = User.order("last_name, first_name").all.map{|i| "#{i.first_name} #{i.last_name}"}; puts users.inspect; users.inspect %>">
+              <input id="skillz_person" name="q" type="text" class="input-medium" placeholder="Name or email..." data-provide="typeahead" data-source="<%= users = User.order("last_name, first_name").all.map{|i| "#{i.first_name} #{i.last_name}"}; users.inspect %>">
               <button type="submit" class="btn btn-primary">Change</button>
               <button type="cancel" class="btn btn-link">Cancel</button>
             </form>

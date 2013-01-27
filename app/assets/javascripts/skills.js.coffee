@@ -32,14 +32,12 @@ $ ->
     window.toggleUserForm()
 
   $(".skills_table i.icon-minus").click ->
-    $(this).siblings(".icon-plus").show()
-    $(this).hide()
-    console.log "collapse " + $(this).attr("data-target")
+    $(this).parents("tr").addClass "collapsed"
+    $("tr." + $(this).attr("data-target")).hide()
 
   $(".skills_table i.icon-plus").click ->
-    $(this).siblings(".icon-minus").show()
-    $(this).hide()
-    console.log "expand " + $(this).attr("data-target")
+    $(this).parents("tr").removeClass "collapsed"
+    $("tr." + $(this).attr("data-target")).show()
 
 parameterize = (value)->
   value.toLowerCase().replace(" ", "_").replace("'", "")
@@ -51,7 +49,7 @@ window.toggleUserForm = ->
   form.find("input").focus() if nav.hasClass "edit"
 
 window.resetDimension = (skill, dimension)->
-  button = $ ".btn.#{parameterize(skill)}.#{parameterize(dimension)}"
+  button = $ ".btn.btn-#{parameterize(skill)}.btn-#{parameterize(dimension)}"
   button.removeClass().addClass "btn dropdown-toggle #{parameterize(skill)} #{parameterize(dimension)}"
   button.find(".current").html dimension
   button.attr "title", "Click to choose"
@@ -64,8 +62,8 @@ window.resetDimension = (skill, dimension)->
       url: url
 
 window.setDimension = (skill, dimension, value, className, tooltip)=>
-  button = $ ".btn.#{parameterize(skill)}.#{parameterize(dimension)}"
-  button.removeClass().addClass "btn dropdown-toggle #{className} #{parameterize(skill)} #{parameterize(dimension)}"
+  button = $ ".btn.btn-#{parameterize(skill)}.btn-#{parameterize(dimension)}"
+  button.removeClass().addClass "btn dropdown-toggle #{className} btn-#{parameterize(skill)} btn-#{parameterize(dimension)}"
   button.find(".current").html value
   button.attr "title", tooltip
   listItems = button.parents(".btn-group").find ".dropdown-menu li"
