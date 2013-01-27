@@ -39,6 +39,14 @@ $ ->
     $(this).parents("tr").removeClass "collapsed"
     $("tr." + $(this).attr("data-target")).show()
 
+  $(".skills_toggle .skills_expand").click (e)->
+    $(".skills_table tr").removeClass("collapsed").show()
+    e.preventDefault()
+
+  $(".skills_toggle .skills_collapse").click (e)->
+    $(".skills_table tr").addClass("collapsed").not(".skill_depth_1").hide()
+    e.preventDefault()
+
 parameterize = (value)->
   value.toLowerCase().replace(" ", "_").replace("'", "")
 

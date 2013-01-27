@@ -10,7 +10,7 @@
     <div class="row-fluid">
 
       <!-- Skill Label -->
-      <div class="span4">
+      <div class="span4 skill_row">
         <h4>
           <i class="icon-minus" data-target="<%= row[:skill].code %>"></i>
           <i class="icon-plus" data-target="<%= row[:skill].code %>"></i>
@@ -19,6 +19,9 @@
             <small><%= row[:skill].description %></small>
           <% end %>
         </h4>
+        <% if row_counter == 0 %>
+          <%= render partial: "skills/expand_collapse" %>
+        <% end %>
       </div>
 
       <div class="span8">
