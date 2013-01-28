@@ -10,8 +10,9 @@ class SkillsController < ApplicationController
   end
 
   def set_user
-    email = cookies.permanent[:current_user] = params[:u] || cookies[:current_user] || User.all.shuffle.first.email || "james.trask@hp.com"
+    email = cookies.permanent[:current_user] = params[:u] || cookies[:current_user]
     @current_user = User.find_by_email(email)
+    @self_user = User.find_by_email(cookies[:self_user])
     redirect_to controller: controller_name, action: action_name if params[:u].present?
   end
 
@@ -24,6 +25,8 @@ class SkillsController < ApplicationController
       matches = User.all.select{|u| "#{u.first_name} #{u.last_name}" == params[:q]}
       new_person = matches.first if matches.size > 0
     end
+
+    cookies.permanent[:self_user] = params[:s] if params.has_key?(:s)
 
     if new_person.present?
       redirect_to root_path(u: new_person.email)
@@ -40,7 +43,7 @@ class SkillsController < ApplicationController
     @row_info = skills.map do |skill|
       {
         skill: skill,
-        skill_details: @current_user.skill_details(true),
+        skill_details: @current_user.present? ? @current_user.skill_details(true) : nil,
         dimension_options: options,
         parent: ( skills.select{|s| s.parent == skill.code}.size > 0)
       }

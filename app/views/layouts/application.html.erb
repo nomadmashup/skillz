@@ -17,6 +17,14 @@
 </head>
 <body>
 
+<%
+   editable = @self_user.present? && @current_user.present? && @self_user.id == @current_user.id
+   full_name = @current_user.present? ? "#{@current_user.first_name} #{@current_user.last_name}" : "Choose Person..."
+   first_name = @current_user.present? ? @current_user.first_name : ""
+   email = @current_user.present? ? @current_user.email : ""
+   title = @current_user.present? ? "Show skills for #{full_name}" : ""
+%>
+
 <div class="navbar navbar-fluid-top">
   <div class="navbar-inner">
     <div class="container-fluid">
@@ -29,17 +37,31 @@
 
       <div class="btn-group btn-user">
 
-        <a class="btn person" href="<%= root_path %>" title="Show skills for <%= "#{@current_user.first_name} #{@current_user.last_name}" %>">
+        <a class="btn person" href="<%= @current_user.present? ? root_path : "javascript: window.toggleUserForm()" %>" title="<%= title %>">
           <i class="icon-user"></i>
-          <strong><%= "#{@current_user.first_name} #{@current_user.last_name}" %></strong>
+          <strong><%= full_name %></strong>
         </a>
 
-        <a class="btn dropdown-toggle" data-toggle="dropdown" title="User Options">
-          <span class="caret"></span>
-        </a>
-
+        <% if @current_user.present? %>
+          <a class="btn dropdown-toggle" data-toggle="dropdown" title="User Options">
+            <span class="caret"></span>
+          </a>
+        <% else %>
+          <a class="btn dropdown-toggle" href="javascript: window.toggleUserForm()">
+            <span>&nbsp;</span>
+          </a>
+        <% end %>
         <ul class="dropdown-menu">
           <li class="change"><a href="javascript: window.toggleUserForm()" title="Change to another person"><small>Change...</small></a></li>
+          <% if @self_user.present? && @current_user.present? && @self_user.id != @current_user.id %>
+            <li class="go_self"><a href="<%= change_path(q: @self_user.email) %>" title="View skills for <%= "#{@self_user.first_name} #{@self_user.last_name}" %>"><small>Go to <%= "#{@self_user.first_name} #{@self_user.last_name}" %></small></a></li>
+          <% end %>
+          <li class="divider"></li>
+          <% if editable %>
+            <li class="self_user"><a href="<%= change_path(q: email, s: "") %>" title="Disallow editing for <%= full_name %>"><small>I'm not <%= first_name %></small></a></li>
+          <% else %>
+            <li class="self_user"><a href="<%= change_path(q: email, s: email) %>" title="Allow editing for <%= full_name %>"><small>I'm <%= first_name %></small></a></li>
+          <% end %>
         </ul>
 
       </div>
@@ -47,7 +69,7 @@
       <form id="skillz_person_form" action="<%= change_path %>" class="form-inline">
         <label for="skillz_person">Person</label>
         <input id="skillz_person" name="q" type="text" class="input-medium" placeholder="Name or email..." data-provide="typeahead" data-source="<%= users = User.order("last_name, first_name").all.map{|i| "#{i.first_name} #{i.last_name}"}; users.inspect %>">
-        <button type="submit" class="btn btn-primary">Change</button>
+        <button type="submit" class="btn btn-primary"><%= @current_user.present? ? "Change" : "Set" %></button>
         <button type="cancel" class="btn btn-link">Cancel</button>
       </form>
 
@@ -84,7 +106,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 
 <script type="text/javascript">
-  var skillzUser = "<%= @current_user.email %>";
+  var skillzUser = "<%= @current_user.email if @current_user.present? %>";
 </script>
 
 <%= javascript_include_tag "application" %>

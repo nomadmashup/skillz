@@ -27,9 +27,38 @@ $ ->
     nav.find(".btn-user .dropdown-toggle span").removeClass("caret").text "Changing..."
     nav.find(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "Loading skills for " + person
 
-#    nav.find("li").not(".person, .change").hide()
-
     window.toggleUserForm()
+
+  $(".btn-user .self_user a").click (e)->
+
+    $("button").addClass "disabled"
+    $("a").click (e)->
+      $(this).css "pointer", "default"
+      e.preventDefault();
+
+    nav = $(this).parents(".navbar")
+    person = nav.find(".btn-user .person strong").text()
+
+    nav.find(".btn-user .self_user a").attr "title", "Updating " + person
+
+    nav.find(".btn-user .dropdown-toggle span").removeClass("caret").text "Updating..."
+    nav.find(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "Updating " + person
+
+  $(".btn-user .go_self a").click (e)->
+
+    $("button").addClass "disabled"
+    $("a").click (e)->
+      $(this).css "pointer", "default"
+      e.preventDefault();
+
+    nav = $(this).parents(".navbar")
+    person = nav.find(".btn-user .go_self small").text().substr("Go to ".length)
+
+    nav.find(".btn-user .person strong").text person
+    nav.find(".btn-user .self_user a").attr "title", "Loading skills for " + person
+
+    nav.find(".btn-user .dropdown-toggle span").removeClass("caret").text "Changing..."
+    nav.find(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "Loading skills for " + person
 
   $(".skill_label").click ->
     row = $(this).parents "tr"
@@ -42,10 +71,6 @@ $ ->
     else
       row.addClass "collapsed"
       $("tr." + $(this).find(".icon-minus").attr("data-target")).hide()
-
-#  $(".skill_label i.icon-minus").click ->
-#
-#  $(".skill_label i.icon-plus").click ->
 
   $(".skills_toggle .skills_expand").click (e)->
     $(".skills_table tr").removeClass("collapsed").show()
