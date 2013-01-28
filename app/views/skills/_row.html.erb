@@ -11,7 +11,7 @@
 
       <!-- Skill Label -->
       <div class="span4 skill_row">
-        <h4>
+        <h4 class="skill_label">
           <i class="icon-minus" data-target="<%= row[:skill].code %>"></i>
           <i class="icon-plus" data-target="<%= row[:skill].code %>"></i>
           <span><%= row[:skill].label %></span>
@@ -19,9 +19,6 @@
             <small><%= row[:skill].description %></small>
           <% end %>
         </h4>
-        <% if row_counter == 0 %>
-          <%= render partial: "skills/expand_collapse" %>
-        <% end %>
       </div>
 
       <div class="span8">
@@ -44,7 +41,7 @@
             %>
             <!-- Dimension Button -->
             <div class="btn-group">
-              <a class="btn dropdown-toggle <%= "#{current_answer[:class]} btn-#{row[:skill].code.parameterize("_")} btn-#{dimension_label.parameterize("_")}" %>" data-toggle="dropdown" href="#" title="<%= current_answer[:tooltip]%>">
+              <a class="btn btn-small dropdown-toggle <%= "#{current_answer[:class]} btn-#{row[:skill].code.parameterize("_")} btn-#{dimension_label.parameterize("_")}" %>" data-toggle="dropdown" href="#" title="<%= current_answer[:tooltip]%>">
                 <i class="icon-exclamation-sign"></i>
                 <span class="current"><%= current_answer[:value] %></span>
                 <span class="caret"></span>

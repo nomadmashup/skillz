@@ -6,7 +6,7 @@ $indent: 20px;
 
 .skills_table {
 
-  margin-bottom: 80px;
+  margin-bottom: 100px;
 
   tr {
 
@@ -16,51 +16,55 @@ $indent: 20px;
     &.skill_depth_4 { h4 { margin-left: 4 * $indent; } }
     &.skill_depth_5 { h4 { margin-left: 5 * $indent; } }
 
-    i.icon-minus, i.icon-plus {
-      margin-right: 5px;
-      cursor: pointer;
-      opacity: 0.123456789;
-      visibility: hidden;
-      &:hover {
-        opacity: 0.61803399;
-      }
-    }
-    &.parent {
+    .skill_label {
       i.icon-minus, i.icon-plus {
-        visibility: visible;
+        margin-right: 5px;
+        opacity: 0.314159;
+        visibility: hidden;
+        //&:hover {
+        //  opacity: 0.61803399;
+        //}
       }
-    }
-    i.icon-plus {
-      display: none;
-    }
-    &.collapsed {
       i.icon-plus {
-        display: inline;
-      }
-      i.icon-minus {
         display: none;
       }
     }
+    &.parent {
+      .skill_label {
+        cursor: pointer;
+        i.icon-minus, i.icon-plus {
+          visibility: visible;
+        }
+      }
+    }
+    &.collapsed {
+      .skill_label {
+        i.icon-plus {
+          display: inline;
+        }
+        i.icon-minus {
+          display: none;
+        }
+      }
+    }
+
     .btn {
       i.icon-exclamation-sign {
         display: none;
         margin-right: 2px;
       }
     }
-    .skill_row {
-      position: relative;
-      .skills_toggle {
-        position: absolute;
-        top: 0;
-        right: 0;
-        opacity: 0.314159;
-        &:hover {
-          opacity: 1.0;
-        }
-      }
-    }
-  }
 
+  }
+}
+
+.skills_toggle {
+  margin-top: 3px;
+  margin-left: 15px;
+  //opacity: 0.314159;
+  //&:hover {
+  //  opacity: 1.0;
+  //}
 }
 
 .got_skillz {
@@ -68,10 +72,9 @@ $indent: 20px;
   margin-bottom: 20px;
 }
 
-.nav {
+.navbar {
   #skillz_person_form {
     display: none;
-    margin-bottom: 0;
     #skillz_person {
       margin-top: 5px;
     }
@@ -80,12 +83,24 @@ $indent: 20px;
       display: none;
     }
   }
+  .btn-user {
+    display: inline-block;
+  }
+  .btn-user, #skillz_person_form {
+    margin: 10px;
+  }
+  .btn-navbar {
+    margin-top: 10px;
+  }
+  .brand {
+    margin-top: 5px;
+  }
   &.edit {
-    .person, .change {
+    .btn-user {
       display: none;
     }
     #skillz_person_form {
-      display: list-item;
+      display: inline-block;
     }
   }
 }

@@ -18,26 +18,34 @@ $ ->
       $(this).css "pointer", "default"
       e.preventDefault();
 
-    nav = $(this).parents(".nav")
+    nav = $(this).parents(".navbar")
     person = $("#skillz_person").val()
 
-    nav.find(".person strong").text person
-    nav.find(".person a").attr "title", "Loading skills for " + person
+    nav.find(".btn-user .person strong").text person
+    nav.find(".btn-user .person").attr "title", "Loading skills for " + person
 
-    nav.find(".change small").text "Changing..."
-    nav.find(".change a").attr "title", "Changing to another person"
+    nav.find(".btn-user .dropdown-toggle span").removeClass("caret").text "Changing..."
+    nav.find(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "Loading skills for " + person
 
-    nav.find("li").not(".person, .change").hide()
+#    nav.find("li").not(".person, .change").hide()
 
     window.toggleUserForm()
 
-  $(".skills_table i.icon-minus").click ->
-    $(this).parents("tr").addClass "collapsed"
-    $("tr." + $(this).attr("data-target")).hide()
+  $(".skill_label").click ->
+    row = $(this).parents "tr"
+    if row.hasClass "collapsed"
+      row.removeClass "collapsed"
+      rows = $ "tr." + $(this).find(".icon-plus").attr("data-target")
+      rows.show()
+      rows.filter(".collapsed").each ->
+        $("tr." + $(this).find(".icon-minus").attr("data-target")).hide()
+    else
+      row.addClass "collapsed"
+      $("tr." + $(this).find(".icon-minus").attr("data-target")).hide()
 
-  $(".skills_table i.icon-plus").click ->
-    $(this).parents("tr").removeClass "collapsed"
-    $("tr." + $(this).attr("data-target")).show()
+#  $(".skill_label i.icon-minus").click ->
+#
+#  $(".skill_label i.icon-plus").click ->
 
   $(".skills_toggle .skills_expand").click (e)->
     $(".skills_table tr").removeClass("collapsed").show()
@@ -50,15 +58,16 @@ $ ->
 parameterize = (value)->
   value.toLowerCase().replace(" ", "_").replace("'", "")
 
+window.showTree
 window.toggleUserForm = ->
   form = $ "#skillz_person_form"
-  nav = form.parents(".nav")
+  nav = form.parents(".navbar")
   nav.toggleClass "edit"
   form.find("input").focus() if nav.hasClass "edit"
 
 window.resetDimension = (skill, dimension)->
   button = $ ".btn.btn-#{parameterize(skill)}.btn-#{parameterize(dimension)}"
-  button.removeClass().addClass "btn dropdown-toggle #{parameterize(skill)} #{parameterize(dimension)}"
+  button.removeClass().addClass "btn btn-small dropdown-toggle #{parameterize(skill)} #{parameterize(dimension)}"
   button.find(".current").html dimension
   button.attr "title", "Click to choose"
   listItems = button.parents(".btn-group").find "ul li"
@@ -71,7 +80,7 @@ window.resetDimension = (skill, dimension)->
 
 window.setDimension = (skill, dimension, value, className, tooltip)=>
   button = $ ".btn.btn-#{parameterize(skill)}.btn-#{parameterize(dimension)}"
-  button.removeClass().addClass "btn dropdown-toggle #{className} btn-#{parameterize(skill)} btn-#{parameterize(dimension)}"
+  button.removeClass().addClass "btn btn-small dropdown-toggle #{className} btn-#{parameterize(skill)} btn-#{parameterize(dimension)}"
   button.find(".current").html value
   button.attr "title", tooltip
   listItems = button.parents(".btn-group").find ".dropdown-menu li"
