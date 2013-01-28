@@ -1,0 +1,5 @@
+label,code,parent,description,sort_order
+HTML,html,,Hypertext Markup Language,100
+HTML5,html5,html,Modern HTML,200
+CSS,css,,Cascading Style Sheets,300
+Javascript,js,,Scripting language,400

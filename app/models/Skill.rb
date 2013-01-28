@@ -1,3 +1,5 @@
+require 'csv'
+
 class Skill < ActiveRecord::Base
 
   has_many :skill_details, inverse_of: :skill, order: "user_id, skill_id, dimension_id"
@@ -17,6 +19,19 @@ class Skill < ActiveRecord::Base
           record.update_attributes! attributes if overwrite
         end
       end
+    end
+
+    path = Rails.root.join('db','seeds','skills.csv')
+    CSV.parse(File.read(path), headers: true) do |row|
+      attributes = {
+        code: row["code"],
+        label: row["label"],
+        parent: row["parent"].present? ? row["parent"] : nil,
+        description: row["description"].present? ? row["description"] : nil,
+        sort_order: row["sort_order"]
+      }
+      record = find_or_create_by_code attributes[:code], attributes
+      record.update_attributes! attributes if overwrite
     end
 
   end
