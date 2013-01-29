@@ -1,5 +1,5 @@
 <ul class="nav nav-pills">
-  <% @row_info[nil].each_with_index do |category, idx| %>
+  <% @row_info[Skill::TOP_PARENT_CODE].each_with_index do |category, idx| %>
     <li class="<%= "active" if idx == 0 %>">
       <a href="#<%= category[:skill].code %>" data-target="#<%= category[:skill].code %>" data-toggle="pill"><%= category[:skill].label %></a>
     </li>
@@ -9,7 +9,7 @@
 <%= render partial: "prev_next" %>
 
 <div class="tab-content">
-  <% @row_info.reject{|k,v| k.blank?}.each do |key, group|  %>
+  <% @row_info.reject{|k,v| Skill::TOP_PARENT_CODE == k}.each do |key, group|  %>
     <div id="<%= key %>" class="tab-pane <%= "active" if "web_development" == key %>">
       <table class="table table-striped skills_table <%= key %>">
         <tbody>
