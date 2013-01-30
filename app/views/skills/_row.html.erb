@@ -1,6 +1,8 @@
 <%
+   depth = row[:skill].depth
    classes = []
-   classes << "skill_depth_#{row[:skill].depth}"
+   classes << "skill_depth_#{depth}"
+   classes << "collapsed" if depth <= 2
    classes << "parent" if row[:parent]
    classes += row[:skill].parents.collect(&:code)
    class_names = classes.inject("") {|value, item| value += "#{item} " }.strip

@@ -80,6 +80,8 @@ $ ->
     $(".skills_table tr").addClass("collapsed").not(".skill_depth_1").hide()
     e.preventDefault()
 
+  $("tr").not(".skill_depth_1").hide()
+
 parameterize = (value)->
   value.toLowerCase().replace(" ", "_").replace("'", "")
 
