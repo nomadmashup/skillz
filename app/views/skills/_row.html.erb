@@ -7,7 +7,7 @@
    classes += row[:skill].parents.collect(&:code)
    class_names = classes.inject("") {|value, item| value += "#{item} " }.strip
 %>
-<tr class="<%= class_names %>">
+<tr class="<%= class_names %>" style="<%= "display: none;" if depth > 2 %>">
   <td>
     <div class="row-fluid">
 
