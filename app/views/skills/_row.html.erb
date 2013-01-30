@@ -4,7 +4,7 @@
    classes << "skill_depth_#{depth}"
    classes << "collapsed" if depth <= 2
    classes << "parent" if row[:parent]
-   classes += JSON.parse(row[:skill].parents).collect{|p| p["code"]}
+   classes += JSON.parse(row[:skill].parents)
    class_names = classes.inject("") {|value, item| value += "#{item} " }.strip
 %>
 <tr class="<%= class_names %>" style="<%= "display: none;" if depth > 2 %>">

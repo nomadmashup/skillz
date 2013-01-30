@@ -34,16 +34,17 @@ class Skill < ActiveRecord::Base
   end
 
   def top_parent
-    @top_parent ||= JSON.parse(parents).first["code"] rescue TOP_PARENT_CODE
+    @top_parent ||= JSON.parse(parents).first rescue TOP_PARENT_CODE
   end
 
   def get_parents
     if @parents.blank?
-      @parents = []
+      @parents = nil
       skill = self
       until TOP_PARENT_CODE == skill.parent do
         skill = Skill.find_by_code(skill.parent)
-        @parents.unshift(skill)
+        @parents ||= []
+        @parents.unshift(skill.code)
       end
     end
     @parents
