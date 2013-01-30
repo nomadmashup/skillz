@@ -38,13 +38,14 @@ class SkillsController < ApplicationController
   end
 
   def index
-    options = DimensionOption.joins(:dimension).order("dimensions.sort_order, dimension_options.sort_order").group_by{|option| option.dimension.label}
     skills = Skill.order(:sort_order).all
+    skill_details = @current_user.skill_details(true) rescue nil
+    dimension_options = DimensionOption.joins(:dimension).order("dimensions.sort_order, dimension_options.sort_order").group_by{|option| option.dimension.label}
     @row_info = skills.map do |skill|
       {
         skill: skill,
-        skill_details: @current_user.present? ? @current_user.skill_details(true) : nil,
-        dimension_options: options,
+        skill_details: skill_details,
+        dimension_options: dimension_options,
         parent: ( skills.select{|s| s.parent == skill.code}.size > 0)
       }
     end.group_by{|r| r[:skill].top_parent}
