@@ -57,8 +57,8 @@
                     <li class="divider" style="<%= "display: none;" if hide_remove %>"></li>
                     <li style="<%= "display: none;" if hide_remove %>"><a href="javascript: window.resetDimension('<%= row[:skill].code %>', '<%= dimension_label %>')">Remove Answer</a></li>
                   </ul>
-                <% else %>
-                  <a class="btn btn-small read_only <%= "#{current_answer[:class]} btn-#{row[:skill].code.parameterize("_")} btn-#{dimension_label.parameterize("_")}" %>" title="<%= current_answer[:tooltip]%>">
+                <% elsif value != dimension_label %>
+                  <a class="btn btn-mini read_only <%= "#{current_answer[:class]} btn-#{row[:skill].code.parameterize("_")} btn-#{dimension_label.parameterize("_")}" %>" title="<%= current_answer[:tooltip]%>">
                     <span class="current"><%= current_answer[:value] %></span>
                   </a>
                 <% end %>
