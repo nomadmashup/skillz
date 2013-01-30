@@ -19,7 +19,7 @@ class Skill < ActiveRecord::Base
         label: row["label"].present? ? row["label"].strip : nil,
         parent: row["parent"].present? ? row["parent"].strip : nil,
         description: row["description"].present? ? row["description"].strip : nil,
-        sort_order: row["sort_order"].present? ? row["sort_order"].strip : nil
+        sort_order: row["sort order"].present? ? row["sort order"].strip : nil
       }
       record = find_or_create_by_code attributes[:code], attributes
       record.update_attributes! attributes if overwrite
