@@ -6,7 +6,7 @@ class Skill < ActiveRecord::Base
   has_many :users, through: :skill_details, uniq: true, order: "users.email"
   has_many :dimensions, through: :skill_details, uniq: true, order: "dimensions.sort_order"
 
-  attr_accessible :code, :label, :description, :parent, :sort_order
+  attr_accessible :code, :label, :description, :parent, :sort_order, :top_parent, :parents, :depth
 
   TOP_PARENT_CODE = "top"
 
@@ -24,30 +24,29 @@ class Skill < ActiveRecord::Base
       record = find_or_create_by_code attributes[:code], attributes
       record.update_attributes! attributes if overwrite
     end
+    Skill.all.each do |skill|
+      skill.update_attributes! parents: skill.get_parents.to_json
+    end
   end
 
   def depth
-    level = 0
-    skill = self
-    until TOP_PARENT_CODE == skill.parent do
-      level += 1
-      skill = Skill.find_by_code(skill.parent)
-    end
-    level
+    @depth ||= JSON.parse(parents).size rescue 0
   end
 
   def top_parent
-    parents.first.code rescue TOP_PARENT_CODE
+    @top_parent ||= JSON.parse(parents).first["code"] rescue TOP_PARENT_CODE
   end
 
-  def parents
-    list = []
-    skill = self
-    until TOP_PARENT_CODE == skill.parent do
-      skill = Skill.find_by_code(skill.parent)
-      list.unshift(skill)
+  def get_parents
+    if @parents.blank?
+      @parents = []
+      skill = self
+      until TOP_PARENT_CODE == skill.parent do
+        skill = Skill.find_by_code(skill.parent)
+        @parents.unshift(skill)
+      end
     end
-    list
+    @parents
   end
 
 end
