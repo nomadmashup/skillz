@@ -51,6 +51,7 @@
             <span>&nbsp;</span>
           </a>
         <% end %>
+
         <ul class="dropdown-menu">
           <li class="change"><a href="javascript: window.toggleUserForm()" title="Change to another person"><small>Change...</small></a></li>
           <% if @self_user.present? && @current_user.present? && @self_user.id != @current_user.id %>
@@ -66,14 +67,18 @@
 
       </div>
 
-      <form id="skillz_person_form" action="<%= change_path %>" class="form-inline">
-        <label for="skillz_person">Person</label>
-        <input id="skillz_person" name="q" type="text" class="input-medium" placeholder="Name or email..." data-provide="typeahead" data-source="<%= users = User.order("last_name, first_name").all.map{|i| "#{i.first_name} #{i.last_name}"}; users.inspect %>">
-        <button type="submit" class="btn btn-primary"><%= @current_user.present? ? "Change" : "Set" %></button>
-        <button type="cancel" class="btn btn-link">Cancel</button>
-      </form>
+      <div class="btn-group btn-form">
+        <form id="skillz_person_form" action="<%= change_path %>" class="form-inline">
+          <label for="skillz_person">Person</label>
+          <input id="skillz_person" name="q" type="text" class="input-medium" placeholder="Name or email..." data-provide="typeahead" data-source="<%= users = User.order("last_name, first_name").all.map{|i| "#{i.first_name} #{i.last_name}"}; users.inspect %>">
+          <button type="submit" class="btn btn-primary"><%= @current_user.present? ? "Change" : "Set" %></button>
+          <button type="cancel" class="btn btn-link">Cancel</button>
+        </form>
+      </div>
 
-      <a class="brand hidden-phone" href="<%= root_path %>">Skillz</a>
+      <a class="brand" href="<%= root_path %>" title="Got Skillz"><span class="hidden-phone">Skillz</span><span class="visible-phone">Sz</span></a>
+
+      <br>
 
       <div class="container-fluid nav-collapse">
         <ul class="nav">

@@ -69,27 +69,24 @@ $indent: 20px;
 }
 
 .navbar {
-  #skillz_person_form {
-    display: none;
-    #skillz_person {
-      margin-top: 5px;
-    }
-
-    label[for=skillz_person] {
-      display: none;
-    }
+  .navbar-inner {
+    padding-bottom: 2px;
   }
   .btn-user {
     display: inline-block;
   }
-  .btn-user, #skillz_person_form {
-    margin: 10px;
+  .brand.hide {
+    display: none;
   }
-  .btn-navbar {
-    margin-top: 10px;
-  }
-  .brand {
-    margin-top: 5px;
+  #skillz_person_form {
+    display: none;
+    margin: 0;
+    label[for=skillz_person] {
+      display: none;
+    }
+    #skillz_person {
+      margin: 0 2px 0 0;
+    }
   }
   &.edit {
     .btn-user {
@@ -99,4 +96,5 @@ $indent: 20px;
       display: inline-block;
     }
   }
+
 }
