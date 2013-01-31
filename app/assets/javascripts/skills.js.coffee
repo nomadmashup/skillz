@@ -90,11 +90,7 @@ window.toggleUserForm = ->
   form = $ "#skillz_person_form"
   nav = form.parents(".navbar")
   nav.toggleClass "edit"
-  if nav.hasClass "edit"
-    form.find("input").focus()
-    nav.find(".brand .visible-phone:visible").parent().addClass "hide"
-  else
-    $(".brand .visible-phone").parent().removeClass "hide"
+  form.find("input").focus() if nav.hasClass "edit"
 
 window.resetDimension = (skill, dimension)->
   button = $ ".btn.btn-#{parameterize(skill)}.btn-#{parameterize(dimension)}"
