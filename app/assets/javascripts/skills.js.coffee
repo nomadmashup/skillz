@@ -82,6 +82,10 @@ $ ->
 
   $("tr").not(".skill_depth_1").hide()
 
+  $("form.skills_search").submit (e)->
+    e.preventDefault()
+    alert "You wish you could search for '#{$(this).find("input").val()}'"
+
 parameterize = (value)->
   value.toLowerCase().replace(" ", "_").replace("'", "")
 
