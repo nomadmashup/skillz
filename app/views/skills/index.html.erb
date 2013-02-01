@@ -8,6 +8,11 @@
 
 <%= render partial: "prev_next" %>
 
+<div class="row-fluid">
+  <%= render partial: "skills/expand_collapse" %>
+  <%= render partial: "skills/search_field" %>
+</div>
+
 <div class="tab-content">
   <% @row_info.reject{|k,v| Skill::TOP_PARENT_CODE == k}.each do |key, group|  %>
     <div id="<%= key %>" class="tab-pane <%= "active" if "web_development" == key %>">

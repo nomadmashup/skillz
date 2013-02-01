@@ -85,12 +85,15 @@ $ ->
 parameterize = (value)->
   value.toLowerCase().replace(" ", "_").replace("'", "")
 
-window.showTree
 window.toggleUserForm = ->
   form = $ "#skillz_person_form"
   nav = form.parents(".navbar")
   nav.toggleClass "edit"
-  form.find("input").focus() if nav.hasClass "edit"
+  if nav.hasClass "edit"
+    $("a[data-target=\".nav-collapse\"]").addClass "hidden-phone"
+    form.find("input").focus()
+  else
+    $("a[data-target=\".nav-collapse\"]").removeClass "hidden-phone"
 
 window.resetDimension = (skill, dimension)->
   button = $ ".btn.btn-#{parameterize(skill)}.btn-#{parameterize(dimension)}"

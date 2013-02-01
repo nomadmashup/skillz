@@ -2,14 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$indent: 20px;
-
 .skills_table {
 
   margin-bottom: 100px;
 
   tr {
 
+    $indent: 20px;
     &.skill_depth_1 { h4 { margin-left: $indent; } }
     &.skill_depth_2 { h4 { margin-left: 2 * $indent; } }
     &.skill_depth_3 { h4 { margin-left: 3 * $indent; } }
@@ -58,9 +57,14 @@ $indent: 20px;
   }
 }
 
+
 .skills_toggle {
-  margin-top: 3px;
-  margin-left: 15px;
+  margin: 2px 8px 0 0;
+}
+
+.skills_search {
+  margin: 0 0 10px 0;
+  label { display: none; }
 }
 
 .got_skillz {
