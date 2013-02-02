@@ -73,7 +73,7 @@ $ ->
     updater: window.searchSkill
     minLength: 1
 
-  $("tr.skill_depth_1").css({opacity: "0.314159265359"}).show().animate {opacity: "1.0"}, 618.03399 #ms
+  $("tr.skill_depth_1").show();
 
 parameterize = (value)->
   value.toLowerCase().replace(" ", "_").replace("'", "")
@@ -145,7 +145,7 @@ window.setSkillCategory = (category, show = true)->
   window.scrollTo 0, 0
 
 disableActions = ->
-  $("body .overlay").fadeIn(3141.59265359);
+  $("body .overlay").show();
   $("body").css("overflow", "hidden");
 
 window.searchSkill = (item)->
