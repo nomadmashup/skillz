@@ -1,4 +1,4 @@
 <form action="#" class="skills_search">
   <label for="skills_search_value">Search</label>
-  <input id="skills_search_value" type="text" name="s" class="input-medium search-query" placeholder="Enter a skill..." data-provide="typeahead" data-source="<%= skills = Skill.order("sort_order").all.map{|s| s.label}; skills.inspect %>">
+  <input id="skills_search_value" type="text" name="s" class="input-medium search-query" placeholder="Enter a skill...">
 </form>

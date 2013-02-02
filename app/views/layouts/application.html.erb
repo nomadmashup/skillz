@@ -54,8 +54,12 @@
 
         <ul class="dropdown-menu">
           <li class="change"><a href="javascript: window.toggleUserForm()" title="Change to another person"><small>Change...</small></a></li>
-          <% if @self_user.present? && @current_user.present? && @self_user.id != @current_user.id %>
-            <li class="go_self"><a href="<%= change_path(q: @self_user.email) %>" title="View skills for <%= "#{@self_user.first_name} #{@self_user.last_name}" %>"><small>Go to <%= "#{@self_user.first_name} #{@self_user.last_name}" %></small></a></li>
+          <% if @self_user.present? && @current_user.present? %>
+            <% if @self_user.id == @current_user.id %>
+              <li class="disabled"><a><small>This is you</small></a></li>
+            <% else %>
+              <li class="go_self"><a href="<%= change_path(q: @self_user.email) %>" title="View skills for <%= "#{@self_user.first_name} #{@self_user.last_name}" %> (you)"><small>Go to <%= "#{@self_user.first_name} #{@self_user.last_name}" %></small><small class="muted">  (you)</small></a></li>
+            <% end %>
           <% end %>
           <li class="divider"></li>
           <% if editable %>
@@ -104,7 +108,9 @@
 <!-- Placed at the end of the document so the pages load faster -->
 
 <script type="text/javascript">
-  var skillzUser = "<%= @current_user.email if @current_user.present? %>";
+  var skillzUser = '<%= @current_user.email.html_safe if @current_user.present? %>';
+  var skillzUsers = <%= User.order("last_name, first_name").all.map{|i| "#{i.first_name} #{i.last_name}"}.inspect.html_safe %>;
+  var skills = <%= Skill.order("sort_order").all.map{|s| s.label}.inspect.html_safe %>;
 </script>
 
 <%= javascript_include_tag "application" %>

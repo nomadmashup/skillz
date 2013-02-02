@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
+
   $('a[data-toggle="pill"]').on 'show', (e)->
     current = $(e.target).attr("data-target").substr 1, $(e.target).attr("data-target").length - 1
     window.setSkillCategory current, false
@@ -13,10 +14,7 @@ $ ->
 
   $("#skillz_person_form button[type=submit]").click (e)->
 
-    $("button").addClass "disabled"
-    $("a").click (e)->
-      $(this).css "pointer", "default"
-      e.preventDefault();
+    disableActions()
 
     nav = $(this).parents(".navbar")
     person = $("#skillz_person").val()
@@ -29,12 +27,9 @@ $ ->
 
     window.toggleUserForm()
 
-  $(".btn-user .self_user a").click (e)->
+  $(".btn-user .self_user a, .btn-user a.btn.person").click (e)->
 
-    $("button").addClass "disabled"
-    $("a").click (e)->
-      $(this).css "pointer", "default"
-      e.preventDefault();
+    disableActions()
 
     nav = $(this).parents(".navbar")
     person = nav.find(".btn-user .person strong").text()
@@ -46,13 +41,10 @@ $ ->
 
   $(".btn-user .go_self a").click (e)->
 
-    $("button").addClass "disabled"
-    $("a").click (e)->
-      $(this).css "pointer", "default"
-      e.preventDefault();
+    disableActions()
 
     nav = $(this).parents(".navbar")
-    person = nav.find(".btn-user .go_self small").text().substr("Go to ".length)
+    person = nav.find(".btn-user .go_self small").text().replace("  (you)", "").substr("Go to ".length)
 
     nav.find(".btn-user .person strong").text person
     nav.find(".btn-user .self_user a").attr "title", "Loading skills for " + person
@@ -85,6 +77,16 @@ $ ->
   $("form.skills_search").submit (e)->
     e.preventDefault()
     alert "You wish you could search for '#{$(this).find("input").val()}'"
+
+  $("#skillz_person").typeahead
+    source: window.skillzUsers
+    updater: window.changePerson
+    minLength: 1
+
+  $("#skills_search_value").typeahead
+    source: window.skills
+    updater: window.searchSkill
+    minLength: 1
 
 parameterize = (value)->
   value.toLowerCase().replace(" ", "_").replace("'", "")
@@ -154,3 +156,16 @@ window.setSkillCategory = (category, show = true)->
     $(".pager .next").addClass "disabled"
 
   window.scrollTo 0, 0
+
+disableActions = ->
+  $("button").addClass "disabled"
+  $("a").css("pointer", "default").click (e)->
+    e.preventDefault();
+
+window.searchSkill = (item)->
+  # do stuff here
+  item
+
+window.changePerson = (item)->
+  # do stuff here
+  item
