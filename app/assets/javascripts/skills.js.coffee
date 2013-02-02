@@ -59,8 +59,6 @@ $ ->
     $(".skills_table tr").addClass("collapsed").not(".skill_depth_1").hide()
     e.preventDefault()
 
-  $("tr").not(".skill_depth_1").hide()
-
   $("form.skills_search").submit (e)->
     e.preventDefault()
     alert "You wish you could search for '#{$(this).find("input").val()}'"
@@ -74,6 +72,8 @@ $ ->
     source: window.skills
     updater: window.searchSkill
     minLength: 1
+
+  $("tr.skill_depth_1").css({opacity: "0.314159265359"}).show().animate {opacity: "1.0"}, 618.03399 #ms
 
 parameterize = (value)->
   value.toLowerCase().replace(" ", "_").replace("'", "")

@@ -29,6 +29,8 @@ body .overlay {
 
   tr {
 
+    display: none;
+
     $indent: 20px;
     &.skill_depth_1 { h4 { margin-left: $indent; } }
     &.skill_depth_2 { h4 { margin-left: 2 * $indent; } }
