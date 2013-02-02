@@ -158,6 +158,7 @@ window.setSkillCategory = (category, show = true)->
   window.scrollTo 0, 0
 
 disableActions = ->
+  $("a[data-target=\".nav-collapse\"]").addClass "hidden-phone"
   $("button").addClass "disabled"
   $("a").css("pointer", "default").click (e)->
     e.preventDefault();
