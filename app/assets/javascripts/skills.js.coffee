@@ -145,10 +145,8 @@ window.setSkillCategory = (category, show = true)->
   window.scrollTo 0, 0
 
 disableActions = ->
-  $("a[data-target=\".nav-collapse\"]").addClass "hidden-phone"
-  $("button").addClass "disabled"
-  $("a").css("pointer", "default").click (e)->
-    e.preventDefault();
+  $("body .overlay").fadeIn(3141.59265359);
+  $("body").css("overflow", "hidden");
 
 window.searchSkill = (item)->
   # do stuff here
