@@ -13,42 +13,29 @@ $ ->
     e.preventDefault()
 
   $("#skillz_person_form button[type=submit]").click (e)->
-
+    window.toggleUserForm()
     disableActions()
-
     nav = $(this).parents(".navbar")
     person = $("#skillz_person").val()
-
     nav.find(".btn-user .person strong").text person
     nav.find(".btn-user .person").attr "title", "Loading skills for " + person
-
     nav.find(".btn-user .dropdown-toggle span").removeClass("caret").text "Changing..."
     nav.find(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "Loading skills for " + person
 
-    window.toggleUserForm()
-
   $(".btn-user .self_user a, .btn-user a.btn.person").click (e)->
-
     disableActions()
-
     nav = $(this).parents(".navbar")
     person = nav.find(".btn-user .person strong").text()
-
     nav.find(".btn-user .self_user a").attr "title", "Updating " + person
-
     nav.find(".btn-user .dropdown-toggle span").removeClass("caret").text "Updating..."
     nav.find(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "Updating " + person
 
   $(".btn-user .go_self a").click (e)->
-
     disableActions()
-
     nav = $(this).parents(".navbar")
     person = nav.find(".btn-user .go_self small").text().replace("  (you)", "").substr("Go to ".length)
-
     nav.find(".btn-user .person strong").text person
     nav.find(".btn-user .self_user a").attr "title", "Loading skills for " + person
-
     nav.find(".btn-user .dropdown-toggle span").removeClass("caret").text "Changing..."
     nav.find(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "Loading skills for " + person
 
