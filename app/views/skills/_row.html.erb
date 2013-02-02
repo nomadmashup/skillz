@@ -26,20 +26,19 @@
       <div class="span8">
         <% if @current_user.present? %>
           <div class="btn-toolbar">
-            <% row[:dimension_options].keys.each do |dimension_label| %>
+            <% row[:dimension_options].each do |dimension_label, dimension_options| %>
               <%
-                 dimension = Dimension.find_by_label(dimension_label)
-                 detail = row[:skill_details].where(skill_id: row[:skill].id, dimension_id: dimension.id)
-                 value = dimension_label
+                 user_value = row[:skill_details].select{|sd| sd.skill_id == row[:skill].id && sd.dimension_id == dimension_options.first.id}
                  editable = @self_user.present? && @current_user.present? && @self_user.id == @current_user.id
                  tooltip = editable ? "Click to choose" : "No answer"
-                 if detail.count > 0
-                   value = detail.first.value
-                   tooltip = dimension.dimension_options.find_by_short_label(value).long_label
+                 display_value = dimension_label
+                 if user_value.present?
+                   display_value = user_value.first.value
+                   tooltip = dimension_options.select{|dopt| dopt.short_label == user_value.first.value}.first.long_label
                  end
                  current_answer = {
-                   value: value,
-                   class: get_class_name(value.parameterize("_")),
+                   value: display_value,
+                   class: get_class_name(display_value.parameterize("_")),
                    tooltip: tooltip
                  }
               %>
@@ -53,13 +52,13 @@
                   </a>
                   <ul class="dropdown-menu">
                     <% row[:dimension_options][dimension_label].each do |option| %>
-                      <li style="<%= "display: none;" if option.short_label == value %>"><a href="javascript: window.setDimension('<%= row[:skill].code %>', '<%= dimension_label %>', '<%= option.short_label %>', '<%= get_class_name(option.short_label.parameterize("_")) %>', '<%= option.long_label %>')"><%= option.long_label %></a></li>
+                      <li style="<%= "display: none;" if option.short_label == display_value %>"><a href="javascript: window.setDimension('<%= row[:skill].code %>', '<%= dimension_label %>', '<%= option.short_label %>', '<%= get_class_name(option.short_label.parameterize("_")) %>', '<%= option.long_label %>')"><%= option.long_label %></a></li>
                     <% end %>
                     <% hide_remove = (dimension_label == current_answer[:value]) %>
                     <li class="divider" style="<%= "display: none;" if hide_remove %>"></li>
                     <li style="<%= "display: none;" if hide_remove %>"><a href="javascript: window.resetDimension('<%= row[:skill].code %>', '<%= dimension_label %>')">Remove Answer</a></li>
                   </ul>
-                <% elsif value != dimension_label %>
+                <% elsif display_value != dimension_label %>
                   <a class="btn btn-mini read_only <%= "#{current_answer[:class]} btn-#{row[:skill].code.parameterize("_")} btn-#{dimension_label.parameterize("_")}" %>" title="<%= current_answer[:tooltip]%>">
                     <span class="current"><%= current_answer[:value] %></span>
                   </a>
