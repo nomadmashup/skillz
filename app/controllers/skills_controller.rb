@@ -18,8 +18,8 @@ class SkillsController < ApplicationController
 
   def change
 
-    new_person = User.find_by_first_name params[:q]
-    new_person = User.find_by_last_name params[:q] if new_person.blank?
+    new_person = User.find_by_first_name params[:q].titleize
+    new_person = User.find_by_last_name params[:q].titleize if new_person.blank?
     new_person = User.find_by_email params[:q] if new_person.blank?
     if new_person.blank?
       matches = User.all.select{|u| "#{u.first_name} #{u.last_name}" == params[:q]}
