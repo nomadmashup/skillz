@@ -27,8 +27,9 @@ $ ->
     nav = $(this).parents(".navbar")
     person = nav.find(".btn-user .person strong").text()
     nav.find(".btn-user .self_user a").attr "title", "Updating " + person
-    nav.find(".btn-user .dropdown-toggle span").removeClass("caret").text "Updating..."
-    nav.find(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "Updating " + person
+    action = if $(this).hasClass("person") then "Reloading" else "Updating"
+    nav.find(".btn-user .dropdown-toggle span").removeClass("caret").text "#{action}..."
+    nav.find(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "#{action} #{person}"
 
   $(".btn-user .go_self a").click (e)->
     disableActions()
@@ -72,6 +73,12 @@ $ ->
     source: (skill["label"] for skill in window.skills)
     updater: window.searchSkill
     minLength: 1
+
+  $(".got_skillz a").click (e)->
+    person = $(".btn-user .person strong").text()
+    $(".btn-user .dropdown-toggle span").removeClass("caret").text "Reloading..."
+    $(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "Reloading " + person
+    disableActions()
 
   $("tr.skill_depth_1").show();
 
@@ -145,8 +152,12 @@ window.setSkillCategory = (category, show = true)->
   window.scrollTo 0, 0
 
 disableActions = ->
-  $("body .overlay").show();
-  $("body").css("overflow", "hidden");
+  window.scrollTo 0, 0
+  $("a[data-target=\".nav-collapse\"]").addClass "hidden-phone"
+  $("body .overlay").fadeIn 444.4 #ms
+  $("body").css "overflow", "hidden"
+  $(".btn.person, .btn.dropdown-toggle").css("cursor", "default").click (e)->
+    e.preventDefault()
 
 window.searchSkill = (item)->
   # do stuff here
