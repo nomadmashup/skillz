@@ -174,5 +174,6 @@ window.searchSkill = (item)->
   item
 
 window.changePerson = (item)->
+  $("#skillz_person_form input").val item
   $("#skillz_person_form button[type=submit]").click()
   item
