@@ -64,12 +64,12 @@ $ ->
     alert "You wish you could search for '#{$(this).find("input").val()}'"
 
   $("#skillz_person").typeahead
-    source: window.skillzUsers
+    source: ("#{user["first_name"]} #{user["last_name"]}" for user in window.skillzUsers)
     updater: window.changePerson
     minLength: 1
 
   $("#skills_search_value").typeahead
-    source: window.skills
+    source: (skill["label"] for skill in window.skills)
     updater: window.searchSkill
     minLength: 1
 
