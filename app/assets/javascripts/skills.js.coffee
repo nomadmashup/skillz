@@ -160,6 +160,7 @@ disableActions = ->
     e.preventDefault()
 
 window.searchSkill = (item)->
+  $("#skills_search_value").val item
   skill = (skill for skill in window.skills when skill["label"] == item)
   if skill.length > 0
     $("tr").addClass("collapsed").hide()
