@@ -110,7 +110,7 @@
 <script type="text/javascript">
   var skillzUser = '<%= @current_user.email.html_safe if @current_user.present? %>';
   var skillzUsers = <%= User.select("first_name, last_name").order("last_name, first_name").all.to_json.html_safe %>;
-  var skills = <%= Skill.select("label, parent, parents").order("sort_order").all.to_json.html_safe %>;
+  var skills = <%= Skill.select("code, label, parent, parents").order("sort_order").all.to_json.html_safe %>;
 </script>
 
 <%= javascript_include_tag "application" %>

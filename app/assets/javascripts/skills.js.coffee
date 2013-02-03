@@ -62,7 +62,7 @@ $ ->
 
   $("form.skills_search").submit (e)->
     e.preventDefault()
-    alert "You wish you could search for '#{$(this).find("input").val()}'"
+    window.searchSkill $(this).find("input").val()
 
   $("#skillz_person").typeahead
     source: ("#{user["first_name"]} #{user["last_name"]}" for user in window.skillzUsers)
@@ -161,17 +161,24 @@ disableActions = ->
 
 window.searchSkill = (item)->
   $("#skills_search_value").val item
-  skill = (skill for skill in window.skills when skill["label"] == item)
+  skill = (skill for skill in window.skills when skill["label"].toLowerCase() == item.toLowerCase())
   if skill.length > 0
-    $("tr").addClass("collapsed").hide()
-    $("tr.skill_depth_1").show()
-    parents = JSON.parse skill[0]["parents"]
-    window.setSkillCategory parents[0]
-    subParents = parents.slice 1
-    ($("i.icon-plus[data-target=#{parent}]").click() for parent in subParents)
-    row = $("i.icon-plus[data-target=#{parents[parents.length - 1]}]").parents("tr")
-    top = row.position()['top']
-    window.scrollTo 0, top if top
+    if skill[0]["parents"] == "null"
+      window.setSkillCategory skill[0]["code"]
+      $("ul.nav a[data-target=##{skill[0]["code"]}]").effect "highlight", 618
+    else
+      $("tr").addClass("collapsed").hide()
+      $("tr.skill_depth_1").show()
+      parents = JSON.parse skill[0]["parents"]
+      window.setSkillCategory parents[0]
+      subParents = parents.slice 1
+      ($("i.icon-plus[data-target=#{parent}]").click() for parent in subParents)
+      row = $("i.icon-plus[data-target=" + skill[0]["code"] + "]").parents("tr td")
+      rowTop = row.position().top
+      window.scrollTo 0, rowTop - $(window).height() / 2 + row.height() / 2 if rowTop
+      row.effect "highlight", 618
+  else
+    alert "No '#{item}' for you!"
   item
 
 window.changePerson = (item)->
