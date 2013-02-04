@@ -45,7 +45,7 @@
               <!-- Dimension Button -->
               <div class="btn-group">
                 <% if editable %>
-                  <a class="btn btn-small dropdown-toggle <%= "#{current_answer[:class]} btn-#{row[:skill].code.parameterize("_")} btn-#{dimension_label.parameterize("_")}" %>" data-toggle="dropdown" href="#" title="<%= current_answer[:tooltip]%>">
+                  <a class="btn btn-mini dropdown-toggle <%= "#{current_answer[:class]} btn-#{row[:skill].code.parameterize("_")} btn-#{dimension_label.parameterize("_")}" %>" data-toggle="dropdown" href="#" title="<%= current_answer[:tooltip]%>">
                     <i class="icon-exclamation-sign"></i>
                     <span class="current"><%= current_answer[:value] %></span>
                     <span class="caret"></span>

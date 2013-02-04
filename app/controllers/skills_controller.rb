@@ -6,7 +6,7 @@ class SkillsController < ApplicationController
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
       username == "con" && password == "bestboss"
-    end
+    end unless Rails.env.development?
   end
 
   def set_user
