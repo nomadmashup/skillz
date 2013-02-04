@@ -23,13 +23,16 @@
         </h4>
       </div>
 
-      <div class="span8">
+      <%
+         editable = @self_user.present? && @current_user.present? && @self_user.id == @current_user.id
+         if editable || row[:skill_details].select{|sd| sd.skill_id == row[:skill].id}.length > 0
+      %>
+        <div class="span8">
         <% if @current_user.present? %>
           <div class="btn-toolbar">
             <% row[:dimension_options].each do |dimension_label, dimension_options| %>
               <%
                  user_value = row[:skill_details].select{|sd| sd.skill_id == row[:skill].id && sd.dimension_id == dimension_options.first.id}
-                 editable = @self_user.present? && @current_user.present? && @self_user.id == @current_user.id
                  tooltip = editable ? "Click to choose" : "No answer"
                  display_value = dimension_label
                  if user_value.present?
@@ -68,7 +71,7 @@
           </div>
         <% end %>
       </div>
-
+      <% end %>
     </div>
   </td>
 </tr>

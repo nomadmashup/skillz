@@ -22,7 +22,7 @@ body .overlay {
 
     display: none;
 
-    $indent: 20px;
+    $indent: 15px;
     &.skill_depth_1 { h4 { margin-left: $indent; } }
     &.skill_depth_2 { h4 { margin-left: 2 * $indent; } }
     &.skill_depth_3 { h4 { margin-left: 3 * $indent; } }
