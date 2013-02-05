@@ -39,7 +39,7 @@ class SkillsController < ApplicationController
 
   def index
     skills = Skill.order(:sort_order).all
-    skill_details = @current_user.skill_details(true) rescue nil
+    skill_details = @current_user.skill_details(true) rescue []
     dimension_options = DimensionOption.joins(:dimension).select("dimensions.id, dimensions.label, dimensions.sort_order, dimension_options.short_label, dimension_options.long_label").order("dimensions.sort_order, dimension_options.sort_order").group_by{|option| option[:label]}
     @row_info = skills.map do |skill|
       {
