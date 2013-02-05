@@ -68,7 +68,14 @@ william.hertling@hp.com:
   first_name: "Will"
   last_name: "Hertling"
   project: "Smart Pubs"
-
+mark.vaughn@hp.com:
+  first_name: "Mark"
+  last_name: "Vaughn"
+  project: "Dagwood"
+pam.lennan@hp.com:
+  first_name: "Pam"
+  last_name: "Lennan"
+  project: "Live Photo"
 
 
 

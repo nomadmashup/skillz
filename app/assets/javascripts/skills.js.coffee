@@ -97,7 +97,7 @@ window.toggleUserForm = ->
 
 window.resetDimension = (skill, dimension)->
   button = $ ".btn.btn-#{parameterize(skill)}.btn-#{parameterize(dimension)}"
-  button.removeClass().addClass "btn btn-small dropdown-toggle #{parameterize(skill)} #{parameterize(dimension)}"
+  button.attr "class", "btn btn-mini dropdown-toggle btn-#{parameterize(skill)} btn-#{parameterize(dimension)}"
   button.find(".current").html dimension
   button.attr "title", "Click to choose"
   listItems = button.parents(".btn-group").find "ul li"
@@ -110,7 +110,7 @@ window.resetDimension = (skill, dimension)->
 
 window.setDimension = (skill, dimension, value, className, tooltip)=>
   button = $ ".btn.btn-#{parameterize(skill)}.btn-#{parameterize(dimension)}"
-  button.removeClass().addClass "btn btn-small dropdown-toggle #{className} btn-#{parameterize(skill)} btn-#{parameterize(dimension)}"
+  button.attr "class", "btn btn-mini dropdown-toggle #{className} btn-#{parameterize(skill)} btn-#{parameterize(dimension)}"
   button.find(".current").html value
   button.attr "title", tooltip
   listItems = button.parents(".btn-group").find ".dropdown-menu li"
