@@ -31,6 +31,10 @@ $ ->
     nav.find(".btn-user .dropdown-toggle span").removeClass("caret").text "#{action}..."
     nav.find(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "#{action} #{person}"
 
+  $("a.toggle_form").click (e)->
+    window.toggleUserForm()
+    e.preventDefault()
+
   $(".btn-user .go_self a").click (e)->
     disableActions()
     nav = $(this).parents(".navbar")
@@ -94,6 +98,7 @@ window.toggleUserForm = ->
     form.find("input").focus()
   else
     $("a[data-target=\".nav-collapse\"]").removeClass "hidden-phone"
+  false
 
 window.resetDimension = (skill, dimension)->
   button = $ ".btn.btn-#{parameterize(skill)}.btn-#{parameterize(dimension)}"

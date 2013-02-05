@@ -37,7 +37,7 @@
 
       <div class="btn-group btn-user">
 
-        <a class="btn person <%= "no_current" unless @current_user.present? %>" href="<%= @current_user.present? ? root_path : "javascript: window.toggleUserForm()" %>" title="<%= title %>">
+        <a class="btn person <%= "no_current toggle_form" unless @current_user.present? %>" href="<%= @current_user.present? ? root_path : "#" %>" title="<%= title %>">
           <i class="icon-user"></i>
           <strong><%= full_name %></strong>
         </a>
@@ -47,13 +47,13 @@
             <span class="caret"></span>
           </a>
         <% else %>
-          <a class="btn dropdown-toggle" href="javascript: window.toggleUserForm()">
+          <a class="btn dropdown-toggle toggle_form" href="#">
             <span>&nbsp;</span>
           </a>
         <% end %>
 
         <ul class="dropdown-menu">
-          <li class="change"><a href="javascript: window.toggleUserForm()" title="See other people's skills"><small>View somebody else...</small></a></li>
+          <li class="change"><a class="toggle_form" href="#" title="See other people's skills"><small>View somebody else...</small></a></li>
           <% if @self_user.present? && @current_user.present? %>
             <% if @self_user.id == @current_user.id %>
               <li class="disabled"><a><small>This is you</small></a></li>
