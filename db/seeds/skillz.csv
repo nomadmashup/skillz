@@ -1,341 +1,1 @@
-label,code count,code,parent,parent count,sort order,description
-,,top,,,,
-Web Development,1,web_development,top,1,100,
-Fundamentals,1,fundamentals,web_development,1,110,
-HTML,1,html,fundamentals,1,120,Hypertext Markup Language
-HTML 5,1,html5,html,1,130,Modern HTML
-<canvas>,1,canvas,html5,1,140,Drawing element used for 2D/3D
-Sockets,1,sockets,html5,1,150,Real-time bilateral connections
-Local storage,1,local_storage,html5,1,160,Client-side
-POSH,1,posh,html,1,170,Plain Old Semantic HTML
-Microformats,1,microformats,posh,1,180,"addresses, locations, numbers (phone, SSN), etc."
-HAML,1,haml,html,1,190,Markdown language
-Browser compatibility,1,html_compatibility,html,1,200,HTML issues
-Validation,1,html_valid,html_compatibility,1,210,W3C standards-based HTML validation
-CSS,1,css,fundamentals,1,220,Cascading Style Sheets
-CSS3,1,css3,css,1,230,Modern CSS
-SASS,1,sass,css,1,240,Syntactically Awesome Style Sheets
-SCSS,1,scss,sass,1,250,updated syntax for SASS
-Box Model,1,box,css,1,260,first principles
-Print stylesheets,1,print_stylesheets,css,1,270,hard copy perfection
-Media Queries,1,media_query,css,1,280,device responsive CSS
-Optimization,1,css_optimization,css,1,290,"load times, render tree, etc."
-Browser compatibility,1,css_compatibility,css,1,300,CSS issues
-Validation,1,css_valid,css_compatibility,1,310,W3C standards-based CSS validation
-Post-processing,1,post_css,css,1,320,"style sheet compression, obfuscation, etc."
-Javascript,1,js,fundamentals,1,330,scripting language
-jQuery,1,jquery,js,1,340,ubiquitous javascript framework/toolkit
-jQuery UI,1,jquery_ui,jquery,1,350,widgets/components built on jQuery
-Coffeescript,1,coffeescript,js,1,360,minimalist syntax/markdown language for javascript
-Client-side templates,1,client_side_templates,js,1,370,
-JSON,1,json,js,1,380,Javascript Simple Object Notation
-Jasmine,1,jasmine,js,1,390,Javascript spec framework
-Browser compatibility,1,js_compatibility,js,1,400,Javascript issues
-Post-processing,1,post_js,js,1,410,"script compression, obfuscation, etc."
-XML,1,xml,web_development,1,420,Extensible Markup Language
-XPath,1,xpath,xml,1,430,XML query language
-XSLT,1,xslt,xml,1,440,style transformations
-XHTML,1,xhtml,xml,1,450,HTML that is well-formed XML
-Schema,1,schema,xml,1,460,document structure definition
-Social media ,1,social_media,web_development,1,470,
-Social integration,1,social_integration,social_media,1,480,"Socializing existing apps, sharing layer"
-Facebook app,1,fb_apps,social_media,1,490,design/architecture
-Facebook graph,1,fb_api,fb_apps,1,500,"API, schema, etc."
-Twitter API,1,twitter_api,social_media,1,510,
-Mobile web design,1,mobile_web,web_development,1,520,"browsers, devices, etc."
-Responsive design,1,responsive_web,mobile_web,1,530,device spectrum
-Tablet design,1,tablet_design,mobile_web,1,540,
-Rails,1,rails,web_development,1,550,The second R in RoR
-Asset pipeline,1,asset,rails,1,560,CSS/JS/image processor in rails 3
-Rack,1,rack,rails,1,570,application framework
-Mountable Engine,1,engine,rack,1,580,embedable app/component
-RSpec,1,rspec,rails,1,590,test framework
-RR,1,rr,rspec,1,600,"matcher library for Rspec, including stubs/mocks"
-Factory Girl,1,factory,rspec,1,610,test data setup
-Spork,1,spork,rspec,1,620,spec environment streamlining
-ActiveAdmin,1,aa,rails,1,630,backend administration
-Authentication,1,authentication,rails,1,640,
-Basic,1,basic,authentication,1,650,
-Digest,1,digest,authentication,1,660,
-eCommerce,1,ecommerce,web_development,1,670,
-PayPal,1,paypal,ecommerce,1,680,
-Credit Card,1,credit_card,ecommerce,1,690,transaction processing
-Gift Cards,1,gift_card,ecommerce,1,700,
-HP eCommerce,1,hp_ecommerce,ecommerce,1,710,"RPS online stores, HP shopping, etc."
-User Management,1,user,web_development,1,720,
-OAUTH,1,oauth,user,1,730,open standard for 3rd-party authentication
-Devise,1,devise,user,1,740,ruby gem
-OpenID,1,open_id,user,1,750,"Authentication using Google, Yahoo, Facebook, etc."
-Active Directory,1,active_directory,user,1,760,HP employee database
-CMS,1,cms,web_development,1,770,Content management system
-Accessibility,1,accessibility,web_development,1,780,
-Compliance,1,compliance,accessibility,1,790,
-App Development,1,app_development,top,1,800,
-Native Device,1,native,app_development,1,810,"phone, tablet, reader, etc."
-iOS,1,ios,native,1,820,
-Android,1,android,native,1,830,
-Windows 8,1,win8_app,native,1,840,
-WebOS,1,web_os,native,1,850,
-Blackberry,1,blackberry,native,1,860,
-Languages,1,languages,app_development,1,870,
-Objective C,1,objective_c,languages,1,880,
-Cedar,1,cedar,objective_c,1,890,Test framework for objective-C
-Ruby,1,ruby,languages,1,900,
-Gem authorship,1,gem_authorship,ruby,1,910,
-Java,1,java,languages,1,920,language family
-EE,1,ee,java,1,930,Enterprise Edition
-Beans,1,beans,java,1,940,reusable components
-C,1,c_language,languages,1,950,language family
-ANSI C,1,ansi_c,c_language,1,960,
-C++,1,c_plus_plus,c_language,1,970,
-C#,1,c_sharp,c_language,1,980,
-VB,1,vb,languages,1,990,language family
-VB6,1,vb6,vb,1,1000,Old-school VB
-VB.NET,1,vb_net,vb,1,1010,Modern VB
-VBA,1,vba,vb,1,1020,Document/spreadsheet scripting
-Open source,1,open_source,app_development,1,1030,Contributor
-Frameworks,1,frameworks,app_development,1,1040,3rd party libraries
-node.js,1,node,frameworks,1,1050,web app framework
-Titanium,1,titanium,frameworks,1,1060,mobile ios/android js framework
-Bootstrap,1,bootstrap,frameworks,1,1070,twitter's css/js component library
-General Development,1,general_development,top,1,1080,
-IDE,1,ide,general_development,1,1090,Integrated development environment
-Text Editor,1,text,ide,1,1100,"rich text, syntax highlighing, etc."
-Sublime,1,sublime,text,1,1110,
-Visual Studio,1,visual_studio,ide,1,1120,
-RubyMine,1,ruby_mine,ide,1,1130,
-NetBeans,1,net_beans,ide,1,1140,
-Xcode,1,xcode,ide,1,1150,
-Eclipse,1,eclipse,ide,1,1160,
-Debugging,1,debug,general_development,1,1170,"watches, breakpoints, memory, stacks, etc."
-Simulators,1,simulators,general_development,1,1180,emulating physical devices
-iOS,1,ios_simulator,simulators,1,1190,
-Android,1,android_simulator,simulators,1,1200,
-Win 8,1,win8_simulator,simulators,1,1210,assume this exists
-Scripting,1,scripting,general_development,1,1220,
-Perl,1,perl,scripting,1,1230,"1970's scripting language, basis of Ruby"
-CGI,1,cgi,scripting,1,1240,Common Gateway Interface
-Python,1,python,scripting,1,1250,modern scripting language
-Bash,1,bash,scripting,1,1260,terminal scripts
-PHP,1,php,scripting,1,1270,PHP Hypertext Preprocessor
-Architecture,1,architecture,general_development,1,1280,"theory, philosophy, design, etc."
-OOAD,1,ooad,architecture,1,1290,Object-Oriented Analysis and Design
-Design patterns,1,design_patterns,ooad,1,1300,gang of four
-Anti-patterns,1,anti_patterns,ooad,1,1310,no-no's
-UML,1,uml,ooad,1,1320,Universal Modeling Language
-Class diagram,1,class,uml,1,1330,
-Interaction diagram,1,interaction,uml,1,1340,"communications, API, etc."
-Use Case diagram,1,use_case,uml,1,1350,
-API Design,1,api_design,architecture,1,1360,
-SaaS/PaaS,1,platform,architecture,1,1370,Software/Platform as a service
-REST,1,rest,architecture,1,1380,HTML message/API
-Hypermedia,1,hypermedia,rest,1,1390,Modern REST
-TDD,1,tdd,general_development,1,1400,Test Driven Development
-Ping Pong,1,ping_pong,tdd,1,1410,
-BDD,1,bdd,tdd,1,1420,Behavior Driven Development
-Aspect-oriented programming,1,aspect_oriented,tdd,1,1430,grouping like functionality together
-Integration testing,1,integration,tdd,1,1440,browser scripting
-Selenium,1,selenium,integration,1,1450,
-Capybara,1,capybara,integration,1,1460,
-Agile,1,agile,general_development,1,1470,12 principles
-Pair Programming,1,pairing,agile,1,1480,
-Scrum Mastering,1,scrum_master,agile,1,1490,
-Sprint Management,1,sprints,agile,1,1500,
-User stories,1,user_stories,agile,1,1510,
-Pivotal Tracker,1,pivotal,user_stories,1,1520,
-CI,1,ci,agile,1,1530,Continuous Integration
-Zero-downtime deploy,1,zero_dt,ci,1,1540,"frequent, low-impact deployment"
-Database,1,db,general_development,1,1550,
-SQL,1,sql,db,1,1560,
-SQLLite,1,sqllite,sql,1,1570,
-MySQL,1,mysql,sql,1,1580,
-Oracle,1,oracle,sql,1,1590,
-DBA,1,dba,db,1,1600,"Database Administrator:  shema, table structure, indexes, optimization, maintenance, etc."
-Reporting frameworks,1,reports_frameworks,general_development,1,1610,"Crystal Reports, Active Admin, etc."
-Embedded,1,embedded,general_development,1,1620,"garmin running, cameras, go-pro, etc."
-Gadget devices,1,gadget,embedded,1,1630,
-Kinect,1,kinect,embedded,1,1640,Microsoft's stereo-vision gestural interface
-Printer firmware,1,printer,embedded,1,1650,"HP, competitors, etc."
-Automation,1,automation,embedded,1,1660,"servo, vision, PLC, EE, etc."
-State Machine,1,state,automation,1,1670,"diagrams, implementations, etc."
-Brainwave headband,1,brainwave,embedded,1,1680,seen at TEDx San Diego
-Networking,1,networking,general_development,1,1690,
-Wi-Fi,1,wifi,networking,1,1700,"home, cafe, airport, etc."
-Corporate Wireless,1,corporate_wifi,wifi,1,1710,"inside/outside corporate Wi-Fi, conference rooms, etc."
-Bluetooth,1,bluetooth,networking,1,1720,audio/network
-NFC,1,nfc,networking,1,1730,"Near-field communication, tap-to-pay, transfer contact, etc."
-Cable,1,cable,networking,1,1740,antique physical wire
-USB,1,usb,cable,1,1750,Universal Serial Bus
-Firewire,1,firewire,cable,1,1760,Apple's old-shool high-speed connector
-Thunderbolt,1,thunderbolt,cable,1,1770,Apple's latest high-speed connector
-HDMI,1,hdmi,cable,1,1780,High-Definition Multimedia Interface
-Serial,1,serial,cable,1,1790,antique DB9 connector
-DevOps,1,dev_ops,top,1,1800,
-Capistrano,1,capistrano,dev_ops,1,1810,
-Chef,1,chef,dev_ops,1,1820,
-AWS,1,aws,dev_ops,1,1830,
-Puppet,1,puppet,dev_ops,1,1840,
-HP Cloud,1,hp_cloud,dev_ops,1,1850,
-Deploy procedures,1,deploy,dev_ops,1,1860,"scripts, protocols, schedule,  communication, etc."
-Rollback,1,rollback,deploy,1,1870,"transaction, restore, etc."
-Windows,1,windows,dev_ops,1,1880,Microsoft
-Server,1,server,windows,1,1890,"2000, 2003, 2007, 2010, etc."
-XP,1,xp,windows,1,1900,
-Vista,1,vista,windows,1,1910,
-7,1,win7,windows,1,1920,
-8,1,win8,windows,1,1930,
-Linux,1,linux,dev_ops,1,1940,
-Apache,1,apache,linux,1,1950,
-mod_rewrite,1,rewrite,apache,1,1960,URL rewriting
-Performance,1,performance,dev_ops,1,1970,
-Assessment,1,performance_assess,dev_ops,1,1980,"baseline, capacity, etc."
-jMeter,1,jmeter,performance_assess,1,1990,scripted stress/performance testing
-Monitoring,1,peformance_monitoring,performance,1,2000,
-NewRelic,1,new_relic,peformance_monitoring,1,2010,
-Optimizing,1,optimizing,performance,1,2020,
-Resilience/robustness,1,resilience,optimizing,1,2030,
-Chaos Monkey,1,chaos_monkey,resilience,1,2040,
-Stress testing,1,stress,resilience,1,2050,
-Cost Reduction,1,cost_reduction,optimizing,1,2060,monthly $
-Network Administration,1,network,dev_ops,1,2070,
-LAN,1,lan,network,1,2080,Local Area Network
-Site LAN,1,site_lan,lan,1,2090,HP site-specific network topology
-Wireless,1,wireless,network,1,2100,"internal, site-specific networks"
-Workstation Setup,1,workstation,network,1,2110,OS installation/configuration
-Account management,1,account,network,1,2120,"groups, privleges, etc."
-Security,1,security,dev_ops,1,2130,
-Assessment,1,assessment,security,1,2140,
-Monitoring,1,security_monitoring,security,1,2150,
-Compliance,1,security_compliance,security,1,2160,
-Design,1,design,top,1,2170,
-Fundamentals,1,deisgn_core,design,1,2180,
-Form,1,form,deisgn_core,1,2190,
-Composition,1,composition,deisgn_core,1,2200,
-Perspective,1,perspective,deisgn_core,1,2210,
-Color,1,color,deisgn_core,1,2220,"theory, specturm, wheels, etc."
-Color Space,1,color_space,color,1,2230,things beyond my grasp
-Grid design,1,grid,deisgn_core,1,2240,
-Fixed,1,fixed,grid,1,2250,
-Fluid,1,fluid,grid,1,2260,
-Responsive,1,responsive,grid,1,2270,
-Adobe,1,adobe,design,1,2280,
-Photoshop,1,photoshop,adobe,1,2290,2D photo editing/processing software
-Illustrator,1,illustrator,adobe,1,2300,"drawing, illustration, creation software"
-In Design,1,in_design,adobe,1,2310,print design/layout software
-Bridge,1,bridge,adobe,1,2320,"asset/file management, CS integration"
-Premiere,1,premiere,adobe,1,2330,video production
-Encore,1,encore,adobe,1,2340,DVD processing
-Fireworks,1,fireworks,adobe,1,2350,"asset creation, prototyping, etc."
-Acrobat,1,acrobat,adobe,1,2360,PDF editing
-Flash,1,flash,adobe,1,2370,video/interactive
-ActionScript,1,action,flash,1,2380,scripting for Adobe products
-2D,1,two_d,design,1,2390,
-motion graphics,1,motion,two_d,1,2400,
-3D,1,three_d,design,1,2410,
-Maya,1,maya,three_d,1,2420,
-Printing,1,printing,three_d,1,2430,physical prototype
-Video,1,video,design,1,2440,"editing, processing, etc."
-Photography,1,photo,design,1,2450,
-Analog,1,analog,photo,1,2460,
-Digital,1,digital,photo,1,2470,
-Image processing,1,processing,photo,1,2480,
-Large format,1,large_format,design,1,2490,
-Interaction Design,1,ix,design,1,2500,
-Touch interfaces,1,touch,ix,1,2510,
-Gestural interfaces,1,gesture,ix,1,2520,
-Game design,1,game_design,design,1,2530,
-User Experience Design,1,ux,design,1,2540,
-Visual Design,1,visual,design,1,2550,
-Industrial Design,1,industrial,design,1,2560,
-Front panel,1,front_panel,industrial,1,2570,
-Axure,1,axure,design,1,2580,
-Rapid prototyping,1,prototyping,design,1,2590,
-User Testing,1,user_testing,design,1,2600,
-A/B Testing,1,ab_testing,user_testing,1,2610,
-Design,1,a_b_design,ab_testing,1,2620,"variant design, dimensional coverage, etc."
-Implementation,1,a_b_implementation,ab_testing,1,2630,"implementing scenarios, collecting/reporting results, configurable flexibility"
-User flow,1,user_flow,design,1,2640,
-Social features,1,social_design,design,1,2650,
-Gameification,1,gameification,social_design,1,2660,
-Usability,1,usability,design,1,2670,
-Survey/Feedback,1,survey,design,1,2680,form design
-Accessibility,1,accessible_design,design,1,2690,
-Specifications,1,specs,design,1,2700,technical
-Illustration,1,illustration,design,1,2710,hand detail
-Icon design,1,icon,design,1,2720,"logo, etc."
-Typography,1,type,design,1,2730,
-Web typography,1,web_type,type,1,2740,
-License,1,license,web_type,1,2750,"legal considerations, licensing, fonts, etc."
-Management,1,management,top,1,2760,
-Business Strategy,1,business,management,1,2770,
-Cost/Benefit Analysis,1,cost_benefit,business,1,2780,
-Market Definition,1,market_definition,business,1,2790,"Description, demographics, sizing, predictions, etc."
-Advertising,1,advertising,business,1,2800,"campaign strategy, demographics, etc."
-Social Strategy,1,social_strategy,business,1,2810,Market approach
-Meeting Facilitation,1,meeting,management,1,2820,
-Brainstorm leading,1,brainstorm_management,meeting,1,2830,
-Best place twork,1,best_place,meeting,1,2840,
-VOW efficacy,1,vow,meeting,1,2850,
-Monthly Checkup,1,monthly,meeting,1,2860,
-Events Planning,1,events,management,1,2870,
-Fun Events,1,fun,events,1,2880,"ice breakers, gift exchanges, offsite play, etc."
-Team Building,1,team,events,1,2890,"constructive, on and off site"
-Holiday Festival,1,holiday,events,1,2900,"booths, kid events"
-Special Projects,1,special,events,1,2910,"games, skits, trade shows, media, etc."
-Volunteer,1,volunteer,events,1,2920,"outreach, Habitat for Humanity, etc."
-Program Management,1,program,management,1,2930,
-Scheduling,1,scheduling,program,1,2940,work estimation
-Waterfall,1,waterfall,program,1,2950,development lifecycle
-Microsoft Projects,1,ms,program,1,2960,
-Product Lead,1,product,management,1,2970,
-Requirements,1,requirements,product,1,2980,gathering/definition
-Marketing liaison,1,marketing,product,1,2990,
-Metrics Requirements,1,metrics,management,1,3000,
-Reports definition,1,reports_requirements,metrics,1,3010,gathering and documenting requirements
-Numerical analysis,1,analysis,metrics,1,3020,"querying, reducing, and presenting data"
-CRM,1,crm,management,1,3030,Customer Relations Management
-Issues tracking,1,issues,crm,1,3040,
-FAQ,1,faq,crm,1,3050,knowledge base
-Defect/request tracking,1,defect,crm,1,3060,
-Email design,1,email,crm,1,3070,"Newsletters, HTML/CSS, etc."
-Mailing list management,1,list_management,crm,1,3080,
-Social media presence,1,social_management,crm,1,3090,
-Social,1,social,management,1,3100,
-Brand management,1,brand,social,1,3110,
-Twitter brand voice,1,twitter,social,1,3120,"Tweet stream, retweets, following, etc."
-FB page voice,1,fb,social,1,3130,"Posts, likes, etc."
-HP,1,hp,top,1,3140,Hewlett-Packard Company
-Printer Mech,1,mech,hp,1,3150,
-Ink jet theory,1,inkjet,hp,1,3160,"Mechanical enigeering, thermodynamics"
-Ink chemistry,1,ink,hp,1,3170,
-Media,1,media,hp,1,3180,
-Writing Systems,1,writing,hp,1,3190,
-HP Internals,1,internals,hp,1,3200,company-specific
-Benefits,1,benefits,internals,1,3210,"health care system knowledge, tips, tricks, etc."
-Travel,1,travel,internals,1,3220,"booking, changes, rules, etc."
-IT,1,it,internals,1,3230,"tips, tricks, contacts and caveats"
-Procurement,1,procurement,internals,1,3240,"smart card, software purchase, etc."
-Other,1,other,top,1,3250,
-Writing/Authorship,1,author,other,1,3260,
-Documentation,1,documentation,author,1,3270,
-Teaching,1,teaching,other,1,3280,
-Mentoring,1,mentor,other,1,3290,
-Interviewing,1,interview,other,1,3300,
-Ideation,1,ideation,other,1,3310,
-Brainstorming,1,brainstorm,ideation,1,3320,
-Root cause analysis,1,root_cause,ideation,1,3330,
-KT analysis,1,kt,ideation,1,3340,decision making
-PPA,1,ppa,ideation,1,3350,potential-problem analysis
-Workspace design,1,workspace,other,1,3360,"interior design, personalization, pairing stations, layout, etc."
-Cool,1,cool,other,1,3370,
-Horseplay specialist,1,horesplay,cool,1,3380,safe and appropriate
-Grump,1,grump,cool,1,3390,"scrooge, curmudgeon, stick in the mud, etc."
-Fashion Consultant,1,fashion,cool,1,3400,"personal/online shopping advice, outfit feedback, costume ideas, etc."
-Matchmaker,1,match,cool,1,3410,"on/offline, date plans, game advice, etc."
-Athlete,1,athlete,cool,1,3420,
-Hero,1,hero,athlete,1,3430,"role model, idol, etc."
-Baker,1,baker,cool,1,3440,"cupcakes, brownies, cakes, etc."
-Brewmaster,1,brew,cool,1,3450,
-Sailor,1,sailor,cool,1,3460,
-Listener,1,listener,cool,1,3470,
-Musician,1,music,cool,1,3480,
+label,label count,code count,code,parent,parent count,sort order,description,,,top,,,,Web Development,1,1,web_development,top,1,100,Web Fundamentals,1,1,fundamentals,web_development,1,110,HTML,1,1,html,fundamentals,1,120,Hypertext Markup LanguageHTML 5,1,1,html5,html,1,130,Modern HTMLCanvas,1,1,canvas,html5,1,140,Drawing element used for 2D/3DSockets,1,1,sockets,html5,1,150,Real-time bilateral connectionsLocal storage,1,1,local_storage,html5,1,160,Client-sidePOSH,1,1,posh,html,1,170,Plain Old Semantic HTMLMicroformats,1,1,microformats,posh,1,180,"addresses, locations, numbers (phone, SSN), etc."HAML,1,1,haml,html,1,190,Markdown languageHTML Browser compatibility,1,1,html_compatibility,html,1,200,HTML issuesHTML Validation,1,1,html_valid,html_compatibility,1,210,W3C standards-based HTML validationCSS,1,1,css,fundamentals,1,220,Cascading Style SheetsCSS3,1,1,css3,css,1,230,Modern CSSSASS,1,1,sass,css,1,240,Syntactically Awesome Style SheetsSCSS,1,1,scss,sass,1,250,updated syntax for SASSBox Model,1,1,box,css,1,260,first principlesPrint stylesheets,1,1,print_stylesheets,css,1,270,hard copy perfectionMedia Queries,1,1,media_query,css,1,280,device responsive CSSOptimization,1,1,css_optimization,css,1,290,"load times, render tree, etc."CSS Browser compatibility,1,1,css_compatibility,css,1,300,CSS issuesCSS Validation,1,1,css_valid,css_compatibility,1,310,W3C standards-based CSS validationCSS Post-processing,1,1,post_css,css,1,320,"style sheet compression, obfuscation, etc."Javascript,1,1,js,fundamentals,1,330,scripting languagejQuery,1,1,jquery,js,1,340,ubiquitous javascript framework/toolkitjQuery UI,1,1,jquery_ui,jquery,1,350,widgets/components built on jQueryCoffeescript,1,1,coffeescript,js,1,360,minimalist syntax/markdown language for javascriptClient-side templates,1,1,client_side_templates,js,1,370,JSON,1,1,json,js,1,380,Javascript Simple Object NotationJasmine,1,1,jasmine,js,1,390,Javascript spec frameworkJavascript Browser compatibility,1,1,js_compatibility,js,1,400,Javascript issuesJavascript Post-processing,1,1,post_js,js,1,410,"script compression, obfuscation, etc."XML,1,1,xml,web_development,1,420,Extensible Markup LanguageXPath,1,1,xpath,xml,1,430,XML query languageXSLT,1,1,xslt,xml,1,440,style transformationsXHTML,1,1,xhtml,xml,1,450,HTML that is well-formed XMLSchema,1,1,schema,xml,1,460,document structure definitionSocial media ,1,1,social_media,web_development,1,470,Social integration,1,1,social_integration,social_media,1,480,"Socializing existing apps, sharing layer"Facebook app,1,1,fb_apps,social_media,1,490,design/architectureFacebook graph,1,1,fb_api,fb_apps,1,500,"API, schema, etc."Twitter API,1,1,twitter_api,social_media,1,510,Mobile web design,1,1,mobile_web,web_development,1,520,"browsers, devices, etc."Responsive design,1,1,responsive_web,mobile_web,1,530,device spectrumTablet design,1,1,tablet_design,mobile_web,1,540,Rails,1,1,rails,web_development,1,550,The second R in RoRAsset pipeline,1,1,asset,rails,1,560,CSS/JS/image processor in rails 3Rack,1,1,rack,rails,1,570,application frameworkMountable Engine,1,1,engine,rack,1,580,embedable app/componentRSpec,1,1,rspec,rails,1,590,test frameworkRR,1,1,rr,rspec,1,600,"matcher library for Rspec, including stubs/mocks"Factory Girl,1,1,factory,rspec,1,610,test data setupSpork,1,1,spork,rspec,1,620,spec environment streamliningActiveAdmin,1,1,aa,rails,1,630,backend administrationAuthentication,1,1,authentication,rails,1,640,Basic,1,1,basic,authentication,1,650,Digest,1,1,digest,authentication,1,660,eCommerce,1,1,ecommerce,web_development,1,670,PayPal,1,1,paypal,ecommerce,1,680,Credit Card,1,1,credit_card,ecommerce,1,690,transaction processingGift Cards,1,1,gift_card,ecommerce,1,700,HP eCommerce,1,1,hp_ecommerce,ecommerce,1,710,"RPS online stores, HP shopping, etc."User Management,1,1,user,web_development,1,720,OAUTH,1,1,oauth,user,1,730,open standard for 3rd-party authenticationDevise,1,1,devise,user,1,740,ruby gemOpenID,1,1,open_id,user,1,750,"Authentication using Google, Yahoo, Facebook, etc."Active Directory,1,1,active_directory,user,1,760,HP employee databaseCMS,1,1,cms,web_development,1,770,Content management systemAccessibility,1,1,accessibility,web_development,1,780,"screen readers, text management, etc."Accessibility Compliance,1,1,compliance,accessibility,1,790,"legal, ADA, etc."App Development,1,1,app_development,top,1,800,Native Device,1,1,native,app_development,1,810,"phone, tablet, reader, etc."iOS,1,1,ios,native,1,820,Android,1,1,android,native,1,830,Windows 8,1,1,win8_app,native,1,840,WebOS,1,1,web_os,native,1,850,Blackberry,1,1,blackberry,native,1,860,Languages,1,1,languages,app_development,1,870,Objective C,1,1,objective_c,languages,1,880,Cedar,1,1,cedar,objective_c,1,890,Test framework for objective-CRuby,1,1,ruby,languages,1,900,Gem authorship,1,1,gem_authorship,ruby,1,910,Java,1,1,java,languages,1,920,language familyEE,1,1,ee,java,1,930,Enterprise EditionBeans,1,1,beans,java,1,940,reusable componentsC,1,1,c_language,languages,1,950,language familyANSI C,1,1,ansi_c,c_language,1,960,C++,1,1,c_plus_plus,c_language,1,970,C#,1,1,c_sharp,c_language,1,980,VB,1,1,vb,languages,1,990,language familyVB6,1,1,vb6,vb,1,1000,Old-school VBVB.NET,1,1,vb_net,vb,1,1010,Modern VBVBA,1,1,vba,vb,1,1020,Document/spreadsheet scriptingOpen source,1,1,open_source,app_development,1,1030,ContributorFrameworks,1,1,frameworks,app_development,1,1040,3rd party librariesnode.js,1,1,node,frameworks,1,1050,web app frameworkTitanium,1,1,titanium,frameworks,1,1060,mobile ios/android js frameworkBootstrap,1,1,bootstrap,frameworks,1,1070,twitter's css/js component libraryGeneral Development,1,1,general_development,top,1,1080,IDE,1,1,ide,general_development,1,1090,Integrated development environmentText Editor,1,1,text,ide,1,1100,"rich text, syntax highlighing, etc."Sublime,1,1,sublime,text,1,1110,Visual Studio,1,1,visual_studio,ide,1,1120,RubyMine,1,1,ruby_mine,ide,1,1130,NetBeans,1,1,net_beans,ide,1,1140,Xcode,1,1,xcode,ide,1,1150,Eclipse,1,1,eclipse,ide,1,1160,Debugging,1,1,debug,general_development,1,1170,"watches, breakpoints, memory, stacks, etc."Simulators,1,1,simulators,general_development,1,1180,emulating physical devicesiOS Simulator,1,1,ios_simulator,simulators,1,1190,Android Simulator,1,1,android_simulator,simulators,1,1200,Windows 8 Simulator,1,1,win8_simulator,simulators,1,1210,assume this existsScripting,1,1,scripting,general_development,1,1220,Perl,1,1,perl,scripting,1,1230,"1970's scripting language, basis of Ruby"CGI,1,1,cgi,scripting,1,1240,Common Gateway InterfacePython,1,1,python,scripting,1,1250,modern scripting languageBash,1,1,bash,scripting,1,1260,terminal scriptsPHP,1,1,php,scripting,1,1270,PHP Hypertext PreprocessorArchitecture,1,1,architecture,general_development,1,1280,"theory, philosophy, design, etc."OOAD,1,1,ooad,architecture,1,1290,Object-Oriented Analysis and DesignDesign patterns,1,1,design_patterns,ooad,1,1300,gang of fourAnti-patterns,1,1,anti_patterns,ooad,1,1310,no-no'sUML,1,1,uml,ooad,1,1320,Universal Modeling LanguageClass diagram,1,1,class,uml,1,1330,Interaction diagram,1,1,interaction,uml,1,1340,"communications, API, etc."Use Case diagram,1,1,use_case,uml,1,1350,API Design,1,1,api_design,architecture,1,1360,SaaS/PaaS,1,1,platform,architecture,1,1370,Software/Platform as a serviceREST,1,1,rest,architecture,1,1380,HTML message/APIHypermedia,1,1,hypermedia,rest,1,1390,Modern RESTTDD,1,1,tdd,general_development,1,1400,Test Driven DevelopmentPing Pong,1,1,ping_pong,tdd,1,1410,BDD,1,1,bdd,tdd,1,1420,Behavior Driven DevelopmentAspect-oriented programming,1,1,aspect_oriented,tdd,1,1430,grouping like functionality togetherIntegration testing,1,1,integration,tdd,1,1440,browser scriptingSelenium,1,1,selenium,integration,1,1450,Capybara,1,1,capybara,integration,1,1460,Agile,1,1,agile,general_development,1,1470,12 principlesPair Programming,1,1,pairing,agile,1,1480,Scrum Mastering,1,1,scrum_master,agile,1,1490,Sprint Management,1,1,sprints,agile,1,1500,User stories,1,1,user_stories,agile,1,1510,Pivotal Tracker,1,1,pivotal,user_stories,1,1520,CI,1,1,ci,agile,1,1530,Continuous IntegrationZero-downtime deploy,1,1,zero_dt,ci,1,1540,"frequent, low-impact deployment"Database,1,1,db,general_development,1,1550,SQL,1,1,sql,db,1,1560,SQLLite,1,1,sqllite,sql,1,1570,MySQL,1,1,mysql,sql,1,1580,Oracle,1,1,oracle,sql,1,1590,DBA,1,1,dba,db,1,1600,"Database Administrator:  shema, table structure, indexes, optimization, maintenance, etc."Reporting frameworks,1,1,reports_frameworks,general_development,1,1610,"Crystal Reports, Active Admin, etc."Embedded,1,1,embedded,general_development,1,1620,"garmin running, cameras, go-pro, etc."Gadget devices,1,1,gadget,embedded,1,1630,Kinect,1,1,kinect,embedded,1,1640,Microsoft's stereo-vision gestural interfacePrinter firmware,1,1,printer,embedded,1,1650,"HP, competitors, etc."Automation,1,1,automation,embedded,1,1660,"servo, vision, PLC, EE, etc."State Machine,1,1,state,automation,1,1670,"diagrams, implementations, etc."Brainwave headband,1,1,brainwave,embedded,1,1680,seen at TEDx San DiegoNetworking,1,1,networking,general_development,1,1690,Wi-Fi,1,1,wifi,networking,1,1700,"home, cafe, airport, etc."Corporate Wireless,1,1,corporate_wifi,wifi,1,1710,"inside/outside corporate Wi-Fi, conference rooms, etc."Bluetooth,1,1,bluetooth,networking,1,1720,audio/networkNFC,1,1,nfc,networking,1,1730,"Near-field communication, tap-to-pay, transfer contact, etc."Cable,1,1,cable,networking,1,1740,antique physical wireUSB,1,1,usb,cable,1,1750,Universal Serial BusFirewire,1,1,firewire,cable,1,1760,Apple's old-shool high-speed connectorThunderbolt,1,1,thunderbolt,cable,1,1770,Apple's latest high-speed connectorHDMI,1,1,hdmi,cable,1,1780,High-Definition Multimedia InterfaceSerial,1,1,serial,cable,1,1790,antique DB9 connectorDevOps,1,1,dev_ops,top,1,1800,Capistrano,1,1,capistrano,dev_ops,1,1810,Chef,1,1,chef,dev_ops,1,1820,AWS,1,1,aws,dev_ops,1,1830,Puppet,1,1,puppet,dev_ops,1,1840,HP Cloud,1,1,hp_cloud,dev_ops,1,1850,Deploy procedures,1,1,deploy,dev_ops,1,1860,"scripts, protocols, schedule,  communication, etc."Rollback,1,1,rollback,deploy,1,1870,"transaction, restore, etc."Windows,1,1,windows,dev_ops,1,1880,MicrosoftServer,1,1,server,windows,1,1890,"2000, 2003, 2007, 2010, etc."XP,1,1,xp,windows,1,1900,Vista,1,1,vista,windows,1,1910,7,1,1,win7,windows,1,1920,8,1,1,win8,windows,1,1930,Linux,1,1,linux,dev_ops,1,1940,Apache,1,1,apache,linux,1,1950,mod_rewrite,1,1,rewrite,apache,1,1960,URL rewritingPerformance,1,1,performance,dev_ops,1,1970,Performance Assessment,1,1,performance_assess,dev_ops,1,1980,"baseline, capacity, etc."jMeter,1,1,jmeter,performance_assess,1,1990,scripted stress/performance testingPerformance Monitoring,1,1,peformance_monitoring,performance,1,2000,NewRelic,1,1,new_relic,peformance_monitoring,1,2010,Optimizing,1,1,optimizing,performance,1,2020,Resilience/robustness,1,1,resilience,optimizing,1,2030,Chaos Monkey,1,1,chaos_monkey,resilience,1,2040,Stress testing,1,1,stress,resilience,1,2050,Cost Reduction,1,1,cost_reduction,optimizing,1,2060,monthly $Network Administration,1,1,network,dev_ops,1,2070,LAN,1,1,lan,network,1,2080,Local Area NetworkSite LAN,1,1,site_lan,lan,1,2090,HP site-specific network topologyWireless,1,1,wireless,network,1,2100,"internal, site-specific networks"Workstation Setup,1,1,workstation,network,1,2110,OS installation/configurationAccount management,1,1,account,network,1,2120,"groups, privleges, etc."Security,1,1,security,dev_ops,1,2130,Security Assessment,1,1,assessment,security,1,2140,Security Monitoring,1,1,security_monitoring,security,1,2150,Security Compliance,1,1,security_compliance,security,1,2160,"legal, credit card processing, privacy, etc."Design,1,1,design,top,1,2170,Design Fundamentals,1,1,design_core,design,1,2180,Balance,1,1,balance,design_core,1,2190,Shape,1,1,shape,design_core,1,2200,Form,1,1,form,design_core,1,2210,Composition,1,1,composition,design_core,1,2220,Perspective,1,1,perspective,design_core,1,2230,Color,1,1,color,design_core,1,2240,"theory, specturm, wheels, etc."Color Space,1,1,color_space,color,1,2250,things beyond my graspTexture,1,1,texture,design_core,1,2260,Hierarchy,1,1,hierarchy,design_core,1,2270,Grid design,1,1,grid,design_core,1,2280,Fixed,1,1,fixed,grid,1,2290,Fluid,1,1,fluid,grid,1,2300,Responsive,1,1,responsive,grid,1,2310,Adobe,1,1,adobe,design,1,2320,Photoshop,1,1,photoshop,adobe,1,2330,2D photo editing/processing softwareIllustrator,1,1,illustrator,adobe,1,2340,"drawing, illustration, creation software"In Design,1,1,in_design,adobe,1,2350,print design/layout softwareBridge,1,1,bridge,adobe,1,2360,"asset/file management, CS integration"Premiere,1,1,premiere,adobe,1,2370,video productionEncore,1,1,encore,adobe,1,2380,DVD processingFireworks,1,1,fireworks,adobe,1,2390,"asset creation, prototyping, etc."Acrobat,1,1,acrobat,adobe,1,2400,PDF editingFlash,1,1,flash,adobe,1,2410,video/interactiveActionScript,1,1,action,flash,1,2420,scripting for Adobe products2D,1,1,two_d,design,1,2430,motion graphics,1,1,motion,two_d,1,2440,3D,1,1,three_d,design,1,2450,Maya,1,1,maya,three_d,1,2460,Printing,1,1,printing,three_d,1,2470,physical prototypeVideo,1,1,video,design,1,2480,"editing, processing, etc."Photography,1,1,photo,design,1,2490,Analog,1,1,analog,photo,1,2500,Digital,1,1,digital,photo,1,2510,Image processing,1,1,processing,photo,1,2520,Large format,1,1,large_format,design,1,2530,Interaction Design,1,1,ix,design,1,2540,Touch interfaces,1,1,touch,ix,1,2550,Gestural interfaces,1,1,gesture,ix,1,2560,Game design,1,1,game_design,design,1,2570,User Experience Design,1,1,ux,design,1,2580,Visual Design,1,1,visual,design,1,2590,Industrial Design,1,1,industrial,design,1,2600,Front panel,1,1,front_panel,industrial,1,2610,Axure,1,1,axure,design,1,2620,Rapid prototyping,1,1,prototyping,design,1,2630,User Testing,1,1,user_testing,design,1,2640,A/B Testing,1,1,ab_testing,user_testing,1,2650,A/B Design,1,1,a_b_design,ab_testing,1,2660,"variant design, dimensional coverage, etc."A/B Implementation,1,1,a_b_implementation,ab_testing,1,2670,"implementing scenarios, collecting/reporting results, configurable flexibility"User flow,1,1,user_flow,design,1,2680,Social features,1,1,social_design,design,1,2690,Gameification,1,1,gameification,social_design,1,2700,Usability,1,1,usability,design,1,2710,Survey/Feedback,1,1,survey,design,1,2720,form designAccessibile Design,1,1,accessible_design,design,1,2730,usability for people with disabilitiesSpecifications,1,1,specs,design,1,2740,technicalIllustration,1,1,illustration,design,1,2750,hand detailIcon design,1,1,icon,design,1,2760,"logo, etc."Typography,1,1,type,design,1,2770,Web typography,1,1,web_type,type,1,2780,License,1,1,license,web_type,1,2790,"legal considerations, licensing, fonts, etc."Management,1,1,management,top,1,2800,Business Strategy,1,1,business,management,1,2810,Cost/Benefit Analysis,1,1,cost_benefit,business,1,2820,Market Definition,1,1,market_definition,business,1,2830,"Description, demographics, sizing, predictions, etc."Advertising,1,1,advertising,business,1,2840,"campaign strategy, demographics, etc."Social Strategy,1,1,social_strategy,business,1,2850,Market approachMeeting Facilitation,1,1,meeting,management,1,2860,Brainstorm leading,1,1,brainstorm_management,meeting,1,2870,Best place twork,1,1,best_place,meeting,1,2880,VOW efficacy,1,1,vow,meeting,1,2890,Monthly Checkup,1,1,monthly,meeting,1,2900,Events Planning,1,1,events,management,1,2910,Fun Events,1,1,fun,events,1,2920,"ice breakers, gift exchanges, offsite play, etc."Team Building,1,1,team,events,1,2930,"constructive, on and off site"Holiday Festival,1,1,holiday,events,1,2940,"booths, kid events"Special Projects,1,1,special,events,1,2950,"games, skits, trade shows, media, etc."Volunteer,1,1,volunteer,events,1,2960,"outreach, Habitat for Humanity, etc."Program Management,1,1,program,management,1,2970,Scheduling,1,1,scheduling,program,1,2980,work estimationWaterfall,1,1,waterfall,program,1,2990,development lifecycleMicrosoft Projects,1,1,ms,program,1,3000,Product Lead,1,1,product,management,1,3010,Requirements,1,1,requirements,product,1,3020,gathering/definitionMarketing liaison,1,1,marketing,product,1,3030,Metrics Requirements,1,1,metrics,management,1,3040,Reports definition,1,1,reports_requirements,metrics,1,3050,gathering and documenting requirementsNumerical analysis,1,1,analysis,metrics,1,3060,"querying, reducing, and presenting data"CRM,1,1,crm,management,1,3070,Customer Relations ManagementIssues tracking,1,1,issues,crm,1,3080,FAQ,1,1,faq,crm,1,3090,knowledge baseDefect/request tracking,1,1,defect,crm,1,3100,Email design,1,1,email,crm,1,3110,"Newsletters, HTML/CSS, etc."Mailing list management,1,1,list_management,crm,1,3120,Social media presence,1,1,social_management,crm,1,3130,Social,1,1,social,management,1,3140,Brand management,1,1,brand,social,1,3150,Twitter brand voice,1,1,twitter,social,1,3160,"Tweet stream, retweets, following, etc."FB page voice,1,1,fb,social,1,3170,"Posts, likes, etc."HP,1,1,hp,top,1,3180,Hewlett-Packard CompanyPrinter Mech,1,1,mech,hp,1,3190,Ink jet theory,1,1,inkjet,hp,1,3200,"Mechanical enigeering, thermodynamics"Ink chemistry,1,1,ink,hp,1,3210,Media,1,1,media,hp,1,3220,Writing Systems,1,1,writing,hp,1,3230,HP Internals,1,1,internals,hp,1,3240,company-specificBenefits,1,1,benefits,internals,1,3250,"health care system knowledge, tips, tricks, etc."Travel,1,1,travel,internals,1,3260,"booking, changes, rules, etc."IT,1,1,it,internals,1,3270,"tips, tricks, contacts and caveats"Procurement,1,1,procurement,internals,1,3280,"smart card, software purchase, etc."Other,1,1,other,top,1,3290,Writing/Authorship,1,1,author,other,1,3300,Documentation,1,1,documentation,author,1,3310,Teaching,1,1,teaching,other,1,3320,Mentoring,1,1,mentor,other,1,3330,Interviewing,1,1,interview,other,1,3340,Ideation,1,1,ideation,other,1,3350,Brainstorming,1,1,brainstorm,ideation,1,3360,Root cause analysis,1,1,root_cause,ideation,1,3370,KT analysis,1,1,kt,ideation,1,3380,Kepner-Tregoe decision makingPPA,1,1,ppa,ideation,1,3390,potential-problem analysisWorkspace design,1,1,workspace,other,1,3400,"interior design, personalization, pairing stations, layout, etc."Cool,1,1,cool,other,1,3410,Horseplay specialist,1,1,horesplay,cool,1,3420,safe and appropriateGrump,1,1,grump,cool,1,3430,"scrooge, curmudgeon, stick in the mud, etc."Fashion Consultant,1,1,fashion,cool,1,3440,"personal/online shopping advice, outfit feedback, costume ideas, etc."Matchmaker,1,1,match,cool,1,3450,"on/offline, date plans, game advice, etc."Athlete,1,1,athlete,cool,1,3460,Hero,1,1,hero,athlete,1,3470,"role model, idol, etc."Baker,1,1,baker,cool,1,3480,"cupcakes, brownies, cakes, etc."Brewmaster,1,1,brew,cool,1,3490,Sailor,1,1,sailor,cool,1,3500,Listener,1,1,listener,cool,1,3510,Musician,1,1,music,cool,1,3520,
