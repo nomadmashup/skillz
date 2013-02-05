@@ -16,6 +16,7 @@ Skillz::Application.routes.draw do
   root :to => 'skills#index'
 
   match 'about' => 'skills#about', as: "about"
+  match 'faq' => 'skills#faq', as: "faq"
   match 'csv' => 'skills#csv', as: "csv"
   match 'save' => 'skills#save', as: "save"
   match 'change' => 'skills#change', as: "change"
