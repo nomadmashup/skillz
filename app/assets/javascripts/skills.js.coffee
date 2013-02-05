@@ -165,7 +165,7 @@ window.searchSkill = (item)->
   if skill.length > 0
     if skill[0]["parents"] == "null"
       window.setSkillCategory skill[0]["code"]
-      $("ul.nav a[data-target=##{skill[0]["code"]}]").effect "highlight", 618
+      window.highlight $("ul.nav a[data-target=##{skill[0]["code"]}]")
     else
       $("tr").addClass("collapsed").hide()
       $("tr.skill_depth_1").show()
@@ -176,7 +176,7 @@ window.searchSkill = (item)->
       row = $("i.icon-plus[data-target=" + skill[0]["code"] + "]").parents("tr td")
       rowTop = row.position().top
       window.scrollTo 0, rowTop - $(window).height() / 2 + row.height() / 2 if rowTop
-      row.effect "highlight", 618
+      window.highlight row
   else
     alert "No '#{item}' for you!"
   item
@@ -185,3 +185,7 @@ window.changePerson = (item)->
   $("#skillz_person_form input").val item
   $("#skillz_person_form button[type=submit]").click()
   item
+
+
+window.highlight = (el)->
+  el.effect "highlight", 1618.03399 #ms

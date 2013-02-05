@@ -1,3 +1,5 @@
+require 'csv'
+
 class SkillsController < ApplicationController
 
   before_filter :authenticate
@@ -81,4 +83,23 @@ class SkillsController < ApplicationController
     render json: result
   end
 
+  def csv
+    csv_file = "tmp/skillz.csv"
+    CSV.open(csv_file, 'w') do |writer|
+      writer << %w{ Person Skill Dimension Value }
+      SkillDetail.select("users.email as person, skills.label as skill, dimensions.label as dimension, value").joins([:user, :skill, :dimension]).all.each do |detail|
+        writer << [
+          detail[:person],
+          detail[:skill],
+          detail[:dimension],
+          detail[:value]
+        ]
+      end
+    end
+    send_file csv_file
+  rescue Exception => ex
+    Rails.logger.debug "skills#csv:  #{ex.inspect}"
+    flash[:error] = "No CSV for you!!!"
+    redirect_to root_path
+  end
 end
