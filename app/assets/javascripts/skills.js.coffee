@@ -22,7 +22,7 @@ $ ->
     nav.find(".btn-user .dropdown-toggle span").removeClass("caret").text "Changing..."
     nav.find(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "Loading skills for " + person
 
-  $(".btn-user .self_user a, .btn-user a.btn.person").click (e)->
+  $(".btn-user .self_user a, .btn-user a.btn.person").not(".no_current").click (e)->
     disableActions()
     nav = $(this).parents(".navbar")
     person = nav.find(".btn-user .person strong").text()
