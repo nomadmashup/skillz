@@ -12,6 +12,7 @@ class SkillsController < ApplicationController
   end
 
   def set_user
+    flash[:info] = nil
     email = cookies.permanent[:current_user] = params[:u] || cookies[:current_user]
     @current_user = User.find_by_email(email)
     @self_user = User.find_by_email(cookies[:self_user])
