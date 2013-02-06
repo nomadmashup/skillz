@@ -76,10 +76,23 @@ pam.lennan@hp.com:
   first_name: "Pam"
   last_name: "Lennan"
   project: "Live Photo"
-
-
-
-
-
-
-
+andre.le@hp.com:
+  first_name: "Andre"
+  last_name: "Le"
+  project: "Design"
+james.nathanael.sidhu@hp.com:
+  first_name: "James"
+  last_name: "Sidhu"
+  project: "Design"
+mark.dorn@hp.com:
+  first_name: "Mark"
+  last_name: "Dorn"
+  project: "Design"
+alexis.gregorich@hp.com:
+  first_name: "Alex"
+  last_name: "Gregorich"
+  project: "Design"
+rob.davis@hp.com:
+  first_name: "Rob"
+  last_name: "Davis"
+  project: "Design"
