@@ -120,3 +120,30 @@ body .overlay {
     z-index: 20000;
   }
 }
+
+.filter_container {
+  background-color: red;
+  .filter_section {
+    background-color: green;
+    outline: 1px dotted black;
+    min-height: 200px;
+    //display: inline-block;
+  }
+}
+
+.content_container {
+  min-height: 400px;
+  background-color: blue;
+}
+
+p.mode {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: white;
+  color: black;
+}

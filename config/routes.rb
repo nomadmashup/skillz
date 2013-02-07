@@ -21,6 +21,9 @@ Skillz::Application.routes.draw do
   match 'save' => 'skills#save', as: "save"
   match 'change' => 'skills#change', as: "change"
 
+
+  match 'responsive' => 'skills#responsive', as: "responsive"
+
   # Sample resource route with options:
   #   resources :products do
   #     member do
