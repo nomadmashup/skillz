@@ -53,7 +53,7 @@ class SkillsController < ApplicationController
       }
     end.group_by{|r| r[:skill].top_parent}
     flash[:info] = "You are viewing the list of skills. Choose a person above to browse their skills." if @current_user.blank?
-    flash[:info] = "You are viewing answers that you or other team members have given. To edit your own skills, use the drop-down above to browse to yourself, then use the drop-down again to indicate \"I'm me\"" if @current_user.present? && @self_user.blank?
+    flash[:info] = "You are viewing answers that you or other team members have given. To edit your own skills, use the drop-down above and browse to yourself, then use the drop-down again to indicate \"I'm me\"" if @current_user.present? && @self_user.blank?
   end
 
   def save
