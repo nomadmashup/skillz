@@ -132,11 +132,9 @@ footer {
       display: none;
     }
     .actions .message {
+      cursor: pointer;
       &.text-right { text-align: right; }
       &.stacked { margin-top: 5px; }
-      i.icon-question-sign {
-        cursor: pointer;
-      }
     }
   }
   p.copyright {

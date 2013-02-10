@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :first_name, :last_name, :project
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def self.seed(overwrite = false)
 
     path = Rails.root.join('db','seeds','users.yml')

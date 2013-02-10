@@ -2,7 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+KEY_ESC = 27
+
 $ ->
+
+  initializeBootstrap()
+  initializeEvents()
+
+  $("tr.skill_depth_1").show();
+
+initializeEvents = ->
 
   $('a[data-toggle="pill"]').on 'show', (e)->
     current = $(e.target).attr("data-target").substr 1, $(e.target).attr("data-target").length - 1
@@ -74,21 +83,38 @@ $ ->
     $(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "Reloading " + person
     disableActions()
 
-  $("tr.skill_depth_1").show();
-
   $("#skillz_comment_form textarea").focus (e)->
     showComment()
 
-  $("#skillz_comment_form textarea").blur (e)->
-#    hideComment() if "" == $("#skillz_comment_form textarea").val()
-
   $("#skillz_comment_form").keyup (e)->
-    if 27 == e.which #ESC key
+    if KEY_ESC == e.which
       $("#skillz_comment_form textarea").blur() if cancelComment()
 
   $("#skillz_comment_form button[type=cancel]").click (e)->
     cancelComment()
     e.preventDefault()
+
+  toggleCommentPopover = (message)->
+    target = message.find "i.icon-question-sign"
+    popover = message.find ".popover"
+    if popover.hasClass "in"
+      target.popover "hide"
+      textarea = $("#skillz_comment_form textarea")
+      window.scrollTo 0, textarea.position().top - 10
+    else
+      target.popover "show"
+      popover = $ ".actions .message .popover.in"
+      window.scrollTo popover.position().left, popover.position().top - 10
+
+  $(".actions .message").click ->
+    toggleCommentPopover $(this)
+
+  $("body").keyup (e)->
+    if KEY_ESC == e.which
+      $(".actions .message i.icon-question-sign").popover "hide"
+      $(".btn-user .dropdown-toggle").popover "hide"
+
+initializeBootstrap = ->
 
   $("#skillz_person").typeahead
     source: ("#{user["first_name"]} #{user["last_name"]}" for user in window.skillzUsers)
@@ -100,22 +126,13 @@ $ ->
     updater: window.searchSkill
     minLength: 1
 
-  $("#comment_tooltip").click (e)->
-    e.preventDefault()
-
-  $("#comment_tooltip").focus (e)->
-      e.preventDefault()
-
-  $(".actions .message").click (e)->
-    $(".actions .message i.icon-question-sign").popover "hide" unless $(e.target).is("i.icon-question-sign")
-
   content = "<p>To tell the <strong>Skillz</strong> app who you are, use the person drop-down at the top of the page and browse to yourself, then use the drop-down <em>again</em> to indicate \"I'm me\"</p>"
-  content += "<p><a href=\"javascript: window.changePersonNow();\">Do it now</a></p>"
+  content += "<p><a href=\"javascript: window.changePersonNow();\">Show Me</a></p>"
   $(".actions .message i.icon-question-sign").popover
     html: true
     placement: "top"
-    trigger: "click"
-    title: "Change Person"
+    trigger: "manual"
+    title: "Skillz Tip"
     content: content
 
   content = "<p>To tell the <strong>Skillz</strong> app who you are, use this drop-down to browse to yourself, then use this same drop-down <em>again</em> to indicate \"I'm me\"</p>"
@@ -125,9 +142,6 @@ $ ->
     trigger: "manual"
     title: "Change Person"
     content: content
-
-  $(".btn-user a").click ->
-    $(".btn-user .dropdown-toggle").popover "hide"
 
 showComment = ->
   $("#skillz_comment_form textarea").attr "rows", 3
@@ -253,18 +267,20 @@ window.changePerson = (item)->
   $("#skillz_person_form button[type=submit]").click()
   item
 
-
 window.highlight = (el)->
   el.effect "highlight", 1618.03399 #ms
 
 window.changePersonNow = ->
-  window.scrollTo 0, 0
-  $(".btn-user .dropdown-toggle").popover("show").delay(314.159).effect
+  window.toggleUserForm() if $(".navbar").hasClass "edit"
+  dropdown = $ ".btn-user .dropdown-toggle"
+  dropdown.popover("show").delay(314.159).effect
     effect: 'pulsate'
     duration: 618.03399
-  $(".btn-user .dropdown-toggle").one "click", ->
-    $(".btn-user li.change").delay(314.159).effect
-      effect: 'shake'
-      distance: 5
-      times: 5
-      duration: 618.03399
+  $(".btn-user .popover").on "click", ->
+    $(".btn-user .dropdown-toggle").popover "hide"
+  dropdown.removeAttr "data-toggle"
+  dropdown.one "click", ->
+    $(this).popover "hide"
+    $(this).attr "data-toggle", "dropdown"
+    $(this).dropdown "toggle"
+  window.scrollTo $(".btn-user .popover").position().left, 0
