@@ -120,3 +120,27 @@ body .overlay {
     z-index: 20000;
   }
 }
+
+footer {
+  #skillz_comment_form {
+    margin-top: 10px;
+    opacity: 0.61803399;
+    div {
+      display: inline-block;
+    }
+    label, .actions {
+      display: none;
+    }
+    .actions .message {
+      &.text-right { text-align: right; }
+      &.stacked { margin-top: 5px; }
+      i.icon-question-sign {
+        cursor: pointer;
+      }
+    }
+  }
+  p.copyright {
+    margin-top: 10px;
+    text-align: center;
+  }
+}

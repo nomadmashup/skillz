@@ -68,6 +68,28 @@ $ ->
     e.preventDefault()
     window.searchSkill $(this).find("input").val()
 
+  $(".got_skillz a").click (e)->
+    person = $(".btn-user .person strong").text()
+    $(".btn-user .dropdown-toggle span").removeClass("caret").text "Reloading..."
+    $(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "Reloading " + person
+    disableActions()
+
+  $("tr.skill_depth_1").show();
+
+  $("#skillz_comment_form textarea").focus (e)->
+    showComment()
+
+  $("#skillz_comment_form textarea").blur (e)->
+#    hideComment() if "" == $("#skillz_comment_form textarea").val()
+
+  $("#skillz_comment_form").keyup (e)->
+    if 27 == e.which #ESC key
+      $("#skillz_comment_form textarea").blur() if cancelComment()
+
+  $("#skillz_comment_form button[type=cancel]").click (e)->
+    cancelComment()
+    e.preventDefault()
+
   $("#skillz_person").typeahead
     source: ("#{user["first_name"]} #{user["last_name"]}" for user in window.skillzUsers)
     updater: window.changePerson
@@ -78,13 +100,53 @@ $ ->
     updater: window.searchSkill
     minLength: 1
 
-  $(".got_skillz a").click (e)->
-    person = $(".btn-user .person strong").text()
-    $(".btn-user .dropdown-toggle span").removeClass("caret").text "Reloading..."
-    $(".btn-user .dropdown-toggle").addClass("disabled").attr "title", "Reloading " + person
-    disableActions()
+  $("#comment_tooltip").click (e)->
+    e.preventDefault()
 
-  $("tr.skill_depth_1").show();
+  $("#comment_tooltip").focus (e)->
+      e.preventDefault()
+
+  $(".actions .message").click (e)->
+    $(".actions .message i.icon-question-sign").popover "hide" unless $(e.target).is("i.icon-question-sign")
+
+  content = "<p>To tell the <strong>Skillz</strong> app who you are, use the person drop-down at the top of the page and browse to yourself, then use the drop-down <em>again</em> to indicate \"I'm me\"</p>"
+  content += "<p><a href=\"javascript: window.changePersonNow();\">Do it now</a></p>"
+  $(".actions .message i.icon-question-sign").popover
+    html: true
+    placement: "top"
+    trigger: "click"
+    title: "Change Person"
+    content: content
+
+  content = "<p>To tell the <strong>Skillz</strong> app who you are, use this drop-down to browse to yourself, then use this same drop-down <em>again</em> to indicate \"I'm me\"</p>"
+  $(".btn-user .dropdown-toggle").popover
+    html: true
+    placement: "bottom"
+    trigger: "manual"
+    title: "Change Person"
+    content: content
+
+  $(".btn-user a").click ->
+    $(".btn-user .dropdown-toggle").popover "hide"
+
+showComment = ->
+  $("#skillz_comment_form textarea").attr "rows", 3
+  $("#skillz_comment_form .actions").show()
+  $("#skillz_comment_form").animate {opacity: "1.0"}, 314.159 #ms
+  $("ul.faq.hidden-phone").removeClass "affix"
+  window.scrollTo 0, $("#skillz_comment_form").position().top
+
+hideComment = ->
+  $("#skillz_comment_form textarea").val("").attr "rows", 1
+  $("#skillz_comment_form .actions").hide()
+  $("#skillz_comment_form").css {opacity: "0.61803399"}
+  $("ul.faq.hidden-phone").addClass "affix"
+
+cancelComment = ->
+  userConfirmed = true
+  userConfirmed = confirm("You will lose whatever you've written so far. Are you sure?") unless "" == $("#skillz_comment_form textarea").val()
+  if userConfirmed then hideComment() else $("#skillz_comment_form textarea").focus()
+  userConfirmed
 
 parameterize = (value)->
   value.toLowerCase().replace(" ", "_").replace("'", "")
@@ -194,3 +256,15 @@ window.changePerson = (item)->
 
 window.highlight = (el)->
   el.effect "highlight", 1618.03399 #ms
+
+window.changePersonNow = ->
+  window.scrollTo 0, 0
+  $(".btn-user .dropdown-toggle").popover("show").delay(314.159).effect
+    effect: 'pulsate'
+    duration: 618.03399
+  $(".btn-user .dropdown-toggle").one "click", ->
+    $(".btn-user li.change").delay(314.159).effect
+      effect: 'shake'
+      distance: 5
+      times: 5
+      duration: 618.03399
