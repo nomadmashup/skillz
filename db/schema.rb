@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130074507) do
+ActiveRecord::Schema.define(:version => 20130211062804) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "text"
+    t.string   "action"
+    t.string   "category"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "dimension_options", :force => true do |t|
     t.integer  "dimension_id"

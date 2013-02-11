@@ -114,6 +114,9 @@ initializeEvents = ->
       $(".actions .message i.icon-question-sign").popover "hide"
       $(".btn-user .dropdown-toggle").popover "hide"
 
+  $("p.copyright span").click ->
+      $("p.copyright").popover "show"
+
 initializeBootstrap = ->
 
   $("#skillz_person").typeahead
@@ -143,6 +146,14 @@ initializeBootstrap = ->
     title: "Change Person"
     content: content
 
+  content = "<p>Nomand Ninjas appreciates you.</p><p>Click <a href=\"javascript: $('p.copyright').popover('hide');\">here</a> if you've got <strong>Skillz</strong></p>"
+  $("p.copyright").popover
+    html: true
+    placement: "top"
+    trigger: "manual"
+    title: "Thank You User"
+    content: content
+
 showComment = ->
   $("#skillz_comment_form textarea").attr "rows", 3
   $("#skillz_comment_form .actions").show()
@@ -151,6 +162,7 @@ showComment = ->
   window.scrollTo 0, $("#skillz_comment_form").position().top
 
 hideComment = ->
+  $(".actions .message i.icon-question-sign").popover "hide"
   $("#skillz_comment_form textarea").val("").attr "rows", 1
   $("#skillz_comment_form .actions").hide()
   $("#skillz_comment_form").css {opacity: "0.61803399"}
@@ -204,6 +216,8 @@ window.setDimension = (skill, dimension, value, className, tooltip)=>
     url: url
 
 window.setSkillCategory = (category, show = true)->
+
+  $("#skillz_comment_form input[name=c]").val category
 
   prev_category = null
   next_category = null

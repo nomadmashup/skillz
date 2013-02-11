@@ -1,7 +1,7 @@
-<form id="skillz_comment_form" action="#" class="">
+<form id="skillz_comment_form" action="<%= save_comment_path %>">
   <div class="row-fluid">
     <label for="skillz_comment">Comment</label>
-    <textarea id="skillz_comment" name="comment" rows="1" class="offset2 span8" placeholder="Add a comment..."></textarea>
+    <textarea id="skillz_comment" name="t" rows="1" class="offset2 span8" placeholder="Add a comment..."></textarea>
     <span class="span2 hidden-phone"></span>
   </div>
   <div class="actions row-fluid">
@@ -13,4 +13,7 @@
     <span class="message span5 small visible-phone stacked"><%= render partial: "skills/comment_message" %></span>
     <span class="span2 hidden-phone"></span>
   </div>
+  <input type="hidden" name="u" value="<%= @self_user.id if @self_user.present? %>" >
+  <input type="hidden" name="a" value="<%= action_name %>" >
+  <input type="hidden" name="c" value="<%= "web_development" if "index" == action_name %>" >
 </form>

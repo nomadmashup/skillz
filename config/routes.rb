@@ -20,6 +20,7 @@ Skillz::Application.routes.draw do
   match 'csv' => 'skills#csv', as: "csv"
   match 'save' => 'skills#save', as: "save"
   match 'change' => 'skills#change', as: "change"
+  match 'save_comment' => 'skills#save_comment', as: "save_comment"
 
   # Sample resource route with options:
   #   resources :products do

@@ -3,7 +3,7 @@ require 'csv'
 class SkillsController < ApplicationController
 
   before_filter :authenticate
-  before_filter :set_user, except: :save
+  before_filter :set_user, except: [:save, :save_comment]
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
@@ -106,6 +106,11 @@ class SkillsController < ApplicationController
     redirect_to root_path
   end
 
+  def save_comment
+    Comment.create! user_id: params[:u], text: params[:t], action: params[:a], category: params[:c]
+    flash[:success] = "You comment was saved."
+    redirect_to action: params[:a]
+  end
 
   def faq
 
