@@ -2,6 +2,8 @@ require 'csv'
 
 class SkillsController < ApplicationController
 
+  include ActionView::Helpers::DateHelper
+
   before_filter :authenticate
   before_filter :set_user, except: [:save, :save_comment]
 
@@ -52,8 +54,8 @@ class SkillsController < ApplicationController
         parent: ( skills.select{|s| s.parent == skill.code}.size > 0)
       }
     end.group_by{|r| r[:skill].top_parent}
-    flash[:info] = "You are viewing the list of skills. Choose a person above to browse their skills." if @current_user.blank?
-    flash[:info] = "You are viewing answers that you or other team members have given. To edit your own skills, use the drop-down above and browse to yourself, then use the drop-down again to indicate \"I'm me\"" if @current_user.present? && @self_user.blank?
+    flash[:info] = "<p>You are viewing the list of skills. Choose a person above to browse their skills.&nbsp;&nbsp;&nbsp;<a href=\"javascript: $('.alert').alert('close'); window.changePersonNow();\">Show Me</a></p>".html_safe if @current_user.blank?
+    flash[:info] = "<p>You are viewing answers that you or other team members have given. To edit your own skills, use the drop-down above and browse to yourself, then use the drop-down again to indicate \"I'm me\".&nbsp;&nbsp;&nbsp;<a href=\"javascript: $('.alert').alert('close'); window.changePersonNow();\">Show Me</a></p>".html_safe if @current_user.present? && @self_user.blank?
   end
 
   def save
@@ -126,42 +128,43 @@ class SkillsController < ApplicationController
       { question: "Who is sponsoring this?", answer: "Con, the leader of our awesome software section" },
       { question: "Who let the dogs out?", answer: "Who? Who? Who?" },
       { question: "Who fills this stuff out?", answer: "Everyone in our awesome software section" },
-      { question: "Who has the same interests as I do?", answer: "Reports are coming soon. You'll be able these super duper reports to slice and dice to your heart's content." },
-      { question: "What software does this site use?", answer: "The site is built on Ruby (1.9.3) on Rails (2.3.11). It uses the Twitter Bootstrap framework as a CSS foundation." },
-      { section: "what", question: "What information can other people see?", answer: "People in the section can see all your answers. Nobody else can." },
+      { question: "Who has the same interests as I do?", answer: "Reports are coming soon. You'll be able to use these super duper reports to slice and dice to your heart's content." },
+      { question: "What software does this site use?", answer: "The site uses on Ruby (1.9.3) on Rails (2.3.11) with Twitter's Bootstrap framework as the the CSS foundation." },
+      { section: "what", question: "What information can other people see?", answer: "People in our awesome software section can see all of your answers. Nobody else can." },
       { question: "What is a skill?", answer: "Anything useful to you, somebody else, a group of people, or an organization." },
-      { question: "What is a dimension?", answer: "A dimension is one particular aspect of a skill, a particular way of assessing a skill, or a type of opinion one may have about a skill. Examples: Skill Level, Status, Satisfaction, etc." },
-      { question: "What reports are available?", answer: "The only output currently supported is a CSV export. More reports coming soon.".html_safe },
-      { question: "What do the colors mean?", answer: "Nothing specific. The colors are chosen for their emotional impact and their eye-popping pizzazz." },
+      { question: "What is a dimension?", answer: "A dimension is one particular way of talking about, thinking about, or measuring a skill. Examples:  Skill Level, Status, Satisfaction, Passion, etc."},
+      { question: "What reports are available?", answer: "The only output currently supported is a CSV export. Download this file and open in Excel to slice and dice all you like. More reports coming soon.".html_safe },
+      { question: "What do the colors mean?", answer: "Nothing specific, but important nonetheless. The colors are chosen for their emotional impact and their eye-popping pizzazz. They bring visual order to the results." },
       { question: "What devices can I use to view and edit my skills?", answer: "Any device you can imagine." },
       { section: "where", question: "Where is the site hosted?", answer: "Heroku"},
       { question: "Where is the data stored?", answer: "Heroku"},
       { question: "Where is the source code repository?", answer: "GitHub"},
-      { question: "Where can I find help?", answer: "Currently, the best help and information is contained in emails sent by the James."},
-      { question: "Where can I find skill matches?", answer: "Until reports come out, the best way to find synergies is to examine the CSV."},
-      { question: "Where are the wild things?", answer: "Not sure yet. Looking into it..."},
+      { question: "Where can I find help?", answer: "Currently, the best help and information is contained in emails sent by the James. Talking to the James is also a good bet."},
+      { question: "Where can I find skill matches?", answer: "Until reports come out, the best way to find synergies is to examine the CSV. Download and open the file in Excel and look for people with skills and desires that interest you."},
+      { question: "Where are the wild things?", answer: "Not sure yet. On an island if I recall. Looking into it..."},
       { question: "Where did you get my email address?", answer: "You work in our section. The HP directory has your info."},
-      { section: "when", question: "When are my answers saved?", answer: "The moment you answer the question." },
+      { section: "when", question: "When are my answers saved?", answer: "The moment you answer the question. Sometimes a little before, depending on how strong The Force is with you." },
       { question: "When do others see my answers?", answer: "The next time they view your skills." },
-      { question: "When can I change my answers?", answer: "Right now." },
-      { question: "When did this project start?", answer: "January 20th, 2013" },
-      { question: "When is this project going live?", answer: "February 13th, 2013"},
-      { question: "When can I start entering information?", answer: "You can enter information now as part of the beta testing. But all information will be cleared for the final release." },
-      { section: "why", question: "Why are you asking me for this information?", answer: "You are a valued team member. We like you."},
+      { question: "When can I change my answers?", answer: "Right <a href=\"#{root_path}\">now</a>.".html_safe },
+      { question: "When did this project start?", answer: "January 20th, 2013 (about #{distance_of_time_in_words_to_now(Time.zone.parse("2013-01-20"))} ago)" },
+      { question: "When is this project going live?", answer: "February 13th, 2013 (about #{distance_of_time_in_words_to_now(Time.zone.parse("2013-02-13"))} ago)"},
+      { question: "When can I start entering information?", answer: "You can enter information right now as part of the beta testing. But all your answers will be cleared before the initial public release." },
+      { section: "why", question: "Why are you asking me for this information?", answer: "You are a valued team member. We like you. You have mad skillz. What you know and, more importantly, what you care about is valuable information to both to you and the world."},
       { question: "Why should I care?", answer: "Because we care about you. You want to be all that you can be."},
       { question: "Why is this helpful to the section?", answer: "Skills equal abilities. Abilities equal value prop."},
       { question: "Why you cannot just use Excel?", answer: "Too cumbersome. Bad Mac experience. Extremely difficult to collect, assemble and organize data from 50-60 people."},
-      { question: "Why there are no user accounts?", answer: "Too cumbersome. More work than this project affords."},
+      { question: "Why are there no user accounts?", answer: "Too cumbersome. More work than this project affords. Lot's of maintenance involved."},
       { question: "Why I cannot import my LinkedIn skills list?", answer: "You will be able to soon. Full integration."},
       { question: "Why is it so easy to use?", answer: "Because a ton of thought and care went into it."},
-      { question: "Why do you seem to know me?", answer: "Because you are me. We are all me."},
+      { question: "Why do you seem to know me?", answer: "Because you are me. We are all me. And we are you."},
       { section: "how", question: "How the heck did you put all this together?", answer: "With much meticulous care."},
-      { question: "How is data pulled back out of the system?", answer: "Currently, only CSV export is supported."},
+      { question: "How is data pulled back out of the system?", answer: "Currently, only CSV export is supported. This format imports directly into Excel."},
       { question: "How do I know you are not selling my information?", answer: "You just have to trust us. We are all in this together."},
       { question: "How do I get involved?", answer: "You already are. Vocalize."},
       { question: "How do I sign in?", answer: "No need."},
       { question: "How does the site respond so beautifully to different device dimensions?", answer: "Design aforethought."},
-      { question: "How did you know my name?", answer: "You work in our section. We looked you up in the HP directory."}
+      { question: "How did you know my name?", answer: "You work in our section. We looked you up in the HP directory."},
+      { question: "How long did the project take from first code to first release?", answer: "about #{distance_of_time_in_words_to_now(Time.zone.parse("2013-01-20"), Time.zone.parse("2013-02-13"))}"}
     ]
 
   end
