@@ -334,3 +334,7 @@ window.personFormNow = ->
   $(".btn-user li.change").popover "hide"
   $("#skillz_person").attr "placeholder", "Enter your own name"
   window.toggleUserForm()
+
+window.commentNow = ->
+  showComment()
+  $("#skillz_comment").focus()
