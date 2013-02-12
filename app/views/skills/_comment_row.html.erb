@@ -1,0 +1,13 @@
+<%
+  name = comment_row[:first_name].present? || comment_row[:last_name].present? ? "#{comment_row[:first_name]} #{comment_row[:last_name]}".strip : "Anonymous"
+  name = "<strong>#{name}</strong>".html_safe if @self_user.present? && name == "#{@self_user.first_name} #{@self_user.last_name}"
+%>
+<tr>
+  <td>
+    <div class="row-fluid">
+      <div class="span3"><%= name %></div>
+      <div class="span6"><%= comment_row[:text] %></div>
+      <div class="span3"><%= comment_row[:created_at].strftime("%Y-%m-%d %l:%M:%S%p (%a)") %></div>
+    </div>
+  </td>
+</tr>

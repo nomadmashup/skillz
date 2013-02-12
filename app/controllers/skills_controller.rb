@@ -106,6 +106,10 @@ class SkillsController < ApplicationController
     redirect_to root_path
   end
 
+  def comments
+    @comments = Comment.joins("LEFT OUTER JOIN users on users.id = comments.user_id").select("users.first_name, users.last_name, comments.text, comments.created_at").order("comments.created_at desc").all
+  end
+
   def save_comment
     Comment.create! user_id: params[:u], text: params[:t], action: params[:a], category: params[:c]
     flash[:success] = "You comment was saved."

@@ -30,7 +30,7 @@ initializeBootstrap = ->
     minLength: 1
 
   content = "<p>To tell the <strong>Skillz</strong> app who you are, use the person drop-down at the top of the page and browse to yourself, then use the drop-down <em>again</em> to indicate \"I'm me\"</p>"
-  content += "<p><a href=\"javascript: window.changePersonNow();\">Show Me</a></p>"
+  content += "<p><a href=\"javascript: window.changePersonNow();\">Show Me</a><a class=\"pull-right\" href=\"javascript: $('.actions .message i.icon-question-sign').popover('hide');\">Got It</a></p>"
   $(".actions .message i.icon-question-sign").popover
     html: true
     placement: "top"
@@ -39,7 +39,7 @@ initializeBootstrap = ->
     content: content
 
   content = "<p>To tell the <strong>Skillz</strong> app who you are, use this drop-down to browse to yourself, then use this same drop-down <em>again</em> to indicate \"I'm me\"</p>"
-  content += "<p><a href=\"javascript: window.dropdownPersonNow();\">Show Me</a></p>"
+  content += "<p><a href=\"javascript: window.dropdownPersonNow();\">Show Me</a><a class=\"pull-right\" href=\"javascript: $('.btn-user .dropdown-toggle').attr('data-toggle', 'dropdown').popover('hide');\">Got It</a></p>"
   $(".btn-user .dropdown-toggle").popover
     html: true
     placement: "bottom"
@@ -56,9 +56,10 @@ initializeBootstrap = ->
     content: content
 
   content = "<p>Browse to yourself. Then after the page reloads, use this same dropdown menu <em>again</em> and choose \"I'm me\".<p>"
+  content += "<p><a href=\"javascript: window.personFormNow();\">Show Me</a><a class=\"pull-right\" href=\"javascript: $('.btn-user .dropdown-toggle').attr('data-toggle', 'dropdown'); $('.btn-user li.change').popover('hide');\">Got It</a></p>"
   $(".btn-user li.change").popover
     html: true
-    placement: "right"
+    placement: "bottom"
     trigger: "manual"
     title: "Skillz Tip"
     content: content
@@ -139,7 +140,7 @@ initializeEvents = ->
     showComment()
 
   $("#skillz_comment_form").keyup (e)->
-    if KEY_ESC == e.which
+    if KEY.ESC == e.which
       $("#skillz_comment_form textarea").blur() if cancelComment()
 
   $("#skillz_comment_form button[type=cancel]").click (e)->
@@ -165,6 +166,8 @@ initializeEvents = ->
     if KEY.ESC == e.which
       $(".actions .message i.icon-question-sign").popover "hide"
       $(".btn-user .dropdown-toggle").popover "hide"
+      $(".btn-user li.change").popover "hide"
+      $("p.copyright").popover
 
   $("p.copyright span").click ->
       $("p.copyright").popover "show"
@@ -305,7 +308,7 @@ window.changePersonNow = ->
   dropdown.popover("show").delay(DELAY.small).effect
     effect: 'pulsate'
     duration: DELAY.medium
-  $(".btn-user .popover").on "click", ->
+  $(".btn-user .popover").one "click", ->
     $(".btn-user .dropdown-toggle").popover "hide"
   dropdown.removeAttr "data-toggle"
   dropdown.one "click", ->
@@ -323,4 +326,11 @@ window.dropdownPersonNow = ->
     times: 5
     duration: DELAY.medium
   popover = $ ".btn-user ul.dropdown-menu .popover"
-  window.scrollTo popover.position().left, popover.position().top
+  popover.one "click", ->
+    $(".btn-user .dropdown-toggle").popover "hide"
+  window.scrollTo popover.position().left, 0
+
+window.personFormNow = ->
+  $(".btn-user li.change").popover "hide"
+  $("#skillz_person").attr "placeholder", "Enter your own name"
+  window.toggleUserForm()

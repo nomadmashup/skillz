@@ -1,0 +1,16 @@
+<table class="table table-striped comments_table">
+  <thead class="hidden-phone">
+  <tr>
+    <th>
+      <div class="row-fluid">
+        <div class="span3">Person</div>
+        <div class="span6">Comment</div>
+        <div class="span3">Date/Time</div>
+      </div>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render partial: "skills/comment_row", collection: @comments  %>
+  </tbody>
+</table>
