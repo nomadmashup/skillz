@@ -60,7 +60,7 @@ class SkillsController < ApplicationController
 
   def save
     result = { status: "unknown" }
-    begin
+     begin
       dimension = Dimension.find_by_label(params[:d])
       attributes = {
         user: User.find_by_email(params[:u]),
@@ -114,7 +114,7 @@ class SkillsController < ApplicationController
 
   def save_comment
     Comment.create! user_id: params[:u], text: params[:t], action: params[:a], category: params[:c]
-    flash[:success] = "You comment was saved."
+    flash[:success] = "<p>You comment was saved.</p><p>View <a href=\"#{comments_path}\">comments</a></p>".html_safe
     redirect_to action: params[:a]
   end
 
@@ -129,7 +129,7 @@ class SkillsController < ApplicationController
       { question: "Who let the dogs out?", answer: "Who? Who? Who?" },
       { question: "Who fills this stuff out?", answer: "Everyone in our awesome software section" },
       { question: "Who has the same interests as I do?", answer: "Reports are coming soon. You'll be able to use these super duper reports to slice and dice to your heart's content." },
-      { question: "What software does this site use?", answer: "The site uses on Ruby (1.9.3) on Rails (2.3.11) with Twitter's Bootstrap framework as the the CSS foundation." },
+      { question: "What software does this site use?", answer: "The site uses on Ruby (1.9.3) on Rails (2.3.11) with Twitter's Bootstrap framework as the CSS/JS foundation." },
       { section: "what", question: "What information can other people see?", answer: "People in our awesome software section can see all of your answers. Nobody else can." },
       { question: "What is a skill?", answer: "Anything useful to you, somebody else, a group of people, or an organization." },
       { question: "What is a dimension?", answer: "A dimension is one particular way of talking about, thinking about, or measuring a skill. Examples:  Skill Level, Status, Satisfaction, Passion, etc."},
@@ -157,7 +157,7 @@ class SkillsController < ApplicationController
       { question: "Why I cannot import my LinkedIn skills list?", answer: "You will be able to soon. Full integration."},
       { question: "Why is it so easy to use?", answer: "Because a ton of thought and care went into it."},
       { question: "Why do you seem to know me?", answer: "Because you are me. We are all me. And we are you."},
-      { section: "how", question: "How the heck did you put all this together?", answer: "With much meticulous care."},
+      { section: "how", question: "How the heck did you put all this together?", answer: "With much meticulous care. No girlfriend. No kids. No house."},
       { question: "How is data pulled back out of the system?", answer: "Currently, only CSV export is supported. This format imports directly into Excel."},
       { question: "How do I know you are not selling my information?", answer: "You just have to trust us. We are all in this together."},
       { question: "How do I get involved?", answer: "You already are. Vocalize."},

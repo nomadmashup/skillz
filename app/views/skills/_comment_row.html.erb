@@ -1,13 +1,22 @@
 <%
   name = comment_row[:first_name].present? || comment_row[:last_name].present? ? "#{comment_row[:first_name]} #{comment_row[:last_name]}".strip : "Anonymous"
-  name = "<strong>#{name}</strong>".html_safe if @self_user.present? && name == "#{@self_user.first_name} #{@self_user.last_name}"
+  text = comment_row[:text]
+  date_time = comment_row[:created_at].strftime("%Y-%m-%d %l:%M:%S%p (%a)")
+  if @self_user.present? && name == "#{@self_user.first_name} #{@self_user.last_name}"
+    name = "<strong>#{name}</strong>".html_safe
+    text = "<strong>#{text}</strong>".html_safe
+    date_time = "<strong>#{date_time}</strong>".html_safe
+  end
 %>
 <tr>
   <td>
     <div class="row-fluid">
-      <div class="span3"><%= name %></div>
-      <div class="span6"><%= comment_row[:text] %></div>
-      <div class="span3"><%= comment_row[:created_at].strftime("%Y-%m-%d %l:%M:%S%p (%a)") %></div>
+      <div class="span3 hidden-phone"><%= name %></div>
+      <div class="span6"><%= text %></div>
+      <div class="span3">
+        <span class="hidden-phone"><%= date_time %></span>
+        <span class="visible-phone muted"><small><%= "#{name} &mdash; #{date_time}".html_safe %></small></span>
+      </div>
     </div>
   </td>
 </tr>
