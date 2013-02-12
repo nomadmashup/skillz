@@ -2,7 +2,13 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-KEY_ESC = 27
+KEY =
+  ESC: 27
+
+DELAY =
+  small: 314.159 #ms
+  medium: 618.03399 #ms
+  large: 1618.03399 #ms
 
 $ ->
 
@@ -10,6 +16,52 @@ $ ->
   initializeEvents()
 
   $("tr.skill_depth_1").show();
+
+initializeBootstrap = ->
+
+  $("#skillz_person").typeahead
+    source: ("#{user["first_name"]} #{user["last_name"]}" for user in window.skillzUsers)
+    updater: window.changePerson
+    minLength: 1
+
+  $("#skills_search_value").typeahead
+    source: (skill["label"] for skill in window.skills)
+    updater: window.searchSkill
+    minLength: 1
+
+  content = "<p>To tell the <strong>Skillz</strong> app who you are, use the person drop-down at the top of the page and browse to yourself, then use the drop-down <em>again</em> to indicate \"I'm me\"</p>"
+  content += "<p><a href=\"javascript: window.changePersonNow();\">Show Me</a></p>"
+  $(".actions .message i.icon-question-sign").popover
+    html: true
+    placement: "top"
+    trigger: "manual"
+    title: "Skillz Tip"
+    content: content
+
+  content = "<p>To tell the <strong>Skillz</strong> app who you are, use this drop-down to browse to yourself, then use this same drop-down <em>again</em> to indicate \"I'm me\"</p>"
+  content += "<p><a href=\"javascript: window.dropdownPersonNow();\">Show Me</a></p>"
+  $(".btn-user .dropdown-toggle").popover
+    html: true
+    placement: "bottom"
+    trigger: "manual"
+    title: "Skillz Tip"
+    content: content
+
+  content = "<p>Appeciate yourself.</p><p>You're awesome.</p><p><strong>Nomand Ninjas</strong> thanks you.</p><p>Click if you got <a href=\"javascript: alert('Oh yeah !!!'); $('p.copyright').popover('hide');\"><strong>Skillz</strong></a></p>"
+  $("p.copyright").popover
+    html: true
+    placement: "top"
+    trigger: "manual"
+    title: "Skillz Tip"
+    content: content
+
+  content = "<p>Browse to yourself. Then after the page reloads, use this same dropdown menu <em>again</em> and choose \"I'm me\".<p>"
+  $(".btn-user li.change").popover
+    html: true
+    placement: "right"
+    trigger: "manual"
+    title: "Skillz Tip"
+    content: content
 
 initializeEvents = ->
 
@@ -110,54 +162,17 @@ initializeEvents = ->
     toggleCommentPopover $(this)
 
   $("body").keyup (e)->
-    if KEY_ESC == e.which
+    if KEY.ESC == e.which
       $(".actions .message i.icon-question-sign").popover "hide"
       $(".btn-user .dropdown-toggle").popover "hide"
 
   $("p.copyright span").click ->
       $("p.copyright").popover "show"
 
-initializeBootstrap = ->
-
-  $("#skillz_person").typeahead
-    source: ("#{user["first_name"]} #{user["last_name"]}" for user in window.skillzUsers)
-    updater: window.changePerson
-    minLength: 1
-
-  $("#skills_search_value").typeahead
-    source: (skill["label"] for skill in window.skills)
-    updater: window.searchSkill
-    minLength: 1
-
-  content = "<p>To tell the <strong>Skillz</strong> app who you are, use the person drop-down at the top of the page and browse to yourself, then use the drop-down <em>again</em> to indicate \"I'm me\"</p>"
-  content += "<p><a href=\"javascript: window.changePersonNow();\">Show Me</a></p>"
-  $(".actions .message i.icon-question-sign").popover
-    html: true
-    placement: "top"
-    trigger: "manual"
-    title: "Skillz Tip"
-    content: content
-
-  content = "<p>To tell the <strong>Skillz</strong> app who you are, use this drop-down to browse to yourself, then use this same drop-down <em>again</em> to indicate \"I'm me\"</p>"
-  $(".btn-user .dropdown-toggle").popover
-    html: true
-    placement: "bottom"
-    trigger: "manual"
-    title: "Change Person"
-    content: content
-
-  content = "<p>Nomand Ninjas appreciates you.</p><p>Click <a href=\"javascript: $('p.copyright').popover('hide');\">here</a> if you've got <strong>Skillz</strong></p>"
-  $("p.copyright").popover
-    html: true
-    placement: "top"
-    trigger: "manual"
-    title: "Thank You User"
-    content: content
-
 showComment = ->
   $("#skillz_comment_form textarea").attr "rows", 3
   $("#skillz_comment_form .actions").show()
-  $("#skillz_comment_form").animate {opacity: "1.0"}, 314.159 #ms
+  $("#skillz_comment_form").animate {opacity: "1.0"}, DELAY.small
   $("ul.faq.hidden-phone").removeClass "affix"
   window.scrollTo 0, $("#skillz_comment_form").position().top
 
@@ -173,6 +188,14 @@ cancelComment = ->
   userConfirmed = confirm("You will lose whatever you've written so far. Are you sure?") unless "" == $("#skillz_comment_form textarea").val()
   if userConfirmed then hideComment() else $("#skillz_comment_form textarea").focus()
   userConfirmed
+
+disableActions = ->
+  window.scrollTo 0, 0
+  $("a[data-target=\".nav-collapse\"]").addClass "hidden-phone"
+  $("body .overlay").fadeIn DELAY.medium
+  $("body").css "overflow", "hidden"
+  $(".btn.person, .btn.dropdown-toggle").css("cursor", "default").click (e)->
+    e.preventDefault()
 
 parameterize = (value)->
   value.toLowerCase().replace(" ", "_").replace("'", "")
@@ -246,14 +269,6 @@ window.setSkillCategory = (category, show = true)->
 
   window.scrollTo 0, 0
 
-disableActions = ->
-  window.scrollTo 0, 0
-  $("a[data-target=\".nav-collapse\"]").addClass "hidden-phone"
-  $("body .overlay").fadeIn 444.4 #ms
-  $("body").css "overflow", "hidden"
-  $(".btn.person, .btn.dropdown-toggle").css("cursor", "default").click (e)->
-    e.preventDefault()
-
 window.searchSkill = (item)->
   $("#skills_search_value").val item
   skill = (skill for skill in window.skills when skill["label"].toLowerCase() == item.toLowerCase())
@@ -282,14 +297,14 @@ window.changePerson = (item)->
   item
 
 window.highlight = (el)->
-  el.effect "highlight", 1618.03399 #ms
+  el.effect "highlight", DELAY.large
 
 window.changePersonNow = ->
   window.toggleUserForm() if $(".navbar").hasClass "edit"
   dropdown = $ ".btn-user .dropdown-toggle"
-  dropdown.popover("show").delay(314.159).effect
+  dropdown.popover("show").delay(DELAY.small).effect
     effect: 'pulsate'
-    duration: 618.03399
+    duration: DELAY.medium
   $(".btn-user .popover").on "click", ->
     $(".btn-user .dropdown-toggle").popover "hide"
   dropdown.removeAttr "data-toggle"
@@ -298,3 +313,14 @@ window.changePersonNow = ->
     $(this).attr "data-toggle", "dropdown"
     $(this).dropdown "toggle"
   window.scrollTo $(".btn-user .popover").position().left, 0
+
+window.dropdownPersonNow = ->
+  dropdown = $ ".btn-user .dropdown-toggle"
+  dropdown.dropdown "toggle"
+  $(".btn-user li.change").popover("show").delay(DELAY.medium).effect
+    effect: "shake"
+    distance: 5
+    times: 5
+    duration: DELAY.medium
+  popover = $ ".btn-user ul.dropdown-menu .popover"
+  window.scrollTo popover.position().left, popover.position().top
