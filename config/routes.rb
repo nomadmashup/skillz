@@ -22,6 +22,7 @@ Skillz::Application.routes.draw do
   match 'change' => 'skills#change', as: "change"
   match 'save_comment' => 'skills#save_comment', as: "save_comment"
   match 'comments' => 'skills#comments', as: "comments"
+  match 'activity' => 'skills#activity', as: "activity"
 
   # Sample resource route with options:
   #   resources :products do

@@ -112,6 +112,10 @@ class SkillsController < ApplicationController
     @comments = Comment.joins("LEFT OUTER JOIN users on users.id = comments.user_id").select("users.first_name, users.last_name, comments.text, comments.created_at").order("comments.created_at desc").all
   end
 
+  def activity
+    @activity = SkillDetail.joins([:user, :skill, :dimension]).select("users.first_name, users.last_name, skills.label as skill, dimensions.label as dimension, skill_details.value").order("skill_details.created_at desc")
+  end
+
   def save_comment
     Comment.create! user_id: params[:u], text: params[:t], action: params[:a], category: params[:c]
     flash[:success] = "<p>You comment was saved.</p><p>View <a href=\"#{comments_path}\">comments</a></p>".html_safe

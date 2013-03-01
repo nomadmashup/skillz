@@ -1,0 +1,17 @@
+<table class="table table-striped activity_table">
+  <thead class="hidden-phone">
+  <tr>
+    <th>
+      <div class="row-fluid">
+        <div class="span3">Person</div>
+        <div class="span3">Skill</div>
+        <div class="span3">Dimension</div>
+        <div class="span3">Value</div>
+      </div>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render partial: "skills/activity_row", collection: @activity  %>
+  </tbody>
+</table>

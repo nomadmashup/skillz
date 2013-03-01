@@ -1,0 +1,22 @@
+<%
+  name = activity_row[:first_name].present? || activity_row[:last_name].present? ? "#{activity_row[:first_name]} #{activity_row[:last_name]}".strip : "Anonymous"
+  skill = activity_row[:skill]
+  dimension = activity_row[:dimension]
+  value = activity_row[:value]
+  if @self_user.present? && name == "#{@self_user.first_name} #{@self_user.last_name}"
+    name = "<strong>#{name}</strong>".html_safe
+    skill = "<strong>#{skill}</strong>".html_safe
+    dimension = "<strong>#{dimension}</strong>".html_safe
+    value = "<strong>#{value}</strong>".html_safe
+  end
+%>
+<tr>
+  <td>
+    <div class="row-fluid">
+      <div class="span3"><%= name %></div>
+      <div class="span3"><%= skill %></div>
+      <div class="span3"><%= dimension %></div>
+      <div class="span3"><%= value %></div>
+     </div>
+  </td>
+</tr>
