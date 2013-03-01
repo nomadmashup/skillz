@@ -1,5 +1,6 @@
 <%
   name = activity_row[:first_name].present? || activity_row[:last_name].present? ? "#{activity_row[:first_name]} #{activity_row[:last_name]}".strip : "Anonymous"
+  email = activity_row[:email]
   skill = activity_row[:skill]
   dimension = activity_row[:dimension]
   value = activity_row[:value]
@@ -13,7 +14,7 @@
 <tr>
   <td>
     <div class="row-fluid">
-      <div class="span3"><%= name %></div>
+      <div class="span3"><%= link_to name, root_path(u: email), title: "View skills for #{name}" %></div>
       <div class="span3"><%= skill %></div>
       <div class="span3"><%= dimension %></div>
       <div class="span3"><%= value %></div>

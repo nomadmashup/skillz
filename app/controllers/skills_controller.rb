@@ -113,7 +113,7 @@ class SkillsController < ApplicationController
   end
 
   def activity
-    @activity = SkillDetail.joins([:user, :skill, :dimension]).select("users.first_name, users.last_name, skills.label as skill, dimensions.label as dimension, skill_details.value").order("skill_details.created_at desc")
+    @activity = SkillDetail.joins([:user, :skill, :dimension]).select("users.first_name, users.last_name, users.email, skills.label as skill, dimensions.label as dimension, skill_details.value").order("skill_details.created_at desc")
   end
 
   def save_comment
