@@ -1,114 +1,180 @@
-# steve craig
-
 james.trask@hp.com:
-  first_name: "James"
-  last_name: "Trask"
-  project: "Smart Pubs"
+  first_name: 'James'
+  last_name: 'Trask'
+  project: 'Smart Pubs'
 sabrina.kwan@hp.com:
-  first_name: "Sabrina"
-  last_name: "Kwan"
-  project: "Smart Pubs"
+  first_name: 'Sabrina'
+  last_name: 'Kwan'
+  project: 'Smart Pubs'
 kelley.davis@hp.com:
-  first_name: "Kelley"
-  last_name: "Davis"
-  project: "Smart Pubs"
+  first_name: 'Kelley'
+  last_name: 'Davis'
+  project: 'Smart Pubs'
 jen.liu@hp.com:
-  first_name: "Jen"
-  last_name: "Liu"
-  project: "Smart Pubs"
+  first_name: 'Jen'
+  last_name: 'Liu'
+  project: 'Smart Pubs'
 peter.dirickson@hp.com:
-  first_name: "Peter"
-  last_name: "Dirickson"
-  project: "Smart Pubs, Mu"
-david.ludwig@hp.com:
-  first_name: "David"
-  last_name: "Ludwig"
-  project: "Smart Pubs, Dagwood, Panini"
+  first_name: 'Peter'
+  last_name: 'Dirickson'
+  project: 'Smart Pubs, Mu'
 con.odonnell@hp.com:
-  first_name: "Con"
+  first_name: 'Con'
   last_name: "O'Donnell"
-  project: "Smart Pubs, Dagwood, Panini, Boomerang, Live Paper"
+  project: 'Smart Pubs, Panini, Live Paper, Mu'
 bill.g.felt@hp.com:
-  first_name: "Bill"
-  last_name: "Felt"
-  project: "Smart Pubs"
+  first_name: 'Bill'
+  last_name: 'Felt'
+  project: 'Smart Pubs'
 arjun.patel@hp.com:
-  first_name: "Arjun"
-  last_name: "Patel"
-  project: "Smart Pubs"
+  first_name: 'Arjun'
+  last_name: 'Patel'
+  project: 'Smart Pubs'
 mike.whitmarsh@hp.com:
-  first_name: "Mike"
-  last_name: "Whitmarsh"
-  project: "Smart Pubs, Rover"
+  first_name: 'Mike'
+  last_name: 'Whitmarsh'
+  project: 'Smart Pubs'
 marlon.lopes@hp.com:
-  first_name: "Marlon"
-  last_name: "Lopes"
-  project: "Mu"
+  first_name: 'Marlon'
+  last_name: 'Lopes'
+  project: 'Mu'
 tales.chaves@hp.com:
-  first_name: "Tales"
-  last_name: "Chaves"
-  project: "Mu"
+  first_name: 'Tales'
+  last_name: 'Chaves'
+  project: 'Mu'
 fabio.nallem@hp.com:
-  first_name: "Fabio"
-  last_name: "Nallem"
-  project: "Mu"
+  first_name: 'Fabio'
+  last_name: 'Nallem'
+  project: 'Mu'
 brenda.booth@hp.com:
-  first_name: "Brenda"
-  last_name: "Booth"
-  project: "Smart Pubs, Boomerang, Live Paper"
+  first_name: 'Brenda'
+  last_name: 'Booth'
+  project: 'Smart Pubs, Live Paper'
 ray.sensenbach@hp.com:
-  first_name: "Ray"
-  last_name: "Sensenbach"
-  project: "Smart Pubs"
+  first_name: 'Ray'
+  last_name: 'Sensenbach'
+  project: 'Smart Pubs'
 bobt@hp.com:
-  first_name: "Bob"
-  last_name: "Taylor"
-  project: "Smart Pubs, Dagwood, Panini, Boomerang, Live Paper"
+  first_name: 'Bob'
+  last_name: 'Taylor'
+  project: 'Smart Pubs, Panini, Live Paper, Mu'
 william.hertling@hp.com:
-  first_name: "Will"
-  last_name: "Hertling"
-  project: "Smart Pubs"
+  first_name: 'Will'
+  last_name: 'Hertling'
+  project: 'Smart Pubs'
 mark.vaughn@hp.com:
-  first_name: "Mark"
-  last_name: "Vaughn"
-  project: "Dagwood"
+  first_name: 'Mark'
+  last_name: 'Vaughn'
+  project: 'Panini'
 pam.lennan@hp.com:
-  first_name: "Pam"
-  last_name: "Lennan"
-  project: "Live Photo"
+  first_name: 'Pam'
+  last_name: 'Lennan'
+  project: 'Live Paper'
 andre.le@hp.com:
-  first_name: "Andre"
-  last_name: "Le"
-  project: "Design"
+  first_name: 'Andre'
+  last_name: 'Le'
+  project: 'Live Paper'
 james.nathanael.sidhu@hp.com:
-  first_name: "James"
-  last_name: "Sidhu"
-  project: "Design"
+  first_name: 'James'
+  last_name: 'Sidhu'
+  project: 'Panini'
 mark.dorn@hp.com:
-  first_name: "Mark"
-  last_name: "Dorn"
-  project: "Design"
+  first_name: 'Mark'
+  last_name: 'Dorn'
+  project: 'Live Paper, Panini'
 alexis.gregorich@hp.com:
-  first_name: "Alex"
-  last_name: "Gregorich"
-  project: "Design"
+  first_name: 'Alex'
+  last_name: 'Gregorich'
+  project: 'Smart Pubs, Live Paper'
 rob.davis@hp.com:
-  first_name: "Rob"
-  last_name: "Davis"
-  project: "Design"
+  first_name: 'Rob'
+  last_name: 'Davis'
+  project: 'Live Paper'
 ricky.t.hsu@hp.com:
-  first_name: "Ricky"
-  last_name: "Hsu"
-  project: "Design"
+  first_name: 'Ricky'
+  last_name: 'Hsu'
+  project: 'Panini'
 julie.keeler@hp.com:
-  first_name: "Julie"
-  last_name: "Keeler"
-  project: "Design"
+  first_name: 'Julie'
+  last_name: 'Keeler'
+  project: 'Panini'
 greg.wilkinson@hp.com:
-  first_name: "Greg"
-  last_name: "Wilkinson"
-  project: "Design"
+  first_name: 'Greg'
+  last_name: 'Wilkinson'
+  project: 'Panini'
 mike.f.peters@hp.com:
-  first_name: "Mike"
-  last_name: "Peters"
-  project: "Design"
+  first_name: 'Mike'
+  last_name: 'Peters'
+  project: 'Panini'
+eric.wiesner@hp.com:
+  first_name: 'Eric'
+  last_name: 'Wiesner'
+  project: 'Smart Pubs, Live Paper, Mu'
+john.ferraro@hp.com:
+  first_name: 'John'
+  last_name: 'Ferraro'
+  project: 'Panini'
+elaine.yuan@hp.com:
+  first_name: 'Elaine'
+  last_name: 'Yuan'
+  project: 'Live Paper'
+david.rossing@hp.com:
+  first_name: 'David'
+  last_name: 'Rossing'
+  project: 'Panini'
+fredrick.dela-cruz@hp.com:
+  first_name: 'Frederick'
+  last_name: 'de la Cruz'
+  project: 'Panini'
+brian.c.sparks@hp.com:
+  first_name: 'Brian'
+  last_name: 'Sparks'
+  project: 'Panini'
+eric.talle@hp.com:
+  first_name: 'Eric'
+  last_name: 'Talle'
+  project: 'Panini'
+li.feng@hp.com:
+  first_name: 'Li'
+  last_name: 'Feng'
+  project: 'Panini'
+soraya.gon.sherwin@hp.com:
+  first_name: 'Soraya'
+  last_name: 'Sherwin'
+  project: 'Panini'
+steven.b.craig@hp.com:
+  first_name: 'Steve'
+  last_name: 'Craig'
+  project: 'Smart Pubs'
+john.mcnew@hp.com:
+  first_name: 'John'
+  last_name: 'McNew'
+  project: 'Panini'
+pnguyen@hp.com:
+  first_name: 'Peter'
+  last_name: 'Nguyen'
+  project: 'Panini'
+lewis.b.oberlander@hp.com:
+  first_name: 'Lou'
+  last_name: 'Oberlander'
+  project: 'Live Paper'
+steven.say@hp.com:
+  first_name: 'Steve'
+  last_name: 'Say'
+  project: 'Live Paper'
+chrissy.murray@hp.com:
+  first_name: 'Chrissy'
+  last_name: 'Murray'
+  project: 'Live Paper'
+ochie.ortega@hp.com:
+  first_name: 'Ochie'
+  last_name: 'Ortega'
+  project: 'Smart Pubs, Panini, Live Paper'
+rakesh.ramineni@hp.com:
+  first_name: 'Rakesh'
+  last_name: 'Ramineni'
+  project: 'Smart Pubs'
+cameron.perry@hp.com:
+  first_name: 'Cameron'
+  last_name: 'Perry'
+  project: 'Live Paper'
