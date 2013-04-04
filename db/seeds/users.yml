@@ -155,7 +155,7 @@ pnguyen@hp.com:
   last_name: 'Nguyen'
   project: 'Panini'
 lewis.b.oberlander@hp.com:
-  first_name: 'Lou'
+  first_name: 'Lew'
   last_name: 'Oberlander'
   project: 'Live Paper'
 steven.say@hp.com:
@@ -177,4 +177,8 @@ rakesh.ramineni@hp.com:
 cameron.perry@hp.com:
   first_name: 'Cameron'
   last_name: 'Perry'
+  project: 'Live Paper'
+brucew@hp.com:
+  first_name: 'Bruce'
+  last_name: 'Williams'
   project: 'Live Paper'
