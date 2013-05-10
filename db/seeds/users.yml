@@ -182,3 +182,11 @@ brucew@hp.com:
   first_name: 'Bruce'
   last_name: 'Williams'
   project: 'Live Paper'
+glenn.sisson@hp.com:
+  first_name: 'Glenn'
+  last_name: 'Sisson'
+  project: 'Smart Pubs'
+andy.seitz@hp.com:
+  first_name: 'Andy'
+  last_name: 'Seitz'
+  project: 'Smart Pubs'
